@@ -1,8 +1,7 @@
 
 ## Hi! <img src="https://raw.githubusercontent.com/iampavangandhi/iampavangandhi/master/gifs/Hi.gif" width="15px">
 
-❓ Hi I'm <b>kubilay<b>; Discord bot, Nodejs, Html, Ejs, UE4, Python, Developer<br>
-❓ I'm 15 years old and I've been coding for 2 years<br>
+❓ Hi I'm kubilay; nodejs,html,ejs,css,js developer, 15 years old <br>
 🌐 Discord: <b>kubi#5443<b> 
 
 <h3>🌟 Social Media</h3>
