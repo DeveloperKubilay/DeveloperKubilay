@@ -1,7 +1,5 @@
 
-## Hi! <img src="https://raw.githubusercontent.com/iampavangandhi/iampavangandhi/master/gifs/Hi.gif" width="15px">
-
-![](https://komarev.com/ghpvc/?username=DeveloperKubilay&color=green)
+## Hi! <img src="https://raw.githubusercontent.com/iampavangandhi/iampavangandhi/master/gifs/Hi.gif" width="15px"> ![](https://komarev.com/ghpvc/?username=DeveloperKubilay&color=green)
 
 ❓ Hi I'm kubilay; nodejs,html,ejs,css,js developer, 15 years old <br>
 🌐 Discord: <b>kubi#5443<b> 
