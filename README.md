@@ -13,7 +13,13 @@
 <a href="https://www.twitch.tv/valancess"><img width="15%" src="https://img.shields.io/badge/Twitch-6441a5.svg?&amp;style=for-the-badge&amp;logo=twitch&amp;logoColor=white"/></a>
 
 <h2>🧑‍💻 Technologies I use </h2>
-<img width="85%" style="pointer-events: none;" src="https://skillicons.dev/icons?i=electron,nodejs,python,js,html,css,discord,vscode,java,cloudflare,replit,linux,express"/>
+<img width="85%" id="helloworld" src="https://skillicons.dev/icons?i=electron,nodejs,python,js,html,css,discord,vscode,java,cloudflare,replit,linux,express"/>
+
+<script>
+ document.getElementById("helloworld").addEventListener("click", function(event) {
+   event.preventDefault();
+ });
+</script>
 
 <h2>🌟 Github Stats </h2>
 <img width="85%" src="https://github-readme-activity-graph.vercel.app/graph?username=DeveloperKubilay&hide_border=true&bg_color=0d1117&color=ff6b81&line=ff4757&&point=59c9e8"/>
