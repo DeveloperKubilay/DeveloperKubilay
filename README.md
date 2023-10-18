@@ -3,7 +3,7 @@
 
 ❓ Hi I'm kubilay 15 years old <br>
 🛠️ nodejs,html,ejs,css,js developer <br>
-🌐 Discord: <b>kubi#5443<b> 
+🌐 Discord: <b>valancess<b> 
 
 <h2>📱 Social Media</h2>
 <img width="45%" src="https://lanyard.cnrad.dev/api/852583803255914507"/><br>
