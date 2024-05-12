@@ -7,7 +7,6 @@
 
 <h2>📱 Social Media</h2>
 <img width="45%" src="https://lanyard.cnrad.dev/api/852583803255914507"/><br>
-<img width="35%" src="https://spotify-github-profile.vercel.app/api/view?uid=31umahc7hfpvm3stq4zgi65waqpq&cover_image=true&theme=novatorem&show_offline=false&background_color=121212&interchange=false&bar_color=08f70c&bar_color_cover=false" alt="https://github.com/kittinan/spotify-github-profile"/>
 <a href="https://discord.gg/4Xpwwz6pgN"><img width="15%" src="https://img.shields.io/badge/Discord%20-7289DA.svg?&amp;style=for-the-badge&amp;logo=discord&amp;logoColor=white"/></a>
 <a href="https://www.youtube.com/channel/UCMEkhqRGBK_tnkQmJfCtr-g"><img width="15%" src="https://img.shields.io/badge/YouTube-ff0000.svg?&amp;style=for-the-badge&amp;logo=youtube&amp;logoColor=white"/></a>
 <a href="https://www.twitch.tv/valancess"><img width="15%" src="https://img.shields.io/badge/Twitch-6441a5.svg?&amp;style=for-the-badge&amp;logo=twitch&amp;logoColor=white"/></a>
