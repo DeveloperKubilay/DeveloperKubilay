@@ -1,18 +1,16 @@
 
 <h1>Hi guys 👋 Welcome to my github profile <img align="right" src="https://komarev.com/ghpvc/?username=DeveloperKubilay&color=green" /></h1>
 
-❓ Hi I'm kubilay 15 years old <br>
+❓ Hi I'm kubilay 17 years old <br>
 🛠️ nodejs,html,ejs,css,js developer <br>
 🌐 Discord: <b>valancess<b> 
 
 <h2>📱 Social Media</h2>
-<img width="45%" src="https://lanyard.cnrad.dev/api/852583803255914507"/><br>
-<a href="https://discord.gg/4Xpwwz6pgN"><img width="15%" src="https://img.shields.io/badge/Discord%20-7289DA.svg?&amp;style=for-the-badge&amp;logo=discord&amp;logoColor=white"/></a>
 <a href="https://www.youtube.com/channel/UCMEkhqRGBK_tnkQmJfCtr-g"><img width="15%" src="https://img.shields.io/badge/YouTube-ff0000.svg?&amp;style=for-the-badge&amp;logo=youtube&amp;logoColor=white"/></a>
 <a href="https://www.twitch.tv/valancess"><img width="15%" src="https://img.shields.io/badge/Twitch-6441a5.svg?&amp;style=for-the-badge&amp;logo=twitch&amp;logoColor=white"/></a>
 
 <h2>🧑‍💻 Technologies I use </h2>
-<img width="85%" src="https://skillicons.dev/icons?i=electron,nodejs,python,js,html,css,discord,vscode,java,cloudflare,replit,linux,express"/>
+<img width="85%" src="https://skillicons.dev/icons?i=electron,nodejs,python,js,html,css,java,express,cpp,rust,cs"/>
 
 <h2>🌟 Github Stats </h2>
 <img width="85%" src="https://github-readme-activity-graph.vercel.app/graph?username=DeveloperKubilay&hide_border=true&bg_color=0d1117&color=ff6b81&line=ff4757&&point=59c9e8"/>
