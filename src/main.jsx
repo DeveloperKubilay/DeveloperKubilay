@@ -10,7 +10,6 @@ import Body from './components/main/Body.jsx'
 import Projects_Overview from './components/main/Overview_projects.jsx'
 import CPanel from './cpanel.jsx'
 
-// HomePage component to group all main page components
 const HomePage = () => (
   <>
     <Nav />

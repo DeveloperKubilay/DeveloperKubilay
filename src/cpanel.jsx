@@ -14,12 +14,10 @@ const CPanel = () => {
     setShowRickRoll(true);
   }
   
-  // Set document title based on current state
   useEffect(() => {
     document.title = showRickRoll ? "Ne yapıyorsun" : "Login";
   }, [showRickRoll]);
   
-  // Prevent escape key and scrolling when video is playing
   useEffect(() => {
     if (showRickRoll) {
       const handleKeyDown = (e) => {
@@ -29,15 +27,13 @@ const CPanel = () => {
       
       document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
-      
-      // Request fullscreen when the video starts
       try {
         const elem = document.documentElement;
         if (elem.requestFullscreen) {
           elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) { /* Safari */
+        } else if (elem.webkitRequestFullscreen) {
           elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) { /* IE11 */
+        } else if (elem.msRequestFullscreen) {
           elem.msRequestFullscreen();
         }
       } catch (err) {
