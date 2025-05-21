@@ -16,3 +16,20 @@
 .colors-main:hover{
     background-color: #00e187;
 }
+
+.hover-tremble {
+    display: inline-block;
+    transition: transform 0.15s ease;
+}
+
+.hover-tremble:hover {
+    animation: tremble 0.3s infinite; /* Slowed down animation */
+}
+
+@keyframes tremble {
+    0% { transform: translate(0, 0) scale(0.95) rotate(0); }
+    25% { transform: translate(-0.5px, 0.5px) scale(0.95) rotate(-0.5deg); }
+    50% { transform: translate(0.5px, -0.5px) scale(0.95) rotate(0.5deg); }
+    75% { transform: translate(-0.5px, -0.5px) scale(0.95) rotate(-0.25deg); }
+    100% { transform: translate(0.5px, 0.5px) scale(0.95) rotate(0.5deg); }
+}
