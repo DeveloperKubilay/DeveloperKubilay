@@ -1,7 +1,7 @@
 function App() {
     return (
         <>
-            <h1 className="text-center mb-2 mt-5 text-5xl">Sen kimsin aq</h1>
+            <h1 className="text-center mb-2 mt-5 text-5xl">Ben kimim,</h1>
             <div className="flex mt-20 w-2/3 m-auto">
                 <img src="#" className="w-1/2" alt="description" />
                 <div className="w-1/2">
