@@ -3,7 +3,7 @@ function App() {
         <nav className="w-full z-50 absolute top-0 text-gray-400 shadow-lg">
             <div className="container mx-auto py-4 px-6 flex justify-end">
                 <div className="flex flex-wrap justify-center gap-1 sm:gap-2">
-                    <a href="#" className="relative px-3 py-2 font-medium hover:text-blue-600 group transition-colors duration-300 ease-in-out">
+                    <a href="https://github.com/DeveloperKubilay?tab=repositories" className="relative px-3 py-2 font-medium hover:text-blue-600 group transition-colors duration-300 ease-in-out">
                         <span>Projelerim</span>
                         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
                     </a>

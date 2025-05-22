@@ -1,9 +1,16 @@
-Projeleri gösterme 0/2
-neler yapmayı severim: satranç oyunlar fln
+Eklenicekler
 sertifikalarım
-contact
+neler yapmayı severim: satranç oyunlar fln sunum
+Contact 
+commit sayım
+
+
+
+Projeleri gösterme 0/2
 dil desteği
 yükleniyor gözükmesi
-github bi kere yaptığım req heryerde kullanma
-commit sayımı ekle body
 projelerimi ekleme
+arka plana müzik eklemek lazım
+
+en son
+nav menusu
