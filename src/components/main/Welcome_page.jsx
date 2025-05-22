@@ -21,7 +21,7 @@ function Welcome_page({ githubData }) {
     useEffect(() => {
         const setup = async () => {
 
-            if (githubData)  setprojects(githubData.public_repos);
+            if (githubData) setprojects(githubData.main?.public_repos);
             
             const currentDate = new Date();
             const currentYear = currentDate.getFullYear();
@@ -58,12 +58,12 @@ function Welcome_page({ githubData }) {
             />
 
             <div className="absolute inset-0 bg-black/40"></div>
-            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-2/4 left-1/3 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl"></div>
             <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
 
             <div className="absolute inset-0 flex flex-col items-center justify-center mt-16 text-white p-4">
                 <h1 className="text-8xl font-bold mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                    Merhaba, Ben <span className="text-blue-500 drop-shadow-[0_2px_5px_rgba(59,130,246,0.6)] hover-tremble">Kubilay</span>
+                    <span className="bg-gradient-to-r from-blue-500 via-cyan-400 via-purple-500 via-pink-500 to-indigo-600 text-transparent bg-clip-text animate-gradient-x">Merhaba,</span> Ben <span className="text-blue-500 drop-shadow-[0_2px_5px_rgba(59,130,246,0.6)] hover-tremble">Kubilay</span>
                 </h1>
                 <h2 className="text-3xl text-gray-200 mb-2">Yazılım geliştiricisi</h2>
                 <p className="text-gray-300 text-xl text-center mb-8">
