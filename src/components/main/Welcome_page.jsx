@@ -79,7 +79,7 @@ function Welcome_page() {
                 </div>
             </div>
 
-            <div className="absolute bottom-28 left-1/2 transform -translate-x-1/2 flex justify-center gap-12 text-white w-full">
+            <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex justify-center gap-12 text-white w-full">
                 <div
                     className={`flex items-center transition-all duration-300 ${hoveredItem && hoveredItem !== 'age' ? 'blur-sm opacity-100' : ''}`}
                     onMouseEnter={() => setHoveredItem('age')}
