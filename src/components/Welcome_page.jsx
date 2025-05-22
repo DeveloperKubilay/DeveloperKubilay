@@ -53,8 +53,6 @@ function Welcome_page({ githubData }) {
     
     const stats = getStats();
 
-    console.log("Rendering Welcome_page with language:", i18n.language);
-    console.log("Current translations:", t('greeting'), t('name'));
 
     return (
         <div className="relative h-[93vh] w-full overflow-hidden">

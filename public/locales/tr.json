@@ -9,5 +9,13 @@
     "age": "yaş",
     "experience": "Yıllık tecrübe",
     "projects": "Çalıştığım proje",
-    "loading": "Yükleniyor..."
+    "loading": "Yükleniyor...",
+    "contactTitle": "İletişim",
+    "contactSubtitle": "İletişime geçin",
+    "copyEmail": "E-posta adresini kopyala",
+    "skills": "Yeteneklerim",
+    "projects": "Projelerim",
+    "contact": "İletişim",
+    "playMusic": "Müzik Çal",
+    "pauseMusic": "Müziği Duraklat"
 }

@@ -1,6 +1,13 @@
 import { StrictMode, useState, useEffect, useRef, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { 
+  BrowserRouter, 
+  Routes, 
+  Route,
+  createRoutesFromElements, 
+  createBrowserRouter, 
+  RouterProvider 
+} from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 import '../main.css'
@@ -27,6 +34,7 @@ const LoadingAnimation = () => {
   );
 };
 
+// Define HomePage component before using it in the router
 const HomePage = () => {
   const [githubData, setGithubData] = useState({ main:{public_repos: 0} });
   const [loading, setLoading] = useState(true);
@@ -43,7 +51,8 @@ const HomePage = () => {
         const currentTime = new Date().getTime();
 
         if (cachedData && cachedTime && (currentTime - parseInt(cachedTime) < 1800000)) {
-          console.log('Using cached GitHub data');
+          // Reduce console output
+          // console.log('Using cached GitHub data');
           setGithubData(JSON.parse(cachedData));
           setLoading(false);
           return;
@@ -98,6 +107,24 @@ const HomePage = () => {
   )
 }
 
+// Now we can use HomePage in our router configuration
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/cpanel" element={<CPanel />} />
+      <Route path="/admin" element={<CPanel />} />
+      <Route path="/manage" element={<CPanel />} />
+    </>
+  ),
+  {
+    future: {
+      v7_startTransition: true,
+      v7_relativeSplatPath: true,
+    },
+  }
+);
+
 const rootElement = document.getElementById('root');
 
 const root = createRoot(rootElement);
@@ -109,18 +136,12 @@ root.render(
 );
 
 i18nInitialized.then(() => {
-  console.log("Translations initialized, rendering app");
+  // Reduce console logs
+  // console.log("Translations initialized, rendering app");
   root.render(
     <StrictMode>
       <Suspense fallback={<LoadingAnimation />}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/cpanel" element={<CPanel />} />
-            <Route path="/admin" element={<CPanel />} />
-            <Route path="/manage" element={<CPanel />} />
-          </Routes>
-        </BrowserRouter>
+        <RouterProvider router={router} />
       </Suspense>
     </StrictMode>
   );
@@ -128,14 +149,7 @@ i18nInitialized.then(() => {
   console.error("Failed to initialize translations:", error);
   root.render(
     <StrictMode>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/cpanel" element={<CPanel />} />
-          <Route path="/admin" element={<CPanel />} />
-          <Route path="/manage" element={<CPanel />} />
-        </Routes>
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </StrictMode>
   );
 });

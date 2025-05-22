@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { changeLanguage } from "../utils/i18n";
 
 function App() {
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
     const audioRef = useRef(new Audio("/musics/Hit_road_jack.mp3"));
@@ -72,13 +72,11 @@ function App() {
         setDropdownOpen(false);
     };
     
-
     const navItems = {
-        projects: i18n.language === 'tr' ? 'Projelerim' : 'My Projects',
-        skills: i18n.language === 'tr' ? 'Yeteneklerim' : 'My Skills',
-        contact: i18n.language === 'tr' ? 'İletişim' : 'Contact'
+        projects: t('projects'),
+        skills: t('skills'),
+        contact: t('contact')
     };
-    
 
     const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
     
@@ -86,11 +84,11 @@ function App() {
         <nav className="w-full z-50 absolute top-0 text-gray-400 shadow-lg">
                <div className="container mx-auto py-4 px-6 flex justify-between">
                 <div className="self-center">
-                    <div className="flex items-center -ml-32">
+                    <div className="flex items-center -ml-14">
                         <button 
                             onClick={togglePlayPause} 
                             className="flex items-center justify-center p-2 bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/50 hover:-translate-y-0.5 border border-blue-400/30 transform-gpu text-sm"
-                            title={isPlaying ? "Pause music" : "Play music"}
+                            title={isPlaying ? t('pauseMusic') : t('playMusic')}
                         >
                             {isPlaying ? (
                                 <svg className="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -101,11 +99,10 @@ function App() {
                                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd"></path>
                                 </svg>
                             )}
-                            <span className="font-medium">{isPlaying ? "Pause Music" : "Play Music"}</span>
+                            <span className="font-medium">{isPlaying ? t('pauseMusic') : t('playMusic')}</span>
                         </button>
                     </div>
                 </div>
-                
                 
                 <div className="flex flex-wrap justify-center gap-1 sm:gap-2 items-center">
                     <a href="https://github.com/DeveloperKubilay?tab=repositories" className="relative px-3 py-2 font-medium hover:text-blue-600 group transition-colors duration-300 ease-in-out">

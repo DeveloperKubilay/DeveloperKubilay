@@ -271,12 +271,6 @@ function Certs() {
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        .certificate-card {
-          transition: all 500ms cubic-bezier(0.33, 1, 0.68, 1); /* Easing function for smoother animation */
-        }
-      `}</style>
     </>
   );
 }
