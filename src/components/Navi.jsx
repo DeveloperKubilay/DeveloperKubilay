@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { changeLanguage } from "../../utils/i18n";
+import { changeLanguage } from "../utils/i18n";
 
 function App() {
     const { i18n } = useTranslation();
@@ -105,7 +105,7 @@ function App() {
                                     <button
                                         key={language.code}
                                         onClick={() => handleLanguageSelect(language.code)}
-                                        className={`flex items-center w-full text-left px-4 py-2 hover:bg-gray-100 ${language.code === i18n.language ? 'bg-blue-100 font-medium' : ''}`}
+                                        className={`flex items-center w-full text-left px-4 py-2 hover:bg-blue-400 ${language.code === i18n.language ? 'bg-blue-200 font-medium' : ''}`}
                                     >
                                         {flags[language.code]}
                                         <span className="font-medium">{language.countryCode}</span>
