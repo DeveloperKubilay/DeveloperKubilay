@@ -1,9 +1,4 @@
-const SectionHeader = ({ subtitle, title }) => (
-  <>
-    <h2 className="text-center mb-2 mt-5 text-2xl text-gray-500 shadow-sm">{subtitle}</h2>
-    <h1 className="text-center mt-5 text-5xl font-black shadow-md">{title}</h1>
-  </>
-);
+import SectionHeader from "../../utils/selectionHeader";
 
 const SkillTag = ({ name, color }) => {
   const colorClasses = {
@@ -176,11 +171,6 @@ function Body({githubData}) {
           <ExperienceSection commitsize={commitsize} />
         </div>
       </div>
-
-      <SectionHeader subtitle="Şimdiye Kadar Ne Okudum" title="Eğitim" />
-
-      <h1 className="text-center mb-5 mt-10 text-5xl shadow-md">My Experience</h1>
-
     </>
   );
 }

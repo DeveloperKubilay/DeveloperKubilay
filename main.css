@@ -2,20 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.colors-secondary {
-    background-color: #0f0f0f;
-}
-
-.colors-bg {
-    background-color: #000000;
-}
-
-.colors-main{
-    background-color: #00ff99;
-}
-.colors-main:hover{
-    background-color: #00e187;
-}
 
 .hover-tremble {
     display: inline-block;
@@ -32,4 +18,41 @@
     50% { transform: translate(0.5px, -0.5px) scale(0.95) rotate(0.5deg); }
     75% { transform: translate(-0.5px, -0.5px) scale(0.95) rotate(-0.25deg); }
     100% { transform: translate(0.5px, 0.5px) scale(0.95) rotate(0.5deg); }
+}
+
+/* Add these styles to the end of your existing CSS file */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #121212;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-overlay p {
+  color: white;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
 }
