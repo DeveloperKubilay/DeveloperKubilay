@@ -11,6 +11,7 @@ import Body from './components/Overview.jsx'
 import Projects_Overview from './components/Projects/Overview.jsx'
 import CPanel from './cpanel.jsx'
 import Hobies from './components/Hobies.jsx'
+import Certs from './components/Certs.jsx'
 
 import { i18nInitialized } from './utils/i18n.js'
 
@@ -86,6 +87,7 @@ const HomePage = () => {
           <Nav />
           <Welcome githubData={githubData} />
           <Body githubData={githubData} />
+          <Certs />
           <Hobies />
           <Projects_Overview />
         </>
