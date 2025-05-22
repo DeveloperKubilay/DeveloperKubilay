@@ -36,7 +36,7 @@ const FeatureCard = ({ emoji, title, children, skills = [] }) => (
   </div>
 );
 
-const ProfileSection = () => {
+const ProfileSection = ({ githubData }) => {
   const socialLinks = [
     { 
       url: "https://github.com/DeveloperKubilay", 
@@ -58,6 +58,9 @@ const ProfileSection = () => {
       </svg>
     }
   ];
+
+  const currentYear = new Date().getFullYear();
+  const displayYears = [currentYear, currentYear - 1, currentYear - 2]; // Last 3 years
 
   return (
     <div className="lg:w-1/3 flex flex-col items-center justify-center">
@@ -84,6 +87,18 @@ const ProfileSection = () => {
               {link.icon}
             </a>
           ))}
+        </div>
+
+        <div className="mt-12 bg-gray-800/70 rounded-lg py-2 px-4 inline-block">
+          <div className="text-sm font-medium text-blue-400 mb-1">GitHub Commits:</div>
+          <div className="flex gap-4 justify-center">
+            {displayYears.map(year => (
+              <div key={year} className="flex items-center gap-1">
+                <span className="text-gray-300">{year}:</span>
+                <span className="text-white font-semibold">{githubData.commits?.[year] || 0}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -167,7 +182,7 @@ function Body({githubData}) {
 
       <div className="relative mt-12 w-4/5 mx-auto">
         <div className="flex flex-col lg:flex-row gap-8 bg-[#0e0d0dc4] backdrop-blur-sm rounded-xl p-8">
-          <ProfileSection />
+          <ProfileSection githubData={githubData} />
           <ExperienceSection commitsize={commitsize} />
         </div>
       </div>
