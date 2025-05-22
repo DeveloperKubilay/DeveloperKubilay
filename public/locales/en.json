@@ -9,5 +9,13 @@
     "age": "years old",
     "experience": "Years of experience",
     "projects": "Projects worked on",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "contactTitle": "Contact",
+    "contactSubtitle": "Get in touch",
+    "copyEmail": "Copy email address",
+    "skills": "My Skills",
+    "projects": "My Projects",
+    "contact": "Contact",
+    "playMusic": "Play Music",
+    "pauseMusic": "Pause Music"
 }

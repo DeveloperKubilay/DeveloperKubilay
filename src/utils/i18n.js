@@ -34,9 +34,15 @@ const loadTranslations = async () => {
     const browserLang = navigator.language.split('-')[0];
     const defaultLang = savedLanguage || (languages.includes(browserLang) ? browserLang : "tr");
     
-    console.log("Initializing i18n with language:", defaultLang);
-    console.log("Available resources:", resources);
-
+    // Only log in development mode
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Initializing i18n with language:", defaultLang);
+    }
+    
+    if (Object.keys(resources).length === 0) {
+      throw new Error("No translation resources were loaded");
+    }
+    
     await i18n.use(initReactI18next).init({
       resources,
       lng: defaultLang,
@@ -44,6 +50,7 @@ const loadTranslations = async () => {
       interpolation: {
         escapeValue: false,
       },
+      debug: false, // Disable debug logs
       react: {
         useSuspense: false,
         bindI18n: 'languageChanged loaded',
@@ -53,9 +60,52 @@ const loadTranslations = async () => {
     
     // Resolve the promise when translations are loaded
     translationsLoaded();
-    console.log("Translations loaded successfully");
+    
+    // Only log in development mode
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Translations loaded successfully");
+    }
   } catch (error) {
     console.error("Error loading translations:", error);
+    
+    // Provide fallback translations if fetching fails
+    const fallbackResources = {
+      en: {
+        translation: {
+          "loading": "Loading...",
+          "hello": "Hello",
+          "greeting": "Hello, I'm",
+          "name": "Kubilay"
+          // Add other essential translations here
+        }
+      },
+      tr: {
+        translation: {
+          "loading": "Yükleniyor...",
+          "hello": "Merhaba",
+          "greeting": "Merhaba, Ben",
+          "name": "Kubilay"
+          // Add other essential translations here
+        }
+      }
+    };
+    
+    try {
+      await i18n.use(initReactI18next).init({
+        resources: fallbackResources,
+        lng: "tr",
+        fallbackLng: "en",
+        interpolation: {
+          escapeValue: false,
+        },
+        react: {
+          useSuspense: false
+        }
+      });
+    } catch (err) {
+      console.error("Critical error initializing i18n with fallbacks:", err);
+    }
+    
     // Still resolve the promise even if there's an error
     translationsLoaded();
   }
@@ -63,7 +113,10 @@ const loadTranslations = async () => {
 
 // Add function to change language
 export const changeLanguage = (lang) => {
-  console.log(`Changing language to: ${lang}`);
+  // Only log in development mode
+  if (process.env.NODE_ENV === 'development') {
+    console.log(`Changing language to: ${lang}`);
+  }
   localStorage.setItem('userLanguage', lang);
   return i18n.changeLanguage(lang);
 };
