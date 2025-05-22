@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-// StatItem component for displaying statistics
+
 const StatItem = ({ value, label, itemName, hoveredItem, onMouseEnter, onMouseLeave }) => (
     <div
         className={`flex items-center transition-all duration-300 ${hoveredItem && hoveredItem !== itemName ? 'blur-sm opacity-100' : ''}`}
@@ -54,7 +54,6 @@ function Welcome_page() {
     }, []);
 
 
-    // Stats data for the bottom section
     const stats = [
         { name: 'age', value: old, label: 'yaş' },
         { name: 'experience', value: experience, label: 'Yıllık tecrübe' },

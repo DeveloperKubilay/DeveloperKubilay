@@ -89,7 +89,6 @@ const ProfileSection = () => {
 };
 
 const ExperienceSection = () => {
-  // Feature card data
   const featuresData = [
     {
       emoji: "🎓",
