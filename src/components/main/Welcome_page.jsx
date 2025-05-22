@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useTranslation } from "react-i18next";
 
 
 const StatItem = ({ value, label, itemName, hoveredItem, onMouseEnter, onMouseLeave }) => (
@@ -17,10 +18,13 @@ function Welcome_page({ githubData }) {
     const [experience, setexperience] = useState(0);
     const [projects, setprojects] = useState(0);
     const [hoveredItem, setHoveredItem] = useState(null);
-
+    const [currentLanguage, setCurrentLanguage] = useState('');
+    const { t, i18n } = useTranslation();
+    
     useEffect(() => {
+        setCurrentLanguage(i18n.language);
+        
         const setup = async () => {
-
             if (githubData) setprojects(githubData.main?.public_repos);
             
             const currentDate = new Date();
@@ -34,20 +38,23 @@ function Welcome_page({ githubData }) {
 
             if (!hasBirthdayPassed) age--;
 
-
             setold(age);
             setexperience(currentYear - 2020);
         };
 
         setup();
-    }, [githubData]);
+    }, [githubData, i18n.language]);
 
+    const getStats = useCallback(() => [
+        { name: 'age', value: old, label: t('age') },
+        { name: 'experience', value: experience, label: t('experience') },
+        { name: 'projects', value: projects, label: t('projects') }
+    ], [old, experience, projects, t]);
+    
+    const stats = getStats();
 
-    const stats = [
-        { name: 'age', value: old, label: 'yaş' },
-        { name: 'experience', value: experience, label: 'Yıllık tecrübe' },
-        { name: 'projects', value: projects, label: 'Çalıştığım proje' }
-    ];
+    console.log("Rendering Welcome_page with language:", i18n.language);
+    console.log("Current translations:", t('greeting'), t('name'));
 
     return (
         <div className="relative h-[93vh] w-full overflow-hidden">
@@ -63,21 +70,26 @@ function Welcome_page({ githubData }) {
 
             <div className="absolute inset-0 flex flex-col items-center justify-center mt-16 text-white p-4">
                 <h1 className="text-8xl font-bold mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                    <span className="bg-gradient-to-r from-blue-500 via-cyan-400 via-purple-500 via-pink-500 to-indigo-600 text-transparent bg-clip-text animate-gradient-x">Merhaba,</span> Ben <span className="text-blue-500 drop-shadow-[0_2px_5px_rgba(59,130,246,0.6)] hover-tremble">Kubilay</span>
+                    <span className="bg-gradient-to-r from-blue-500 via-cyan-400 via-purple-500 via-pink-500 to-indigo-600 text-transparent bg-clip-text animate-gradient-x">
+                        {t('greeting')}
+                    </span>{' '}
+                    <span className="text-blue-500 drop-shadow-[0_2px_5px_rgba(59,130,246,0.6)] hover-tremble">
+                        {t('name')}
+                    </span>
                 </h1>
-                <h2 className="text-3xl text-gray-200 mb-2">Yazılım geliştiricisi</h2>
+                <h2 className="text-3xl text-gray-200 mb-2">{t('role')}</h2>
                 <p className="text-gray-300 text-xl text-center mb-8">
-                    Hadi bir proje daha pişirelimmmm!!! 🔥🔥🔥
+                    {t('hello')} {t('tagline')}
                 </p>
 
                 <div className="flex gap-4 mt-2">
                     <a href="https://github.com/DeveloperKubilay"
                         className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-md transition-all duration-300 transform hover:scale-110">
-                        Github
+                        {t('github')}
                     </a>
                     <a href="https://github.com/DeveloperKubilay?tab=repositories"
                         className="px-6 py-3 bg-blue-700 hover:bg-blue-600 rounded-md transition-all duration-300 transform hover:scale-110">
-                        Projelere Bak
+                        {t('viewProjects')}
                     </a>
                 </div>
             </div>
