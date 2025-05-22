@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import '../main.css' 
 import { useState, useEffect } from 'react'
 
@@ -36,7 +35,7 @@ const CPanel = () => {
         } else if (elem.msRequestFullscreen) {
           elem.msRequestFullscreen();
         }
-      } catch (err) {
+      } catch {
         console.log('Fullscreen request failed');
       }
       

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 const StatItem = ({ value, label, itemName, hoveredItem, onMouseEnter, onMouseLeave }) => (
@@ -12,28 +12,17 @@ const StatItem = ({ value, label, itemName, hoveredItem, onMouseEnter, onMouseLe
     </div>
 );
 
-function Welcome_page() {
+function Welcome_page({ githubData }) {
     const [old, setold] = useState(0);
     const [experience, setexperience] = useState(0);
     const [projects, setprojects] = useState(0);
-    const dataFetchedRef = useRef(false);
     const [hoveredItem, setHoveredItem] = useState(null);
 
     useEffect(() => {
         const setup = async () => {
-            if (dataFetchedRef.current) return;
-            dataFetchedRef.current = true;
 
-            try {
-                const response = await fetch('https://api.github.com/users/DeveloperKubilay');
-                const data = await response.json();
-                console.log('GitHub data:', data);
-                setprojects(data.public_repos)
-            } catch (error) {
-                console.error('Error fetching GitHub data:', error);
-            }
-
-
+            if (githubData)  setprojects(githubData.public_repos);
+            
             const currentDate = new Date();
             const currentYear = currentDate.getFullYear();
             const birthDate = new Date('2007-09-21');
@@ -51,7 +40,7 @@ function Welcome_page() {
         };
 
         setup();
-    }, []);
+    }, [githubData]);
 
 
     const stats = [

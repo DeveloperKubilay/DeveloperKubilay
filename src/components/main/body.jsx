@@ -88,12 +88,16 @@ const ProfileSection = () => {
   );
 };
 
+
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+
 const ExperienceSection = () => {
   const featuresData = [
     {
       emoji: "🎓",
       title: "Deneyim",
-      content: "Yazılım geliştirme ve bulut teknolojileri alanında 5 yılı aşkın deneyime sahip olarak Yazılım ile uğraşıyorum.",
+      content: "Yazılım geliştirme ve bulut teknolojileri alanında "+(currentYear-2020)+" yılı aşkın deneyime sahip olarak Yazılım ile uğraşıyorum.",
       skills: []
     },
     {
@@ -102,7 +106,7 @@ const ExperienceSection = () => {
       content: (
         <>
           <p className="mb-2">Kurumsal düzeyde projeler geliştirdim ve 100% otomasyonlu sistemler geliştirdim. Karşılaştığım karmaşık zorlukları aşmak için yenilikçi çözümler ürettim.</p>
-          <p>5 yıllık nodejs deneyimim var, 4 yıllık linux deneyimim var. çok pratiğim olmasada py,cpp,java,rust ile ilgili temel bilgim var.</p>
+          <p>{currentYear-2020} yıllık nodejs deneyimim var, {currentYear-2021} yıllık linux deneyimim var. çok pratiğim olmasada py,cpp,java,rust ile ilgili temel bilgim var.</p>
         </>
       ),
       skills: [
