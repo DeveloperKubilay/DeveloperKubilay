@@ -1,4 +1,4 @@
-import SectionHeader from "../../utils/selectionHeader";
+import SectionHeader from "../utils/selectionHeader";
 
 const SkillTag = ({ name, color }) => {
   const colorClasses = {

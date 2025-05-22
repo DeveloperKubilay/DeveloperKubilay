@@ -5,12 +5,12 @@ import { useTranslation } from 'react-i18next'
 
 import '../main.css'
 
-import Nav from './components/main/Navi.jsx'
-import Welcome from './components/main/Welcome_page.jsx'
-import Body from './components/main/Overview.jsx'
-import Projects_Overview from './components/main/Projects/Overview.jsx'
+import Nav from './components/Navi.jsx'
+import Welcome from './components/Welcome_page.jsx'
+import Body from './components/Overview.jsx'
+import Projects_Overview from './components/Projects/Overview.jsx'
 import CPanel from './cpanel.jsx'
-
+import Hobies from './components/Hobies.jsx'
 
 import { i18nInitialized } from './utils/i18n.js'
 
@@ -86,6 +86,7 @@ const HomePage = () => {
           <Nav />
           <Welcome githubData={githubData} />
           <Body githubData={githubData} />
+          <Hobies />
           <Projects_Overview />
         </>
       )}
