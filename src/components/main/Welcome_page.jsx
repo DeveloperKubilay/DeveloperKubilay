@@ -1,10 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+// StatItem component for displaying statistics
+const StatItem = ({ value, label, itemName, hoveredItem, onMouseEnter, onMouseLeave }) => (
+    <div
+        className={`flex items-center transition-all duration-300 ${hoveredItem && hoveredItem !== itemName ? 'blur-sm opacity-100' : ''}`}
+        onMouseEnter={() => onMouseEnter(itemName)}
+        onMouseLeave={onMouseLeave}
+    >
+        <div className="text-7xl font-bold mr-2">{value}</div>
+        <div className="text-gray-300 text-3xl">{label}</div>
+    </div>
+);
+
 function Welcome_page() {
     const [old, setold] = useState(0);
     const [experience, setexperience] = useState(0);
     const [projects, setprojects] = useState(0);
     const dataFetchedRef = useRef(false);
+    const [hoveredItem, setHoveredItem] = useState(null);
 
     useEffect(() => {
         const setup = async () => {
@@ -41,10 +54,12 @@ function Welcome_page() {
     }, []);
 
 
-    const [hoveredItem, setHoveredItem] = useState(null);
-
-
-
+    // Stats data for the bottom section
+    const stats = [
+        { name: 'age', value: old, label: 'yaş' },
+        { name: 'experience', value: experience, label: 'Yıllık tecrübe' },
+        { name: 'projects', value: projects, label: 'Çalıştığım proje' }
+    ];
 
     return (
         <div className="relative h-[93vh] w-full overflow-hidden">
@@ -80,32 +95,17 @@ function Welcome_page() {
             </div>
 
             <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex justify-center gap-12 text-white w-full">
-                <div
-                    className={`flex items-center transition-all duration-300 ${hoveredItem && hoveredItem !== 'age' ? 'blur-sm opacity-100' : ''}`}
-                    onMouseEnter={() => setHoveredItem('age')}
-                    onMouseLeave={() => setHoveredItem(null)}
-                >
-                    <div className="text-7xl font-bold mr-2">{old}</div>
-                    <div className="text-gray-300 text-3xl">yaş</div>
-                </div>
-
-                <div
-                    className={`flex items-center transition-all duration-300 ${hoveredItem && hoveredItem !== 'experience' ? 'blur-sm opacity-100' : ''}`}
-                    onMouseEnter={() => setHoveredItem('experience')}
-                    onMouseLeave={() => setHoveredItem(null)}
-                >
-                    <div className="text-7xl font-bold mr-2">{experience}</div>
-                    <div className="text-gray-300 text-3xl">Yıllık tecrübe</div>
-                </div>
-
-                <div
-                    className={`flex items-center transition-all duration-300 ${hoveredItem && hoveredItem !== 'projects' ? 'blur-sm opacity-100' : ''}`}
-                    onMouseEnter={() => setHoveredItem('projects')}
-                    onMouseLeave={() => setHoveredItem(null)}
-                >
-                    <div className="text-7xl font-bold mr-2">{projects}</div>
-                    <div className="text-gray-300 text-3xl">Çalıştığım proje</div>
-                </div>
+                {stats.map((stat) => (
+                    <StatItem
+                        key={stat.name}
+                        value={stat.value}
+                        label={stat.label}
+                        itemName={stat.name}
+                        hoveredItem={hoveredItem}
+                        onMouseEnter={setHoveredItem}
+                        onMouseLeave={() => setHoveredItem(null)}
+                    />
+                ))}
             </div>
         </div>
     )

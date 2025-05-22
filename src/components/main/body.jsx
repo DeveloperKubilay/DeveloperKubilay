@@ -1,142 +1,194 @@
-function App() {
-    return (
-        <>
-            <h1 className="text-center mb-2 mt-5 text-2xl text-gray-500 shadow-sm">Giriş</h1>
-            <h1 className="text-center mt-5 text-5xl font-black shadow-md">Genel Bakış</h1>
-            
-            <div className="flex mt-4 w-2/3 m-auto shadow-lg rounded-lg p-6">
-                <div className="w-1/4 flex justify-center items-center">
-                    <img
-                        src="/images/W1.png"
-                        className="w-72 h-72 rounded-full border-4 border-blue-500 shadow-[0_0_25px_10px_rgba(147,197,253,0.5)] object-cover p-2"
-                        alt="profile"
-                    />
-                </div>
-                <div className="w-3/4 shadow-md rounded p-4 ml-4">
-                    <div className="mb-3">
-                        <h2 className="text-xl font-bold">🎓 Deneyim</h2>
-                        <p>Yazılım geliştirme ve bulut teknolojileri alanında 5 yılı aşkın deneyime sahip olarak Yazılım ile uğraşıyorum.</p>
-                    </div>
-                    <div className="mb-3">
-                        <h2 className="text-xl font-bold">📈 Beceriler</h2>
-                        <p>Kurumsal düzeyde projeler geliştirdim ve 100% otomasyonlu sistemler geliştirdim. Karşılaştığım karmaşık zorlukları aşmak için yenilikçi çözümler ürettim.</p>
-                        <p>5 yıllık nodejs deneyimim var, 4 yıllık linux deneyimim var. çok pratiğim olmasada py,cpp,java,rust ile ilgili temel bilgim var.</p>
-                    </div>
-                    <div className="mb-3">
-                        <h2 className="text-xl font-bold">🛠 Projeler</h2>
-                        <p>Son 1 yılda X kadar commit (güncelleme) attım ve Projelerimde git'i yeterince kullanıyorum.</p>
-                        <p>oyun motoru, database, Yönetim panelleri, Vds yönetim panelleri, yapay zeka entegrasyonları ve dahasını geliştirdim</p>
-                    </div>
-                    <div>
-                        <h2 className="text-xl font-bold">💡 Sürekli Gelişim</h2>
-                        <p>Her zaman meraklıyım ve sürekli öğreniyorum. Projelerimde Microsoft Azure, AWS, Firebase gibi sistemleri kullanıyorum. Ve kendi api keylerimi yapıyorum.</p>
-                    </div>
-                </div>
-            </div>
+const SectionHeader = ({ subtitle, title }) => (
+  <>
+    <h2 className="text-center mb-2 mt-5 text-2xl text-gray-500 shadow-sm">{subtitle}</h2>
+    <h1 className="text-center mt-5 text-5xl font-black shadow-md">{title}</h1>
+  </>
+);
 
-            <div className="w-full md:w-3/4 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-all hover:shadow-xl">
-  {/* Header */}
-  <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-4 text-white">
-    <h1 className="text-2xl font-bold">Profesyonel Profil</h1>
-  </div>
+const SkillTag = ({ name, color }) => {
+  const colorClasses = {
+    blue: "bg-blue-900/60 text-blue-300 border-blue-700/50",
+    gray: "bg-gray-800 text-gray-300 border-gray-700",
+    yellow: "bg-yellow-900/60 text-yellow-300 border-yellow-700/50",
+    orange: "bg-orange-900/60 text-orange-300 border-orange-700/50",
+    red: "bg-red-900/60 text-red-300 border-red-700/50",
+  };
+  
+  return (
+    <span className={`px-3 py-1 ${colorClasses[color]} rounded-full text-xs font-medium border transition-all hover:scale-110 hover:-translate-y-1`}>
+      {name}
+    </span>
+  );
+};
 
-  {/* Content with grid layout */}
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
-    {/* Experience */}
-    <div className="col-span-1 md:col-span-2 bg-blue-50 dark:bg-gray-700 rounded-lg p-5 border-l-4 border-blue-500 transition-all hover:shadow-md">
-      <div className="flex items-center mb-3">
-        <span className="text-blue-500 text-2xl mr-3">🎓</span>
-        <h2 className="text-xl font-bold text-gray-800 dark:text-white">Deneyim</h2>
-      </div>
-      <p className="text-gray-700 dark:text-gray-200">
-        Yazılım geliştirme ve bulut teknolojileri alanında 5 yılı aşkın deneyime sahip olarak Yazılım ile uğraşıyorum.
-      </p>
+const FeatureCard = ({ emoji, title, children, skills = [] }) => (
+  <div className="bg-gradient-to-r from-gray-800 to-gray-900 p-6 rounded-xl border border-blue-900/30 transform transition-all hover:shadow-[0_4px_20px_rgba(59,130,246,0.2)] hover:border-blue-700/40 hover:scale-105 hover:-translate-y-1">
+    <div className="flex items-center mb-3">
+      <span className="text-2xl mr-2">{emoji}</span>
+      <h2 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">{title}</h2>
     </div>
-
-    {/* Skills */}
-    <div className="bg-purple-50 dark:bg-gray-700 rounded-lg p-5 border-l-4 border-purple-500 transition-all hover:shadow-md">
-      <div className="flex items-center mb-3">
-        <span className="text-purple-500 text-2xl mr-3">📈</span>
-        <h2 className="text-xl font-bold text-gray-800 dark:text-white">Beceriler</h2>
+    <div className="text-gray-300 ml-9">
+      {children}
+    </div>
+    
+    {skills.length > 0 && (
+      <div className="mt-4 ml-9 flex flex-wrap gap-2">
+        {skills.map((skill, index) => (
+          <SkillTag key={index} name={skill.name} color={skill.color} />
+        ))}
       </div>
-      <p className="text-gray-700 dark:text-gray-200 mb-3">
-        Kurumsal düzeyde projeler geliştirdim ve 100% otomasyonlu sistemler geliştirdim. Karşılaştığım karmaşık zorlukları aşmak için yenilikçi çözümler ürettim.
-      </p>
-      <div className="mt-4">
-        <div className="flex flex-wrap gap-2">
-          <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded text-sm">Node.js (5 yıl)</span>
-          <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded text-sm">Linux (4 yıl)</span>
-          <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded text-sm">Python</span>
-          <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded text-sm">C++</span>
-          <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded text-sm">Java</span>
-          <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded text-sm">Rust</span>
+    )}
+  </div>
+);
+
+const ProfileSection = () => {
+  const socialLinks = [
+    { 
+      url: "#", 
+      color: "bg-gray-700 hover:bg-blue-700", 
+      icon: <svg className="w-5 h-5 text-gray-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
+    },
+    { 
+      url: "#", 
+      color: "bg-gray-700 hover:bg-red-700", 
+      icon: <svg className="w-5 h-5 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 4-8 4z" />
+      </svg>
+    }
+  ];
+
+  return (
+    <div className="lg:w-1/3 flex flex-col items-center justify-center">
+      <div className="relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-full blur-sm opacity-30 scale-110"></div>
+        <img
+          src="/images/W1.png"
+          className="w-64 h-64 rounded-full object-cover border-4 border-gray-700 shadow-[0_0_15px_rgba(59,130,246,0.3)] transform transition-transform hover:scale-105 duration-300"
+          alt="profile"
+        />
+      </div>
+
+      <div className="mt-6 text-center">
+        <h1 className="text-2xl font-bold text-white">Kubilay</h1>
+        <p className="text-blue-400 font-medium">Software Developer</p>
+
+        <div className="flex justify-center gap-3 mt-4">
+          {socialLinks.map((link, index) => (
+            <a 
+              key={index}
+              href={link.url} 
+              className={`p-2 ${link.color} rounded-full transition-all hover:scale-110 hover:-translate-y-1`}
+            >
+              {link.icon}
+            </a>
+          ))}
         </div>
       </div>
     </div>
+  );
+};
 
-    {/* Projects */}
-    <div className="bg-green-50 dark:bg-gray-700 rounded-lg p-5 border-l-4 border-green-500 transition-all hover:shadow-md">
-      <div className="flex items-center mb-3">
-        <span className="text-green-500 text-2xl mr-3">🛠</span>
-        <h2 className="text-xl font-bold text-gray-800 dark:text-white">Projeler</h2>
-      </div>
-      <p className="text-gray-700 dark:text-gray-200 mb-2">
-        Son 1 yılda X kadar commit (güncelleme) attım ve Projelerimde git'i yeterince kullanıyorum.
-      </p>
-      <p className="text-gray-700 dark:text-gray-200">
-        <span className="font-medium">Geliştirdiğim projeler:</span>
-      </p>
-      <ul className="list-disc list-inside mt-2 text-gray-700 dark:text-gray-200">
-        <li>Oyun motoru</li>
-        <li>Database</li>
-        <li>Yönetim panelleri</li>
-        <li>VDS yönetim panelleri</li>
-        <li>Yapay zeka entegrasyonları</li>
-      </ul>
+const ExperienceSection = () => {
+  // Feature card data
+  const featuresData = [
+    {
+      emoji: "🎓",
+      title: "Deneyim",
+      content: "Yazılım geliştirme ve bulut teknolojileri alanında 5 yılı aşkın deneyime sahip olarak Yazılım ile uğraşıyorum.",
+      skills: []
+    },
+    {
+      emoji: "📈",
+      title: "Beceriler",
+      content: (
+        <>
+          <p className="mb-2">Kurumsal düzeyde projeler geliştirdim ve 100% otomasyonlu sistemler geliştirdim. Karşılaştığım karmaşık zorlukları aşmak için yenilikçi çözümler ürettim.</p>
+          <p>5 yıllık nodejs deneyimim var, 4 yıllık linux deneyimim var. çok pratiğim olmasada py,cpp,java,rust ile ilgili temel bilgim var.</p>
+        </>
+      ),
+      skills: [
+        { name: "Node.js", color: "blue" },
+        { name: "Linux", color: "gray" },
+        { name: "Python", color: "yellow" },
+        { name: "C++", color: "blue" },
+        { name: "Java", color: "orange" },
+        { name: "Rust", color: "red" }
+      ]
+    },
+    {
+      emoji: "🛠",
+      title: "Projeler",
+      content: (
+        <>
+          <p className="mb-2">Son 1 yılda X kadar commit (güncelleme) attım ve Projelerimde git'i yeterince kullanıyorum.</p>
+          <p>Oyun motoru, database, Yönetim panelleri, VDS yönetim panelleri, yapay zeka entegrasyonları ve dahasını geliştirdim.</p>
+        </>
+      ),
+      skills: []
+    },
+    {
+      emoji: "💡",
+      title: "Sürekli Gelişim",
+      content: "Her zaman meraklıyım ve sürekli öğreniyorum. Projelerimde Microsoft Azure, AWS, Firebase gibi sistemleri kullanıyorum. Ve kendi api keylerimi yapıyorum.",
+      skills: [
+        { name: "Azure", color: "blue" },
+        { name: "AWS", color: "orange" },
+        { name: "Firebase", color: "yellow" }
+      ]
+    }
+  ];
+
+  return (
+    <div className="lg:w-2/3 flex flex-col space-y-6">
+      {featuresData.map((feature, index) => (
+        <FeatureCard
+          key={index}
+          emoji={feature.emoji}
+          title={feature.title}
+          skills={feature.skills}
+        >
+          {feature.content}
+        </FeatureCard>
+      ))}
     </div>
+  );
+};
 
-    {/* Continuous Development */}
-    <div className="bg-amber-50 dark:bg-gray-700 rounded-lg p-5 border-l-4 border-amber-500 transition-all hover:shadow-md">
-      <div className="flex items-center mb-3">
-        <span className="text-amber-500 text-2xl mr-3">💡</span>
-        <h2 className="text-xl font-bold text-gray-800 dark:text-white">Sürekli Gelişim</h2>
-      </div>
-      <p className="text-gray-700 dark:text-gray-200 mb-3">
-        Her zaman meraklıyım ve sürekli öğreniyorum. Projelerimde Microsoft Azure, AWS, Firebase gibi sistemleri kullanıyorum. Ve kendi API keylerimi yapıyorum.
-      </p>
-      <div className="flex flex-wrap gap-2 mt-4">
-        <span className="px-2 py-1 bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-100 rounded text-sm flex items-center">
-          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
-          Azure
-        </span>
-        <span className="px-2 py-1 bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-100 rounded text-sm flex items-center">
-          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
-          AWS
-        </span>
-        <span className="px-2 py-1 bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-100 rounded text-sm flex items-center">
-          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
-          Firebase
-        </span>
-      </div>
+const ExperienceCard = ({ imgSrc, title, description }) => (
+  <div className="flex mt-10 w-2/3 m-auto shadow-lg rounded-lg p-6 transition-all hover:scale-105 hover:-translate-y-2">
+    <div className="w-1/4 flex justify-center items-center">
+      <img src={imgSrc} className="w-full rounded-full shadow-xl" alt={`${title} icon`} />
+    </div>
+    <div className="w-3/4 shadow-md rounded p-4 ml-4">
+      <h2 className="text-xl font-bold mb-2">{title}</h2>
+      <p>{description}</p>
     </div>
   </div>
-</div>
+);
 
-            <h1 className="text-center mb-2 mt-5 text-2xl text-gray-500 shadow-sm">Şimdiye Kadar Ne Okudum</h1>
-            <h1 className="text-center mb-2 mt-5 text-5xl font-black shadow-md">Eğitim</h1>
+function Body() {
+  return (
+    <>
+      <SectionHeader subtitle="Giriş" title="Genel Bakış" />
 
-            <h1 className="text-center mb-5 mt-10 text-5xl shadow-md">My Experience</h1>
-            <div className="flex mt-10 w-2/3 m-auto shadow-lg rounded-lg p-6">
-                <div className="w-1/4 flex justify-center items-center">
-                    <img src="#" className="w-full rounded-full shadow-xl" alt="stats icon" />
-                </div>
-                <div className="w-3/4 shadow-md rounded p-4 ml-4">
-                    <h2 className="text-xl font-bold mb-2">İstatistikler</h2>
-                    <p>stats Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, beatae minima quisquam impedit molestias unde reiciendis ipsam expedita repudiandae illo asperiores delectus, natus harum ipsa libero ad repellat aut ducimus.</p>
-                </div>
-            </div>
-        </>
-    )
+      <div className="relative mt-12 w-4/5 mx-auto">
+        <div className="flex flex-col lg:flex-row gap-8 bg-[#0e0d0dc4] backdrop-blur-sm rounded-xl p-8">
+          <ProfileSection />
+          <ExperienceSection />
+        </div>
+      </div>
+
+      <SectionHeader subtitle="Şimdiye Kadar Ne Okudum" title="Eğitim" />
+
+      <h1 className="text-center mb-5 mt-10 text-5xl shadow-md">My Experience</h1>
+      
+      <ExperienceCard 
+        imgSrc="#"
+        title="İstatistikler"
+        description="stats Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, beatae minima quisquam impedit molestias unde reiciendis ipsam expedita repudiandae illo asperiores delectus, natus harum ipsa libero ad repellat aut ducimus."
+      />
+    </>
+  );
 }
 
-export default App
+export default Body;
