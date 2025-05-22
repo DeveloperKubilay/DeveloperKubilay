@@ -12,6 +12,7 @@ import Projects_Overview from './components/Projects/Overview.jsx'
 import CPanel from './cpanel.jsx'
 import Hobies from './components/Hobies.jsx'
 import Certs from './components/Certs.jsx'
+import Contact from './components/Contact.jsx'
 
 import { i18nInitialized } from './utils/i18n.js'
 
@@ -90,6 +91,7 @@ const HomePage = () => {
           <Certs />
           <Hobies />
           <Projects_Overview />
+          <Contact />
         </>
       )}
     </>
