@@ -73,7 +73,7 @@ function App() {
     };
     
     const navItems = {
-        projects: t('projects'),
+        projects: t('projects_text'),
         skills: t('skills'),
         contact: t('contact')
     };

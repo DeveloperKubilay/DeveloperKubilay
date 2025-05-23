@@ -1,13 +1,16 @@
 {
-    "hello": "Merhaba",
+    "working_on_projects": "Çalıştığım proje",
+    "projects_text": "Projelerim",
+    "loadingProjects": "Projeler yükleniyor...",
+    "age": "yaş",
     "greeting": "Merhaba, Ben",
     "name": "Kubilay",
     "role": "Yazılım geliştiricisi",
     "tagline": "Hadi bir proje daha pişirelimmmm!!! 🔥🔥🔥",
     "github": "Github",
     "viewProjects": "Projelere Bak",
-    "age": "yaş",
-    "experience": "Yıllık tecrübe",
+    "viewProject": "Görüntüle",
+    "fullscreenView": "Tam ekranda bak (önerilir)",
     "loading": "Yükleniyor...",
     "contactTitle": "İletişim",
     "contactSubtitle": "İletişime geçin",
@@ -16,8 +19,6 @@
     "contact": "İletişim",
     "playMusic": "Müzik Çal",
     "pauseMusic": "Müziği Duraklat",
-
-    "loadingProjects": "Projeler yükleniyor...",
     "projectNoDescription": "Açıklama mevcut değil",
     "detailedDescription": "Detaylı Açıklama",
     "detailedInfo": "Detaylı Bilgi",
@@ -28,7 +29,58 @@
     "moreInfoOnGithub": "GitHub'da daha fazla bilgi için",
     "previousProject": "Önceki Proje",
     "nextProject": "Sonraki Proje",
-
+    "projectsSubtitle": "Bu zamana kadar yaptığım projeler",
+    "hobbiesTitle": "Hobilerim",
+    "hobbiesSubtitle": "Boş zamanlarımda yaptıklarım",
+    "hours": "saat",
+    "certificatesTitle": "Sertifikalarım",
+    "certificatesSubtitle": "Eğitimlerim",
+    "clickToViewCertificate": "Sertifikayı görüntülemek için tıklayın",
+    "socialLinks": {
+        "github": "GitHub Profili",
+        "youtube": "YouTube Kanalı",
+        "steam": "Steam Profili"
+    },
+    "hobbies": {
+        "bannerlord": {
+            "title": "Mount & Blade II: Bannerlord",
+            "description": "Stratejik savaş mekanikleri ve ortaçağ dünyasında özgürce dolaşma deneyimi sunan bir oyun."
+        },
+        "chess": {
+            "title": "Chess.com",
+            "description": "Strateji becerilerimi geliştirmek için online satranç oynamayı seviyorum."
+        },
+        "citiesSkylines": {
+            "title": "Cities: Skylines",
+            "description": "Kendi şehirlerimi tasarlamak ve yönetmek için kullandığım şehir simülasyonu oyunu."
+        }
+    },
+    "certificates": {
+        "publicSpeaking": {
+            "title": "Topluluk Önünde Konuşma ve Etkili Sunum Teknikleri",
+            "description": "Etkili sunum yapma ve topluluk önünde konuşma becerileri hakkında yöntemler."
+        },
+        "api": {
+            "title": "API ve API Testi",
+            "description": "API geliştirme ve test etme teknikleri hakkında kapsamlı eğitim sertifikası."
+        },
+        "cpp": {
+            "title": "C++ ile Programlamaya Giriş",
+            "description": "C++ programlama dilinin temel konseptleri ve uygulama geliştirme teknikleri."
+        },
+        "ddos": {
+            "title": "DoS ve DDoS Saldırıları ve Koruma",
+            "description": "Hizmet engelleme saldırılarına karşı koruma ve önleme stratejileri."
+        },
+        "html5": {
+            "title": "HTML5 ile Web Geliştirme",
+            "description": "Modern web sayfaları ve uygulamaları geliştirme teknikleri ve HTML5 özellikleri."
+        },
+        "linux": {
+            "title": "Siber Güvenlikte Linux İşletim Sistemleri",
+            "description": "Siber güvenlik alanında Linux işletim sistemlerinin kullanımı ve güvenlik uygulamaları."
+        }
+    },
     "projects": {
         "SaveYourTime": {
             "description": "Zamandan tasarruf etmenize yardımcı olacak bir araç",
@@ -40,5 +92,15 @@
             "longDescription": "Bu proje, modern web teknolojilerini kullanarak geliştirilmiş kapsamlı bir uygulamadır. Kullanıcı deneyimine odaklanır ve performans optimizasyonları içerir.",
             "codeExample": "## React Bileşeni\nBu projede kullandığımız ana bileşenlerden biri:\n\n```jsx\nimport React, { useState } from 'react';\n\nfunction Sayaç() {\n  const [sayı, setSayı] = useState(0);\n\n  return (\n    <div>\n      <p>{sayı} kez tıkladınız</p>\n      <button onClick={() => setSayı(sayı + 1)}>\n        Tıkla\n      </button>\n    </div>\n  );\n}\n```"
         }
-    }
+    },
+    "introduction": "Giriş",
+    "overview": "Genel Bakış",
+    "experience": "Deneyim",
+    "experienceDescription": "Yazılım geliştirme ve bulut teknolojileri alanında {{years}} yılı aşkın deneyime sahip olarak Yazılım ile uğraşıyorum.",
+    "skillsDescription1": "Kurumsal düzeyde projeler geliştirdim ve 100% otomasyonlu sistemler geliştirdim. Karşılaştığım karmaşık zorlukları aşmak için yenilikçi çözümler ürettim.",
+    "skillsDescription2": "{{nodeYears}} yıllık nodejs deneyimim var, {{linuxYears}} yıllık linux deneyimim var. çok pratiğim olmasada py,cpp,java,rust ile ilgili temel bilgim var.",
+    "projectsDescription1": "Bu sene {{commits}} commit (güncelleme) attım ve Projelerimde git'i yeterince kullanıyorum.",
+    "projectsDescription2": "Oyun motoru, database, Yönetim panelleri, VDS yönetim panelleri, yapay zeka entegrasyonları ve dahasını geliştirdim.",
+    "continuousDevelopment": "Sürekli Gelişim",
+    "continuousDevelopmentDescription": "Her zaman meraklıyım ve sürekli öğreniyorum. Projelerimde Microsoft Azure, AWS, Firebase gibi sistemleri kullanıyorum. Ve kendi api keylerimi yapıyorum."
 }

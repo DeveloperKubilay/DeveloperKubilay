@@ -1,4 +1,5 @@
 import SectionHeader from "../utils/selectionHeader";
+import { useTranslation } from "react-i18next";
 
 const SkillTag = ({ name, color }) => {
   const colorClasses = {
@@ -60,7 +61,7 @@ const ProfileSection = ({ githubData }) => {
   ];
 
   const currentYear = new Date().getFullYear();
-  const displayYears = [currentYear, currentYear - 1, currentYear - 2]; // Last 3 years
+  const displayYears = [currentYear, currentYear - 1, currentYear - 2]; 
 
   return (
     <div className="lg:w-1/3 flex flex-col items-center justify-center">
@@ -110,20 +111,24 @@ const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
 
 const ExperienceSection = ({ commitsize = 0 }) => {
+  const { t } = useTranslation();
   const featuresData = [
     {
       emoji: "🎓",
-      title: "Deneyim",
-      content: "Yazılım geliştirme ve bulut teknolojileri alanında "+(currentYear-2020)+" yılı aşkın deneyime sahip olarak Yazılım ile uğraşıyorum.",
+      title: t("experience"),
+      content: t("experienceDescription", { years: (currentYear-2020) }),
       skills: []
     },
     {
       emoji: "📈",
-      title: "Beceriler",
+      title: t("skills"),
       content: (
         <>
-          <p className="mb-2">Kurumsal düzeyde projeler geliştirdim ve 100% otomasyonlu sistemler geliştirdim. Karşılaştığım karmaşık zorlukları aşmak için yenilikçi çözümler ürettim.</p>
-          <p>{currentYear-2020} yıllık nodejs deneyimim var, {currentYear-2021} yıllık linux deneyimim var. çok pratiğim olmasada py,cpp,java,rust ile ilgili temel bilgim var.</p>
+          <p className="mb-2">{t("skillsDescription1")}</p>
+          <p>{t("skillsDescription2", { 
+            nodeYears: (currentYear-2020), 
+            linuxYears: (currentYear-2021) 
+          })}</p>
         </>
       ),
       skills: [
@@ -137,19 +142,19 @@ const ExperienceSection = ({ commitsize = 0 }) => {
     },
     {
       emoji: "🛠",
-      title: "Projeler",
+      title: t("projects_text"),
       content: (
         <>
-          <p className="mb-2">Bu sene {commitsize || "300~"} commit (güncelleme) attım ve Projelerimde git'i yeterince kullanıyorum.</p>
-          <p>Oyun motoru, database, Yönetim panelleri, VDS yönetim panelleri, yapay zeka entegrasyonları ve dahasını geliştirdim.</p>
+          <p className="mb-2">{t("projectsDescription1", { commits: commitsize || "300~" })}</p>
+          <p>{t("projectsDescription2")}</p>
         </>
       ),
       skills: []
     },
     {
       emoji: "💡",
-      title: "Sürekli Gelişim",
-      content: "Her zaman meraklıyım ve sürekli öğreniyorum. Projelerimde Microsoft Azure, AWS, Firebase gibi sistemleri kullanıyorum. Ve kendi api keylerimi yapıyorum.",
+      title: t("continuousDevelopment"),
+      content: t("continuousDevelopmentDescription"),
       skills: [
         { name: "Azure", color: "blue" },
         { name: "AWS", color: "orange" },
@@ -175,10 +180,11 @@ const ExperienceSection = ({ commitsize = 0 }) => {
 };
 
 function Body({githubData}) {
+  const { t } = useTranslation();
   const commitsize = githubData.commits?.[currentYear] || 0;
   return (
     <>
-      <SectionHeader subtitle="Giriş" title="Genel Bakış" />
+      <SectionHeader subtitle={t("introduction")} title={t("overview")} />
 
       <div className="relative mt-12 w-4/5 mx-auto">
         <div className="flex flex-col lg:flex-row gap-8 bg-[#0e0d0dc4] backdrop-blur-sm rounded-xl p-8">

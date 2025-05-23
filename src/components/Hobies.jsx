@@ -1,7 +1,7 @@
 import SectionHeader from "../utils/selectionHeader.jsx";
 import { useTranslation } from "react-i18next";
 
-const HobbyCard = ({ title, image, description, icon, hoursPlayed }) => (
+const HobbyCard = ({ title, image, description, icon, hoursPlayed, t }) => (
   <div className="bg-gradient-to-r from-gray-800 to-gray-900 p-6 rounded-xl border border-blue-900/30 transform transition-all hover:shadow-[0_4px_20px_rgba(59,130,246,0.2)] hover:border-blue-700/40 hover:scale-105 hover:-translate-y-1 relative">
     <div className="flex flex-col items-center text-center">
       <div className="text-4xl mb-3">{icon}</div>
@@ -30,7 +30,7 @@ const HobbyCard = ({ title, image, description, icon, hoursPlayed }) => (
             clipRule="evenodd"
           ></path>
         </svg>
-        {hoursPlayed}+ saat
+        {hoursPlayed}+ {t("hours")}
       </div>
     )}
   </div>
@@ -41,34 +41,34 @@ function Body() {
 
   const hobbies = [
     {
-      title: "Mount & Blade II: Bannerlord",
+      title: t("hobbies.bannerlord.title"),
       image: "/images/hobies/bannerlord.jpg",
       icon: "⚔️",
-      description:
-        "Stratejik savaş mekanikleri ve ortaçağ dünyasında özgürce dolaşma deneyimi sunan bir oyun.",
+      description: t("hobbies.bannerlord.description"),
       hoursPlayed: 1400,
     },
     {
-      title: "Chess.com",
+      title: t("hobbies.chess.title"),
       image: "/images/hobies/chess.png",
       icon: "♟️",
-      description:
-        "Strateji becerilerimi geliştirmek için online satranç oynamayı seviyorum.",
+      description: t("hobbies.chess.description"),
       hoursPlayed: undefined,
     },
     {
-      title: "Cities: Skylines",
+      title: t("hobbies.citiesSkylines.title"),
       image: "/images/hobies/cities-skylines.webp",
       icon: "🏙️",
-      description:
-        "Kendi şehirlerimi tasarlamak ve yönetmek için kullandığım şehir simülasyonu oyunu.",
+      description: t("hobbies.citiesSkylines.description"),
       hoursPlayed: 177,
     },
   ];
 
   return (
     <>
-      <SectionHeader subtitle="Boş zamanlarımda yaptıklarım" title="Hobilerim" />
+      <SectionHeader
+        subtitle={t("hobbiesSubtitle")}
+        title={t("hobbiesTitle")}
+      />
 
       <div className="relative mt-12 w-4/5 mx-auto mb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -80,6 +80,7 @@ function Body() {
               icon={hobby.icon}
               description={hobby.description}
               hoursPlayed={hobby.hoursPlayed}
+              t={t}
             />
           ))}
         </div>

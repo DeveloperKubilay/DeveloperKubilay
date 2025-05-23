@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import SectionHeader from "../../utils/selectionHeader.jsx";
 import Fullscreen from "./Fullscreen.jsx";
+import { useTranslation } from 'react-i18next';
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, t }) => {
   return (
     <div className="bg-gradient-to-r from-gray-800 to-gray-900 p-6 rounded-xl border border-blue-900/30 transform transition-all hover:shadow-[0_4px_20px_rgba(59,130,246,0.2)] hover:border-blue-700/40 hover:scale-105 hover:-translate-y-1 relative">
       <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent mb-2">
         {project.name}
       </h3>
-      <p className="text-gray-300 mb-4">{project.description || "No description available"}</p>
+      <p className="text-gray-300 mb-4">{project.description || t("projectNoDescription")}</p>
       
       <div className="flex flex-wrap gap-2 mb-4">
         {project.topics && project.topics.map((topic, index) => (
@@ -38,7 +39,7 @@ const ProjectCard = ({ project }) => {
           <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <path fillRule="evenodd" d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"></path>
           </svg>
-          Fork
+          {t('fork')}
         </a>
         <a 
           href={project.html_url} 
@@ -46,7 +47,7 @@ const ProjectCard = ({ project }) => {
           rel="noopener noreferrer" 
           className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-md transition-colors"
         >
-          View
+          {t('viewProject')}
         </a>
       </div>
     </div>
@@ -56,6 +57,7 @@ const ProjectCard = ({ project }) => {
 function Body({ githubProjects = [] }) {
   const [showFullscreen, setShowFullscreen] = useState(false);
   const [currentTab, setCurrentTab] = useState(0);
+  const { t } = useTranslation();
   
   const projects = githubProjects.projects || [];
   
@@ -70,7 +72,7 @@ function Body({ githubProjects = [] }) {
 
   return (
     <>
-      <SectionHeader subtitle="Bu zamana kadar yaptığım projeler" title="Projelerim" />
+      <SectionHeader subtitle={t('projectsSubtitle')} title={t('projects_text')} />
       
       <div className="flex justify-center mt-4 mb-8">
         <button 
@@ -91,7 +93,7 @@ function Body({ githubProjects = [] }) {
               d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"
             />
           </svg>
-          Tam ekranda bak (önerilir)
+          {t('fullscreenView')}
         </button>
       </div>
       
@@ -99,7 +101,7 @@ function Body({ githubProjects = [] }) {
         {!projects || projects.length === 0 ? (
           <div className="flex justify-center items-center h-64">
             <div className="loading-spinner"></div>
-            <p className="ml-2 text-gray-300">Projeler yükleniyor...</p>
+            <p className="ml-2 text-gray-300">{t('loadingProjects')}</p>
           </div>
         ) : (
           <>
@@ -124,7 +126,7 @@ function Body({ githubProjects = [] }) {
             )}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projectTabs[currentTab]?.map(project => (
-                <ProjectCard key={project.id} project={project} />
+                <ProjectCard key={project.id} project={project} t={t} />
               ))}
             </div>
             {projectTabs.length > 1 && (
@@ -139,7 +141,7 @@ function Body({ githubProjects = [] }) {
                         : "bg-blue-600 text-white hover:bg-blue-700"
                     }`}
                   >
-                    Önceki
+                    {t('previousProject')}
                   </button>
                   <button
                     onClick={() => setCurrentTab(prev => (prev < projectTabs.length - 1 ? prev + 1 : prev))}
@@ -150,7 +152,7 @@ function Body({ githubProjects = [] }) {
                         : "bg-blue-600 text-white hover:bg-blue-700"
                     }`}
                   >
-                    Sonraki
+                    {t('nextProject')}
                   </button>
                 </div>
               </div>

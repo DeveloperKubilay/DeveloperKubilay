@@ -18,11 +18,9 @@ function Welcome_page({ githubData }) {
     const [experience, setexperience] = useState(0);
     const [projects, setprojects] = useState(0);
     const [hoveredItem, setHoveredItem] = useState(null);
-    const [currentLanguage, setCurrentLanguage] = useState('');
     const { t, i18n } = useTranslation();
     
     useEffect(() => {
-        setCurrentLanguage(i18n.language);
         
         const setup = async () => {
             if (githubData) setprojects(githubData.main?.public_repos);
@@ -48,7 +46,7 @@ function Welcome_page({ githubData }) {
     const getStats = useCallback(() => [
         { name: 'age', value: old, label: t('age') },
         { name: 'experience', value: experience, label: t('experience') },
-        { name: 'projects', value: projects, label: t('projects') }
+        { name: 'projects', value: projects, label: t('working_on_projects') }
     ], [old, experience, projects, t]);
     
     const stats = getStats();
@@ -77,7 +75,7 @@ function Welcome_page({ githubData }) {
                 </h1>
                 <h2 className="text-3xl text-gray-200 mb-2">{t('role')}</h2>
                 <p className="text-gray-300 text-xl text-center mb-8">
-                    {t('hello')} {t('tagline')}
+                    {t('tagline')}
                 </p>
 
                 <div className="flex gap-4 mt-2">
