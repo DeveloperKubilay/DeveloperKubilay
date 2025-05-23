@@ -8,14 +8,37 @@
     "viewProjects": "Projelere Bak",
     "age": "yaş",
     "experience": "Yıllık tecrübe",
-    "projects": "Çalıştığım proje",
     "loading": "Yükleniyor...",
     "contactTitle": "İletişim",
     "contactSubtitle": "İletişime geçin",
     "copyEmail": "E-posta adresini kopyala",
     "skills": "Yeteneklerim",
-    "projects": "Projelerim",
     "contact": "İletişim",
     "playMusic": "Müzik Çal",
-    "pauseMusic": "Müziği Duraklat"
+    "pauseMusic": "Müziği Duraklat",
+
+    "loadingProjects": "Projeler yükleniyor...",
+    "projectNoDescription": "Açıklama mevcut değil",
+    "detailedDescription": "Detaylı Açıklama",
+    "detailedInfo": "Detaylı Bilgi",
+    "language": "Dil",
+    "topics": "Konular",
+    "fork": "Çatalla",
+    "noDetailedInfo": "Bu proje için henüz detaylı bilgi eklenmemiş.",
+    "moreInfoOnGithub": "GitHub'da daha fazla bilgi için",
+    "previousProject": "Önceki Proje",
+    "nextProject": "Sonraki Proje",
+
+    "projects": {
+        "SaveYourTime": {
+            "description": "Zamandan tasarruf etmenize yardımcı olacak bir araç",
+            "longDescription": "Bu proje, günlük görevlerinizi daha hızlı tamamlamanıza yardımcı olacak bir otomasyon aracıdır. Birçok tekrarlayan işi otomatikleştirir.",
+            "codeExample": "## Proje Hakkında\nBu proje zaman tasarrufu amacıyla geliştirilmiştir.\n\n### Özellikler\n- Otomatik görev yönetimi\n- Zamanlanmış işlemler\n- Kolay kullanım arayüzü\n\n### Örnek Kod\n```js\nconst automate = () => {\n  console.log('İşlem otomatikleştiriliyor...');\n  // İşlem kodları\n};\n\n// Fonksiyonu çağır\nautomate();\n```\n\n### Ekran Görüntüsü\n![Proje ekran görüntüsü](https://example.com/project-screenshot.jpg)"
+        },
+        "AnotherProject": {
+            "description": "Bir başka harika proje",
+            "longDescription": "Bu proje, modern web teknolojilerini kullanarak geliştirilmiş kapsamlı bir uygulamadır. Kullanıcı deneyimine odaklanır ve performans optimizasyonları içerir.",
+            "codeExample": "## React Bileşeni\nBu projede kullandığımız ana bileşenlerden biri:\n\n```jsx\nimport React, { useState } from 'react';\n\nfunction Sayaç() {\n  const [sayı, setSayı] = useState(0);\n\n  return (\n    <div>\n      <p>{sayı} kez tıkladınız</p>\n      <button onClick={() => setSayı(sayı + 1)}>\n        Tıkla\n      </button>\n    </div>\n  );\n}\n```"
+        }
+    }
 }
