@@ -90,7 +90,7 @@ function Welcome_page({ githubData }) {
                 </div>
             </div>
 
-            <div className="absolute bottom-8 md:bottom-16 left-1/2 transform -translate-x-1/2 flex justify-center gap-4 md:gap-12 text-white w-full px-4 flex-wrap">
+            <div className="absolute bottom-8 md:bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12 text-white w-full px-4">
                 {stats.map((stat) => (
                     <StatItem
                         key={stat.name}
