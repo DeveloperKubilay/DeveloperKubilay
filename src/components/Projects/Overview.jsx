@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import SectionHeader from "../../utils/selectionHeader.jsx";
-import { useTranslation } from "react-i18next";
+import Fullscreen from "./Fullscreen.jsx";
 
 const ProjectCard = ({ project }) => {
   return (
@@ -54,8 +54,7 @@ const ProjectCard = ({ project }) => {
 };
 
 function Body({ githubProjects = [] }) {
-  const { t } = useTranslation();
-  const [fullScreen, setFullScreen] = useState(false);
+  const [showFullscreen, setShowFullscreen] = useState(false);
   const [currentTab, setCurrentTab] = useState(0);
   
   const projects = githubProjects.projects || [];
@@ -66,16 +65,7 @@ function Body({ githubProjects = [] }) {
   }
 
   const toggleFullScreen = () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(err => {
-        console.error(`Error attempting to enable full-screen mode: ${err.message}`);
-      });
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      }
-    }
-    setFullScreen(!fullScreen);
+    setShowFullscreen(!showFullscreen);
   };
 
   return (
@@ -98,10 +88,7 @@ function Body({ githubProjects = [] }) {
               strokeLinecap="round" 
               strokeLinejoin="round" 
               strokeWidth={2} 
-              d={fullScreen 
-                ? "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" 
-                : "M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
-              }
+              d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"
             />
           </svg>
           Tam ekranda bak (önerilir)
@@ -171,6 +158,12 @@ function Body({ githubProjects = [] }) {
           </>
         )}
       </div>
+      
+      <Fullscreen 
+        projects={projects} 
+        isOpen={showFullscreen} 
+        onClose={() => setShowFullscreen(false)} 
+      />
     </>
   );
 }
