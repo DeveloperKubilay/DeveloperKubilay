@@ -8,8 +8,8 @@ const StatItem = ({ value, label, itemName, hoveredItem, onMouseEnter, onMouseLe
         onMouseEnter={() => onMouseEnter(itemName)}
         onMouseLeave={onMouseLeave}
     >
-        <div className="text-7xl font-bold mr-2">{value}</div>
-        <div className="text-gray-300 text-3xl">{label}</div>
+        <div className="text-5xl md:text-7xl font-bold mr-2">{value}</div>
+        <div className="text-gray-300 text-xl md:text-3xl">{label}</div>
     </div>
 );
 
@@ -57,15 +57,15 @@ function Welcome_page({ githubData }) {
             <img
                 src="/images/W2.png"
                 alt="Background"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover md:object-contain"
             />
 
             <div className="absolute inset-0 bg-black/40"></div>
             <div className="absolute bottom-2/4 left-1/3 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl"></div>
             <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
 
-            <div className="absolute inset-0 flex flex-col items-center justify-center mt-16 text-white p-4">
-                <h1 className="text-8xl font-bold mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
+                <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] text-center">
                     <span className="bg-gradient-to-r from-blue-500 via-cyan-400 via-purple-500 via-pink-500 to-indigo-600 text-transparent bg-clip-text animate-gradient-x">
                         {t('greeting')}
                     </span>{' '}
@@ -73,24 +73,24 @@ function Welcome_page({ githubData }) {
                         {t('name')}
                     </span>
                 </h1>
-                <h2 className="text-3xl text-gray-200 mb-2">{t('role')}</h2>
-                <p className="text-gray-300 text-xl text-center mb-8">
+                <h2 className="text-xl md:text-3xl text-gray-200 mb-2 text-center">{t('role')}</h2>
+                <p className="text-gray-300 text-lg md:text-xl text-center mb-6 md:mb-8 px-2">
                     {t('tagline')}
                 </p>
 
-                <div className="flex gap-4 mt-2">
+                <div className="flex gap-3 md:gap-4 mt-2">
                     <a href="https://github.com/DeveloperKubilay"
-                        className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-md transition-all duration-300 transform hover:scale-110">
+                        className="px-4 md:px-6 py-2 md:py-3 bg-gray-800 hover:bg-gray-700 rounded-md transition-all duration-300 transform hover:scale-110 text-sm md:text-base">
                         {t('github')}
                     </a>
                     <a href="https://github.com/DeveloperKubilay?tab=repositories"
-                        className="px-6 py-3 bg-blue-700 hover:bg-blue-600 rounded-md transition-all duration-300 transform hover:scale-110">
+                        className="px-4 md:px-6 py-2 md:py-3 bg-blue-700 hover:bg-blue-600 rounded-md transition-all duration-300 transform hover:scale-110 text-sm md:text-base">
                         {t('viewProjects')}
                     </a>
                 </div>
             </div>
 
-            <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex justify-center gap-12 text-white w-full">
+            <div className="absolute bottom-8 md:bottom-16 left-1/2 transform -translate-x-1/2 flex justify-center gap-4 md:gap-12 text-white w-full px-4 flex-wrap">
                 {stats.map((stat) => (
                     <StatItem
                         key={stat.name}
