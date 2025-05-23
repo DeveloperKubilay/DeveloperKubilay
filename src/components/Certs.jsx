@@ -225,54 +225,56 @@ function Certs() {
 
   return (
     <>
-      <SectionHeader subtitle={t("certificatesSubtitle")} title={t("certificatesTitle")} />
+      <div id="certificates-section">
+        <SectionHeader subtitle={t("certificatesSubtitle")} title={t("certificatesTitle")} />
 
-      <div className="relative mt-16 mb-16">
-        <div 
-          ref={carouselRef}
-          className="certificate-carousel relative h-[350px] w-full flex justify-center items-center select-none"
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={(e) => {
-            handleMouseUp(e);
-            setIsHovering(false);
-          }}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-          style={{
-            cursor: isDragging ? 'grabbing' : 'grab',
-            touchAction: 'pan-x'
-          }}
-        >
-          {certificates.map((cert, index) => (
-            <CertificateCard
-              key={index}
-              icon={cert.icon}
-              title={cert.title}
-              description={cert.description}
-              pdfPath={cert.pdfPath}
-              isActive={index === currentIndex}
-              position={getCardPosition(index)}
-              onMouseEnter={handleCardMouseEnter}
-              onMouseLeave={handleCardMouseLeave}
-            />
-          ))}
-        </div>
+        <div className="relative mt-16 mb-16">
+          <div 
+            ref={carouselRef}
+            className="certificate-carousel relative h-[350px] w-full flex justify-center items-center select-none"
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={(e) => {
+              handleMouseUp(e);
+              setIsHovering(false);
+            }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            style={{
+              cursor: isDragging ? 'grabbing' : 'grab',
+              touchAction: 'pan-x'
+            }}
+          >
+            {certificates.map((cert, index) => (
+              <CertificateCard
+                key={index}
+                icon={cert.icon}
+                title={cert.title}
+                description={cert.description}
+                pdfPath={cert.pdfPath}
+                isActive={index === currentIndex}
+                position={getCardPosition(index)}
+                onMouseEnter={handleCardMouseEnter}
+                onMouseLeave={handleCardMouseLeave}
+              />
+            ))}
+          </div>
 
-        <div className="flex justify-center mt-8">
-          {certificates.map((_, index) => (
-            <button
-              key={index}
-              className={`w-3 h-3 rounded-full mx-1.5 transition-all duration-300 ${
-                index === currentIndex ? 'bg-blue-500 scale-125' : 'bg-gray-600 hover:bg-gray-500'
-              }`}
-              onClick={() => setCurrentIndex(index)}
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-            ></button>
-          ))}
+          <div className="flex justify-center mt-8">
+            {certificates.map((_, index) => (
+              <button
+                key={index}
+                className={`w-3 h-3 rounded-full mx-1.5 transition-all duration-300 ${
+                  index === currentIndex ? 'bg-blue-500 scale-125' : 'bg-gray-600 hover:bg-gray-500'
+                }`}
+                onClick={() => setCurrentIndex(index)}
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+              ></button>
+            ))}
+          </div>
         </div>
       </div>
     </>

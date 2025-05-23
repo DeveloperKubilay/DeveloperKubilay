@@ -72,100 +72,102 @@ function Body({ githubProjects = [] }) {
 
   return (
     <>
-      <SectionHeader subtitle={t('projectsSubtitle')} title={t('projects_text')} />
-      
-      <div className="flex justify-center mt-4 mb-8">
-        <button 
-          onClick={toggleFullScreen}
-          className="px-6 py-3 bg-blue-700 hover:bg-blue-600 rounded-md transition-all duration-300 transform hover:scale-110 text-white flex items-center"
-        >
-          <svg 
-            className="w-5 h-5 mr-2" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24" 
-            xmlns="http://www.w3.org/2000/svg"
+      <div id="projects-section">
+        <SectionHeader subtitle={t('projectsSubtitle')} title={t('projects_text')} />
+        
+        <div className="flex justify-center mt-4 mb-8">
+          <button 
+            onClick={toggleFullScreen}
+            className="px-6 py-3 bg-blue-700 hover:bg-blue-600 rounded-md transition-all duration-300 transform hover:scale-110 text-white flex items-center"
           >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2} 
-              d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"
-            />
-          </svg>
-          {t('fullscreenView')}
-        </button>
-      </div>
-      
-      <div className="relative w-4/5 mx-auto mb-16">
-        {!projects || projects.length === 0 ? (
-          <div className="flex justify-center items-center h-64">
-            <div className="loading-spinner"></div>
-            <p className="ml-2 text-gray-300">{t('loadingProjects')}</p>
-          </div>
-        ) : (
-          <>
-            {projectTabs.length > 1 && (
-              <div className="flex justify-center mb-6">
-                <div className="inline-flex bg-gray-800 rounded-lg p-1">
-                  {projectTabs.map((_, index) => (
+            <svg 
+              className="w-5 h-5 mr-2" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"
+              />
+            </svg>
+            {t('fullscreenView')}
+          </button>
+        </div>
+        
+        <div className="relative w-4/5 mx-auto mb-16">
+          {!projects || projects.length === 0 ? (
+            <div className="flex justify-center items-center h-64">
+              <div className="loading-spinner"></div>
+              <p className="ml-2 text-gray-300">{t('loadingProjects')}</p>
+            </div>
+          ) : (
+            <>
+              {projectTabs.length > 1 && (
+                <div className="flex justify-center mb-6">
+                  <div className="inline-flex bg-gray-800 rounded-lg p-1">
+                    {projectTabs.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentTab(index)}
+                        className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+                          currentTab === index
+                            ? "bg-blue-600 text-white"
+                            : "text-gray-300 hover:text-white hover:bg-gray-700"
+                        }`}
+                      >
+                        {index + 1}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {projectTabs[currentTab]?.map(project => (
+                  <ProjectCard key={project.id} project={project} t={t} />
+                ))}
+              </div>
+              {projectTabs.length > 1 && (
+                <div className="flex justify-center mt-8">
+                  <div className="inline-flex">
                     <button
-                      key={index}
-                      onClick={() => setCurrentTab(index)}
-                      className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
-                        currentTab === index
-                          ? "bg-blue-600 text-white"
-                          : "text-gray-300 hover:text-white hover:bg-gray-700"
+                      onClick={() => setCurrentTab(prev => (prev > 0 ? prev - 1 : prev))}
+                      disabled={currentTab === 0}
+                      className={`px-4 py-2 rounded-l-md text-sm font-medium ${
+                        currentTab === 0
+                          ? "bg-gray-700 text-gray-400 cursor-not-allowed"
+                          : "bg-blue-600 text-white hover:bg-blue-700"
                       }`}
                     >
-                      {index + 1}
+                      {t('previousProject')}
                     </button>
-                  ))}
+                    <button
+                      onClick={() => setCurrentTab(prev => (prev < projectTabs.length - 1 ? prev + 1 : prev))}
+                      disabled={currentTab === projectTabs.length - 1}
+                      className={`px-4 py-2 rounded-r-md text-sm font-medium ${
+                        currentTab === projectTabs.length - 1
+                          ? "bg-gray-700 text-gray-400 cursor-not-allowed"
+                          : "bg-blue-600 text-white hover:bg-blue-700"
+                      }`}
+                    >
+                      {t('nextProject')}
+                    </button>
+                  </div>
                 </div>
-              </div>
-            )}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projectTabs[currentTab]?.map(project => (
-                <ProjectCard key={project.id} project={project} t={t} />
-              ))}
-            </div>
-            {projectTabs.length > 1 && (
-              <div className="flex justify-center mt-8">
-                <div className="inline-flex">
-                  <button
-                    onClick={() => setCurrentTab(prev => (prev > 0 ? prev - 1 : prev))}
-                    disabled={currentTab === 0}
-                    className={`px-4 py-2 rounded-l-md text-sm font-medium ${
-                      currentTab === 0
-                        ? "bg-gray-700 text-gray-400 cursor-not-allowed"
-                        : "bg-blue-600 text-white hover:bg-blue-700"
-                    }`}
-                  >
-                    {t('previousProject')}
-                  </button>
-                  <button
-                    onClick={() => setCurrentTab(prev => (prev < projectTabs.length - 1 ? prev + 1 : prev))}
-                    disabled={currentTab === projectTabs.length - 1}
-                    className={`px-4 py-2 rounded-r-md text-sm font-medium ${
-                      currentTab === projectTabs.length - 1
-                        ? "bg-gray-700 text-gray-400 cursor-not-allowed"
-                        : "bg-blue-600 text-white hover:bg-blue-700"
-                    }`}
-                  >
-                    {t('nextProject')}
-                  </button>
-                </div>
-              </div>
-            )}
-          </>
-        )}
+              )}
+            </>
+          )}
+        </div>
+        
+        <Fullscreen 
+          projects={projects} 
+          isOpen={showFullscreen} 
+          onClose={() => setShowFullscreen(false)} 
+        />
       </div>
-      
-      <Fullscreen 
-        projects={projects} 
-        isOpen={showFullscreen} 
-        onClose={() => setShowFullscreen(false)} 
-      />
     </>
   );
 }

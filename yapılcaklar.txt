@@ -1,5 +1,2 @@
 Projeleri gösterme direk
-
-nav menusu
 telefona destek
-dil desteği
