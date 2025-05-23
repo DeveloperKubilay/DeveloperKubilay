@@ -64,12 +64,12 @@ const ProfileSection = ({ githubData }) => {
   const displayYears = [currentYear, currentYear - 1, currentYear - 2]; 
 
   return (
-    <div className="lg:w-1/3 flex flex-col items-center justify-center">
+    <div className="lg:w-1/3 flex flex-col items-center justify-center mb-8 lg:mb-0">
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-full blur-sm opacity-30 scale-110"></div>
         <img
           src="/images/W1.png"
-          className="w-64 h-64 rounded-full object-cover border-4 border-gray-700 shadow-[0_0_15px_rgba(59,130,246,0.3)] transform transition-transform hover:scale-105 duration-300"
+          className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-gray-700 shadow-[0_0_15px_rgba(59,130,246,0.3)] transform transition-transform hover:scale-105 duration-300"
           alt="profile"
         />
       </div>
@@ -90,9 +90,9 @@ const ProfileSection = ({ githubData }) => {
           ))}
         </div>
 
-        <div className="mt-12 bg-gray-800/70 rounded-lg py-2 px-4 inline-block">
+        <div className="mt-8 lg:mt-12 bg-gray-800/70 rounded-lg py-2 px-4 inline-block">
           <div className="text-sm font-medium text-blue-400 mb-1">GitHub Commits:</div>
-          <div className="flex gap-4 justify-center">
+          <div className="flex flex-wrap gap-4 justify-center">
             {displayYears.map(year => (
               <div key={year} className="flex items-center gap-1">
                 <span className="text-gray-300">{year}:</span>
@@ -186,8 +186,8 @@ function Body({githubData}) {
     <>
       <SectionHeader subtitle={t("introduction")} title={t("overview")} />
 
-      <div id="skills-section" className="relative mt-12 w-4/5 mx-auto">
-        <div className="flex flex-col lg:flex-row gap-8 bg-[#0e0d0dc4] backdrop-blur-sm rounded-xl p-8">
+      <div id="skills-section" className="relative mt-12 w-full sm:w-11/12 md:w-4/5 mx-auto px-4 sm:px-0">
+        <div className="flex flex-col lg:flex-row gap-8 bg-[#0e0d0dc4] backdrop-blur-sm rounded-xl p-4 md:p-8">
           <ProfileSection githubData={githubData} />
           <ExperienceSection commitsize={commitsize} />
         </div>

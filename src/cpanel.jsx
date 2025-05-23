@@ -47,10 +47,10 @@ const CPanel = () => {
   }, [showRickRoll]);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
       {!showRickRoll ? (
-        <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
-          <h2 className="mb-6 text-2xl font-bold text-center text-gray-800">Control Panel Login</h2>
+        <div className="w-full max-w-md p-4 sm:p-8 bg-white rounded-lg shadow-lg">
+          <h2 className="mb-4 sm:mb-6 text-xl sm:text-2xl font-bold text-center text-gray-800">Control Panel Login</h2>
           <form>
             <div className="mb-4">
               <label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-700">Username</label>
@@ -77,8 +77,8 @@ const CPanel = () => {
               />
             </div>
             <button type="submit" className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition duration-200">Login</button>
-            <div className="flex items-center justify-between mt-4">
-              <div className="flex items-center">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-4">
+              <div className="flex items-center mb-2 sm:mb-0">
                 <input type="checkbox" id="remember" className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" />
                 <label htmlFor="remember" className="ml-2 text-sm text-gray-600">Remember me</label>
               </div>
@@ -89,7 +89,7 @@ const CPanel = () => {
       ) : (
         <div className="flex flex-col items-center justify-center w-full h-screen absolute top-0 left-0 overflow-hidden" 
              style={{ userSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', msUserSelect: 'none' }}>
-          <div className="text-4xl font-bold text-white z-10 mb-8 select-none">Ne yapıyorsun</div>
+          <div className="text-2xl sm:text-4xl font-bold text-white z-10 mb-8 select-none">Ne yapıyorsun</div>
           <iframe 
             width="100%" 
             height="100%" 
