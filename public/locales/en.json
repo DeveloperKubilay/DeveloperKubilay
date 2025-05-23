@@ -1,14 +1,16 @@
 {
-    "hello": "Hello",
+    "working_on_projects": "Projects",
+    "projects_text": "My Projects",
+    "loadingProjects": "Loading projects...",
+    "age": "age",
     "greeting": "Hello, I'm",
     "name": "Kubilay",
-    "role": "Software developer",
+    "role": "Software Developer",
     "tagline": "Let's cook another project!!! 🔥🔥🔥",
     "github": "Github",
     "viewProjects": "View Projects",
-    "age": "years old",
-    "experience": "Years of experience",
-    "projects": "Projects worked on",
+    "viewProject": "View",
+    "fullscreenView": "View in fullscreen (recommended)",
     "loading": "Loading...",
     "contactTitle": "Contact",
     "contactSubtitle": "Get in touch",
@@ -16,5 +18,89 @@
     "skills": "My Skills",
     "contact": "Contact",
     "playMusic": "Play Music",
-    "pauseMusic": "Pause Music"
+    "pauseMusic": "Pause Music",
+    "projectNoDescription": "No description available",
+    "detailedDescription": "Detailed Description",
+    "detailedInfo": "Detailed Information",
+    "language": "Language",
+    "topics": "Topics",
+    "fork": "Fork",
+    "noDetailedInfo": "No detailed information has been added for this project yet.",
+    "moreInfoOnGithub": "For more information on GitHub",
+    "previousProject": "Previous Project",
+    "nextProject": "Next Project",
+    "projectsSubtitle": "Projects I've worked on so far",
+    "hobbiesTitle": "My Hobbies",
+    "hobbiesSubtitle": "What I do in my free time",
+    "hours": "hours",
+    "certificatesTitle": "My Certificates",
+    "certificatesSubtitle": "My Education",
+    "clickToViewCertificate": "Click to view certificate",
+    "socialLinks": {
+        "github": "GitHub Profile",
+        "youtube": "YouTube Channel",
+        "steam": "Steam Profile"
+    },
+    "hobbies": {
+        "bannerlord": {
+            "title": "Mount & Blade II: Bannerlord",
+            "description": "A game offering strategic combat mechanics and the freedom to roam in a medieval world."
+        },
+        "chess": {
+            "title": "Chess.com",
+            "description": "I enjoy playing online chess to develop my strategy skills."
+        },
+        "citiesSkylines": {
+            "title": "Cities: Skylines",
+            "description": "A city simulation game I use to design and manage my own cities."
+        }
+    },
+    "certificates": {
+        "publicSpeaking": {
+            "title": "Public Speaking and Effective Presentation Techniques",
+            "description": "Methods for effective presentation and public speaking skills."
+        },
+        "api": {
+            "title": "API and API Testing",
+            "description": "Comprehensive training certificate on API development and testing techniques."
+        },
+        "cpp": {
+            "title": "Introduction to Programming with C++",
+            "description": "Basic concepts of C++ programming language and application development techniques."
+        },
+        "ddos": {
+            "title": "DoS and DDoS Attacks and Protection",
+            "description": "Protection and prevention strategies against denial of service attacks."
+        },
+        "html5": {
+            "title": "Web Development with HTML5",
+            "description": "Modern web page and application development techniques and HTML5 features."
+        },
+        "linux": {
+            "title": "Linux Operating Systems in Cybersecurity",
+            "description": "Use of Linux operating systems in cybersecurity and security applications."
+        }
+    },
+    "projects": {
+        "SaveYourTime": {
+            "description": "A tool to help you save time",
+            "longDescription": "This project is an automation tool to help you complete your daily tasks faster. It automates many repetitive tasks.",
+            "codeExample": "## About the Project\nThis project was developed for time saving purposes.\n\n### Features\n- Automatic task management\n- Scheduled operations\n- Easy-to-use interface\n\n### Example Code\n```js\nconst automate = () => {\n  console.log('Automating process...');\n  // Process code\n};\n\n// Call the function\nautomate();\n```\n\n### Screenshot\n![Project screenshot](https://example.com/project-screenshot.jpg)"
+        },
+        "AnotherProject": {
+            "description": "Another amazing project",
+            "longDescription": "This project is a comprehensive application developed using modern web technologies. It focuses on user experience and includes performance optimizations.",
+            "codeExample": "## React Component\nOne of the main components we use in this project:\n\n```jsx\nimport React, { useState } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <p>You clicked {count} times</p>\n      <button onClick={() => setCount(count + 1)}>\n        Click\n      </button>\n    </div>\n  );\n}\n```"
+        }
+    },
+    "introduction": "Introduction",
+    "overview": "Overview",
+    "experience": "Experience",
+    "experienceDescription": "I have been working with software development and cloud technologies for over {{years}} years.",
+    "skillsDescription1": "I've developed enterprise-level projects and 100% automated systems. I've created innovative solutions to overcome complex challenges.",
+    "skillsDescription2": "I have {{nodeYears}} years of Node.js experience and {{linuxYears}} years of Linux experience. I also have basic knowledge of Python, C++, Java, and Rust, although I don't use them as frequently.",
+    "projectsDescription1": "This year I've made {{commits}} commits and I use git effectively in my projects.",
+    "projectsDescription2": "I've developed game engines, databases, management panels, VDS management systems, AI integrations, and more.",
+    "continuousDevelopment": "Continuous Development",
+    "continuousDevelopmentDescription": "I'm always curious and continuously learning. In my projects, I use systems like Microsoft Azure, AWS, Firebase, and I create my own API keys."
 }

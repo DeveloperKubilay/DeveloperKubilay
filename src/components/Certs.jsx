@@ -1,7 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import SectionHeader from "../utils/selectionHeader.jsx";
+import { useTranslation } from "react-i18next";
 
 const CertificateCard = ({ icon, title, description, pdfPath, isActive, position, onMouseEnter, onMouseLeave }) => {
+  const { t } = useTranslation();
+  
   const openPdf = () => {
     if (isActive) {
       window.open(pdfPath, "_blank");
@@ -55,7 +58,7 @@ const CertificateCard = ({ icon, title, description, pdfPath, isActive, position
               <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clipRule="evenodd"></path>
               </svg>
-              Sertifikayı görüntülemek için tıklayın
+              {t("clickToViewCertificate")}
             </span>
           </div>
         )}
@@ -65,6 +68,7 @@ const CertificateCard = ({ icon, title, description, pdfPath, isActive, position
 };
 
 function Certs() {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef(null);
   const [startX, setStartX] = useState(null);
@@ -78,38 +82,38 @@ function Certs() {
   const certificates = [
      {
       icon: "🎤",
-      title: "Topluluk Önünde Konuşma ve Etkili Sunum Teknikleri",
-      description: "Etkili sunum yapma ve topluluk önünde konuşma becerileri hakkında yöntemler.",
+      title: t("certificates.publicSpeaking.title"),
+      description: t("certificates.publicSpeaking.description"),
       pdfPath: "/certs/Topluluk_Önünde_Konuşma_ve_Etkili_Sunum_Teknikleri_Sertifika.pdf"
     },
     {
       icon: "🔍",
-      title: "API ve API Testi",
-      description: "API geliştirme ve test etme teknikleri hakkında kapsamlı eğitim sertifikası.",
+      title: t("certificates.api.title"),
+      description: t("certificates.api.description"),
       pdfPath: "/certs/API_ve_API_Testi_Sertifika.pdf"
     },
     {
       icon: "💻",
-      title: "C++ ile Programlamaya Giriş",
-      description: "C++ programlama dilinin temel konseptleri ve uygulama geliştirme teknikleri.",
+      title: t("certificates.cpp.title"),
+      description: t("certificates.cpp.description"),
       pdfPath: "/certs/C++_ile_Programlamaya_Giriş__Sertifika.pdf"
     },
     {
       icon: "🛡️",
-      title: "DoS ve DDoS Saldırıları ve Koruma",
-      description: "Hizmet engelleme saldırılarına karşı koruma ve önleme stratejileri.",
+      title: t("certificates.ddos.title"),
+      description: t("certificates.ddos.description"),
       pdfPath: "/certs/DoS___DDos_Saldırıları_ve_Koruma_Sertifika.pdf"
     },
     {
       icon: "🌐",
-      title: "HTML5 ile Web Geliştirme",
-      description: "Modern web sayfaları ve uygulamaları geliştirme teknikleri ve HTML5 özellikleri.",
+      title: t("certificates.html5.title"),
+      description: t("certificates.html5.description"),
       pdfPath: "/certs/HTML5_ile_Web_Geliştirme_Sertifika.pdf"
     },
     {
       icon: "🐧",
-      title: "Siber Güvenlikte Linux İşletim Sistemleri",
-      description: "Siber güvenlik alanında Linux işletim sistemlerinin kullanımı ve güvenlik uygulamaları.",
+      title: t("certificates.linux.title"),
+      description: t("certificates.linux.description"),
       pdfPath: "/certs/Siber_Güvenlikte_Linux_İşletim_Sistemleri_Sertifika.pdf"
     }
   ];
@@ -221,7 +225,7 @@ function Certs() {
 
   return (
     <>
-      <SectionHeader subtitle="Eğitimlerim" title="Sertifikalarım" />
+      <SectionHeader subtitle={t("certificatesSubtitle")} title={t("certificatesTitle")} />
 
       <div className="relative mt-16 mb-16">
         <div 
