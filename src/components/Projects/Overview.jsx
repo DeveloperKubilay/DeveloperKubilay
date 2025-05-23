@@ -3,13 +3,41 @@ import SectionHeader from "../../utils/selectionHeader.jsx";
 import Fullscreen from "./Fullscreen.jsx";
 import { useTranslation } from 'react-i18next';
 
+// Function to get language color
+const getLanguageColor = (language) => {
+  const colors = {
+    JavaScript: '#f1e05a',
+    TypeScript: '#2b7489',
+    HTML: '#e34c26',
+    CSS: '#563d7c',
+    Python: '#3572A5',
+    Java: '#b07219',
+    Ruby: '#701516',
+    PHP: '#4F5D95',
+    C: '#88919a',  // Updated lighter color for C language
+    'C++': '#f34b7d',
+    'C#': '#178600',
+    Go: '#00ADD8',
+    Rust: '#dea584',
+    Swift: '#ffac45',
+    Kotlin: '#F18E33',
+    Dart: '#00B4AB',
+    Scala: '#c22d40',
+    R: '#198CE7',
+    Shell: '#89e051',
+    Lua: '#000080',
+  };
+  
+  return colors[language] || '#3178c6'; // Default color if not found
+};
+
 const ProjectCard = ({ project, t }) => {
   return (
-    <div className="bg-gradient-to-r from-gray-800 to-gray-900 p-6 rounded-xl border border-blue-900/30 transform transition-all hover:shadow-[0_4px_20px_rgba(59,130,246,0.2)] hover:border-blue-700/40 hover:scale-105 hover:-translate-y-1 relative">
-      <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent mb-2 pr-16">
+    <div className="bg-gradient-to-r from-gray-800 to-gray-900 p-6 rounded-xl border border-blue-900/30 transform transition-all hover:shadow-[0_4px_20px_rgba(59,130,246,0.2)] hover:border-blue-700/40 hover:scale-105 hover:-translate-y-1 relative flex flex-col h-full">
+      <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent mb-2 pr-16 truncate">
         {project.name}
       </h3>
-      <p className="text-gray-300 mb-4">{project.description || t("projectNoDescription")}</p>
+      <p className="text-gray-300 mb-4 line-clamp-3">{project.description || t("projectNoDescription")}</p>
       
       <div className="flex flex-wrap gap-2 mb-4">
         {project.topics && project.topics.slice(0, 3).map((topic, index) => (
@@ -28,13 +56,18 @@ const ProjectCard = ({ project, t }) => {
       </div>
       
       {project.language && (
-        <div className="absolute top-3 right-3 bg-gray-700/80 text-gray-300 text-xs font-medium py-1 px-2.5 rounded-full border border-gray-600">
-          <span className="inline-block w-2 h-2 rounded-full mr-1 bg-blue-400"></span>
+        <div className="absolute top-3 right-3 text-xs font-medium py-1 px-2.5 rounded-full border" 
+             style={{ 
+               backgroundColor: `${getLanguageColor(project.language)}20`, 
+               color: getLanguageColor(project.language),
+               borderColor: `${getLanguageColor(project.language)}40`
+             }}>
+          <span className="inline-block w-2 h-2 rounded-full mr-1" style={{ backgroundColor: getLanguageColor(project.language) }}></span>
           {project.language}
         </div>
       )}
       
-      <div className="flex justify-between items-center">
+      <div className="mt-auto pt-4 flex justify-between items-center">
         <a 
           href={`${project.html_url}/fork`} 
           target="_blank" 

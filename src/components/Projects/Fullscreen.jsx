@@ -5,6 +5,34 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { useTranslation } from 'react-i18next';
 
+// Function to get language color
+const getLanguageColor = (language) => {
+  const colors = {
+    JavaScript: '#f1e05a',
+    TypeScript: '#2b7489',
+    HTML: '#e34c26',
+    CSS: '#563d7c',
+    Python: '#3572A5',
+    Java: '#b07219',
+    Ruby: '#701516',
+    PHP: '#4F5D95',
+    C: '#88919a',  // Lighter color for C language
+    'C++': '#f34b7d',
+    'C#': '#178600',
+    Go: '#00ADD8',
+    Rust: '#dea584',
+    Swift: '#ffac45',
+    Kotlin: '#F18E33',
+    Dart: '#00B4AB',
+    Scala: '#c22d40',
+    R: '#198CE7',
+    Shell: '#89e051',
+    Lua: '#000080',
+  };
+  
+  return colors[language] || '#3178c6'; // Default color if not found
+};
+
 const Fullscreen = ({ projects = [], isOpen, onClose }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [localProjects, setLocalProjects] = useState([]);
@@ -212,13 +240,23 @@ const Fullscreen = ({ projects = [], isOpen, onClose }) => {
                 </div>
               )}
               
-              {/* Project metadata section */}
+              {/* Project metadata section with updated language badge */}
               <div className="mt-4 md:mt-6 space-y-3 md:space-y-4">
                 {currentProject.language && (
                   <div className="flex items-center">
                     <span className="text-gray-400 mr-2">{t('language')}:</span>
-                    <span className="bg-gray-800 text-blue-300 text-xs md:text-sm font-medium px-3 py-1 rounded-full border border-blue-900/50">
-                      <span className="inline-block w-1.5 h-1.5 rounded-full mr-1 bg-blue-400"></span>
+                    <span 
+                      className="text-xs md:text-sm font-medium px-3 py-1 rounded-full border" 
+                      style={{ 
+                        backgroundColor: `${getLanguageColor(currentProject.language)}20`, 
+                        color: getLanguageColor(currentProject.language),
+                        borderColor: `${getLanguageColor(currentProject.language)}40`
+                      }}
+                    >
+                      <span 
+                        className="inline-block w-1.5 h-1.5 rounded-full mr-1"
+                        style={{ backgroundColor: getLanguageColor(currentProject.language) }}
+                      ></span>
                       {currentProject.language}
                     </span>
                   </div>
