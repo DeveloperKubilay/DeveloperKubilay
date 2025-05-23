@@ -9,4 +9,4 @@ fs.writeFileSync("Nreadme.json", JSON.stringify({
             "longDescription": des,
             "codeExample": x
         }
-}), "utf8");
+},null,2), "utf8");
