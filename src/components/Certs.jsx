@@ -187,14 +187,14 @@ function Certs() {
     }
   };
 
-  const handleMouseUp = (e) => {
+  const handleMouseUp = () => {
     if (!isDragging) return;
     applyMomentum();
     setIsDragging(false);
     setDragVelocity(0);
   };
 
-  const handleTouchEnd = (e) => {
+  const handleTouchEnd = () => {
     if (!isDragging) return;
     applyMomentum();
     setIsDragging(false);
