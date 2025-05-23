@@ -1,168 +1,52 @@
-# KubitDBonline
-Versiyon: **kubitdbonline@1.0.4**
-Modülün sahibi: **kubi#5443**
-## Bilgiler 
-**Yardım:** [Yardım sunucusu](https://discord.gg/4Xpwwz6pgN) 
-# Kullanımı
-## Sunucu açma
+![Banner](https://raw.githubusercontent.com/YiitWT/lightroute/main/cdn/Logotextbanner.png)
+# 🌩️ LightRoute
 
-```js
-const parola = "sifre"
-const loglimit = "1mb"
-const dosyaismi = "kubitdbonline"
-const port = 80
+A ligth weight router module just like ExpressJS, it's easy to use and easy to understand and it's a good choice for beginners also professionals.
 
-const {kubitdb} = require('kubitdb')
-const db = new kubitdb(dosyaismi)
-const express = require('express')
-const app = express()
-app.listen(port)
-const bodyParser = require("body-parser")
-app.use(bodyParser.json({limit: loglimit}));
-app.use(bodyParser.urlencoded({limit: loglimit, extended: true}));
+## 🗽 Features
 
-app.get('/kubitdbonlineall/'+parola, function (req, res) {res.json(db.hepsi())})
-app.post('/kubitdbonline', function (req, res) {
-if (parola === req.body.parola) {
-if(req.body.yapilcak === "set"){db.ayarla(req.body.deger1,req.body.deger2)}
-if(req.body.yapilcak === "add"){db.ekle(req.body.deger1,req.body.deger2)}
-if(req.body.yapilcak === "delete"){db.sil(req.body.deger1)}
-if(req.body.yapilcak === "subtract"){db.cıkar(req.body.deger1,req.body.deger2)}
-if(req.body.yapilcak === "push"){db.it(req.body.deger1,req.body.deger2)}
-if(req.body.yapilcak === "clear"){db.temizle()}  
-res.end()
-}})
+- Eays to learn
+- Every functions you need to.
+- Lightweitght and fast as lightning
+- Cross platform
+
+
+## 📦 Installation
+
+You can install LightRoute via NPM/YARN
+
+```bash
+  npm install lightroute
+  yarn add lightroute
 ```
-## Sunucuya bağlanma
-```js
-const kubitdbonline = require('kubitdbonline')
-const db = new kubitdbonline("https://slyhterindashboard.cf","sifre")
+    
+## 🚀 Documentation
+You can learn how to use it from GitBook
 
-//Sunucuda Bilgi alma (fetch,get,all)
-db.al()
-db.bak()
-db.get()
-db.fetch()
+[Documentation](https://lightroute.gitbook.io/)
 
-const kubitdbonline = require('kubitdbonline')
-const db = new kubitdbonline("https://slyhterindashboard.cf","sifre")
-db.al().then(kubitdb=>{
-console.log(kubitdb)//if you want all data 
-console.log(kubitdb["elma"])//elmayı değiştirebilirsiniz
-})
-})
-/*/
-3
-/*/
 
-//Sunucuda varmı (has)
-db.al()
-db.bak()
-db.get()
-db.fetch()
 
-const kubitdbonline = require('kubitdbonline')
-const db = new kubitdbonline("https://slyhterindashboard.cf","sifre")
 
-db.al().then(kubitdb=>{
-var has;if(kubitdb["elma"]) {has = true} else {has = false}
-console.log(has)
-})
-/*
-true
-false
-*/
 
-//Sunucuda ayarlama (set)
-db.ayarla()
-db.set()
 
-const kubitdbonline = require('kubitdbonline')
-const db = new kubitdbonline("https://slyhterindashboard.cf","sifre")
-db.ayarla("elma","yok") 
-/*/
-{
-  "elma":"yok"
-}
-/*/
+## ❓ Support
+You can get support from our discord servers
 
-//Sunucuda silme (delete)
-db.sil()
-db.delete()
-db.del()
+[![](https://dcbadge.vercel.app/api/server/MSyvQpurXc)](https://discord.gg/MSyvQpurXc)
 
-const kubitdbonline = require('kubitdbonline')
-const db = new kubitdbonline("https://slyhterindashboard.cf","sifre")
-db.sil("elma") 
-/*/
-{}
-/*/
+[![](https://dcbadge.vercel.app/api/server/whW7c9azVF)](https://discord.gg/whW7c9azVF)
 
-//Sunucuda temizleme (clear)
-db.temizle()
-db.clear()
-db.deleteAll()
-db.clearAll()
 
-const kubitdbonline = require('kubitdbonline')
-const db = new kubitdbonline("https://slyhterindashboard.cf","sifre")
-db.temizle()
-/*/
-{}
-/*/
 
-//Sunucuda cıkarma (subtract)
-db.cıkar()
-db.subtract()
 
-const kubitdbonline = require('kubitdbonline')
-const db = new kubitdbonline("https://slyhterindashboard.cf","sifre")
-db.cıkar("elma",1) 
-/*/
-{
-  "elma": "9"
-}
-/*/
+## 📰 License
 
-//Sunucuda itme (push)
-db.it()
-db.push()
+[Apache 2.0](https://choosealicense.com/licenses/apache-2.0/)
 
-const kubitdbonline = require('kubitdbonline')
-const db = new kubitdbonline("https://slyhterindashboard.cf","sifre")
-db.it("elma","deneme")
-/*/
-{
-  "elma":{
-    "deneme",
-    {
-      deneme:"3",
-      "aa":"c"
-    }
-  }
-}
-/*/
 
-//Sunucuda ekleme (add)
-db.ekle()
-db.add()
+## 🫅 Authors
 
-const kubitdbonline = require('kubitdbonline')
-const db = new kubitdbonline("https://slyhterindashboard.cf","sifre")
-db.ekle("elma",1)
-/*/
-{
-  "elma": 2
-}
-/*/
+- [@YiitWT](https://www.github.com/YiitWT)
+- [@DeveloperKubilay](https://www.github.com/developerkubilay)
 
-```
-### Yerel Database için
-##### KubitDB
-- ```npm i kubitdb```
-##### [KubitDB kullanımı](https://www.npmjs.com/package/kubitdb) 
-
-##### Hatamı alıyorsun konsola npm i axios express kubitdb body-parser yazmayı dene
-##### Hala hatamı alıyorsun [Yardım sunucumuza gel](https://discord.gg/4Xpwwz6pgN) 
-##### KubitDBonline'yi Yüklemek için
-- ```npm i kubitdbonline```
