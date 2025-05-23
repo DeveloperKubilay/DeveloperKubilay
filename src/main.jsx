@@ -34,7 +34,6 @@ const LoadingAnimation = () => {
   );
 };
 
-// Define HomePage component before using it in the router
 const HomePage = () => {
   const [githubData, setGithubData] = useState({ main:{public_repos: 0} });
   const [loading, setLoading] = useState(true);
@@ -50,24 +49,30 @@ const HomePage = () => {
         const cachedTime = localStorage.getItem('githubDataTimestamp');
         const currentTime = new Date().getTime();
 
-        if (cachedData && cachedTime && (currentTime - parseInt(cachedTime) < 1800000)) {
-          // Reduce console output
-          // console.log('Using cached GitHub data');
-          setGithubData(JSON.parse(cachedData));
-          setLoading(false);
-          return;
+        let userData = null;
+        let userCommits = null;
+        let projectsData = [];
+        const cachedProjects = localStorage.getItem('githubProjects');
+        
+        if (cachedData && cachedTime && cachedProjects && (currentTime - parseInt(cachedTime) < 1800000)) {
+          const parsedData = JSON.parse(cachedData);
+          userData = parsedData.main;
+          userCommits = parsedData.commits;
+          projectsData = JSON.parse(cachedProjects);
+        } else {
+          const githubreq = await fetch('https://api.github.com/users/DeveloperKubilay');
+          userData = await githubreq.json();
+          const commitsreq = await fetch('https://github-contributions-api.jogruber.de/v4/DeveloperKubilay');
+          userCommits = (await commitsreq.json())?.total;
+          const projectsReq = await fetch('https://api.github.com/users/DeveloperKubilay/repos?sort=updated');
+          projectsData = (await projectsReq.json())
+          
+          const data = {main: userData, commits: userCommits, projects: projectsData};
+          localStorage.setItem('githubData', JSON.stringify(data));
+          localStorage.setItem('githubDataTimestamp', currentTime.toString());
         }
         
-        const githubreq = await fetch('https://api.github.com/users/DeveloperKubilay');
-        const githubdata = await githubreq.json();
-        const commitsreq = await fetch('https://github-contributions-api.jogruber.de/v4/DeveloperKubilay');
-        const commits = (await commitsreq.json())?.total;
-        const data = {main:githubdata,commits:commits}
-        
-        localStorage.setItem('githubData', JSON.stringify(data));
-        localStorage.setItem('githubDataTimestamp', currentTime.toString());
-        
-        setGithubData(data);
+        setGithubData({main: userData, commits: userCommits, projects: projectsData});
         setLoading(false);
       } catch (error) {
         console.error('Error fetching GitHub data:', error);
@@ -99,7 +104,7 @@ const HomePage = () => {
           <Body githubData={githubData} />
           <Certs />
           <Hobies />
-          <Projects_Overview />
+          <Projects_Overview githubProjects={githubData} />
           <Contact />
         </>
       )}
@@ -107,7 +112,6 @@ const HomePage = () => {
   )
 }
 
-// Now we can use HomePage in our router configuration
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -136,8 +140,6 @@ root.render(
 );
 
 i18nInitialized.then(() => {
-  // Reduce console logs
-  // console.log("Translations initialized, rendering app");
   root.render(
     <StrictMode>
       <Suspense fallback={<LoadingAnimation />}>

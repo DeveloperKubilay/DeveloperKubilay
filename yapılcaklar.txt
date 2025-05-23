@@ -1,6 +1,4 @@
 Projeleri gösterme direk
-projelerimi ekleme
-
 
 nav menusu
 dil desteği
