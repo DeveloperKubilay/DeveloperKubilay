@@ -1,12 +1,12 @@
 import { StrictMode, useState, useEffect, useRef, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
-import { 
-  BrowserRouter, 
-  Routes, 
+import {
+  BrowserRouter,
+  Routes,
   Route,
-  createRoutesFromElements, 
-  createBrowserRouter, 
-  RouterProvider 
+  createRoutesFromElements,
+  createBrowserRouter,
+  RouterProvider
 } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
@@ -25,7 +25,7 @@ import { i18nInitialized } from './utils/i18n.js'
 
 const LoadingAnimation = () => {
   const { t } = useTranslation();
-  
+
   return (
     <div className="loading-overlay">
       <div className="loading-spinner"></div>
@@ -35,11 +35,11 @@ const LoadingAnimation = () => {
 };
 
 const HomePage = () => {
-  const [githubData, setGithubData] = useState({ main:{public_repos: 0} });
+  const [githubData, setGithubData] = useState({ main: { public_repos: 0 } });
   const [loading, setLoading] = useState(true);
   const fetchedRef = useRef(false);
   const { i18n } = useTranslation();
-  
+
   useEffect(() => {
     const fetchGithubData = async () => {
       try {
@@ -52,13 +52,14 @@ const HomePage = () => {
         let userData = null;
         let userCommits = null;
         let projectsData = [];
-        const cachedProjects = localStorage.getItem('githubProjects');
-        
-        if (cachedData && cachedTime && cachedProjects && (currentTime - parseInt(cachedTime) < 1800000)) {
+        let reposWithReadmes = [];
+
+        if (cachedData && cachedTime  && (currentTime - parseInt(cachedTime) < 7200000)) {
           const parsedData = JSON.parse(cachedData);
           userData = parsedData.main;
           userCommits = parsedData.commits;
-          projectsData = JSON.parse(cachedProjects);
+          projectsData = parsedData.projects;
+          reposWithReadmes = parsedData.reposWithReadmes;
         } else {
           const githubreq = await fetch('https://api.github.com/users/DeveloperKubilay');
           userData = await githubreq.json();
@@ -66,13 +67,28 @@ const HomePage = () => {
           userCommits = (await commitsreq.json())?.total;
           const projectsReq = await fetch('https://api.github.com/users/DeveloperKubilay/repos?sort=updated');
           projectsData = (await projectsReq.json())
-          
-          const data = {main: userData, commits: userCommits, projects: projectsData};
+
+          const reposWithReadmes = await Promise.all(projectsData.map(async (repo) => {
+            try {
+              const readmeRes = await fetch(`https://api.github.com/repos/${repo.full_name}/readme`);
+              if (!readmeRes.ok) return { ...repo, readme: null }; 
+              const readmeJson = await readmeRes.json();
+              const content = atob(readmeJson.content);
+              return { ...repo, readme: content };
+            } catch { return { ...repo, readme: null }; }
+          }));
+
+          const data = {
+            main: userData,
+            commits: userCommits,
+            projects: projectsData,
+            reposWithReadmes: reposWithReadmes
+          };
           localStorage.setItem('githubData', JSON.stringify(data));
           localStorage.setItem('githubDataTimestamp', currentTime.toString());
         }
-        
-        setGithubData({main: userData, commits: userCommits, projects: projectsData});
+
+        setGithubData({ main: userData, commits: userCommits, projects: projectsData, reposWithReadmes: reposWithReadmes });
         setLoading(false);
       } catch (error) {
         console.error('Error fetching GitHub data:', error);
@@ -87,7 +103,7 @@ const HomePage = () => {
   useEffect(() => {
     const handleLanguageChanged = () => forceUpdate({});
     i18n.on('languageChanged', handleLanguageChanged);
-    
+
     return () => {
       i18n.off('languageChanged', handleLanguageChanged);
     };
