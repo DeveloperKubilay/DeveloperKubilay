@@ -52,23 +52,19 @@ const HomePage = () => {
         let userData = null;
         let userCommits = null;
         let projectsData = [];
-        let reposWithReadmes = [];
 
         if (cachedData && cachedTime  && (currentTime - parseInt(cachedTime) < 7200000)) {
           const parsedData = JSON.parse(cachedData);
           userData = parsedData.main;
           userCommits = parsedData.commits;
           projectsData = parsedData.projects;
-          reposWithReadmes = parsedData.reposWithReadmes;
         } else {
           const githubreq = await fetch('https://api.github.com/users/DeveloperKubilay');
           userData = await githubreq.json();
           const commitsreq = await fetch('https://github-contributions-api.jogruber.de/v4/DeveloperKubilay');
           userCommits = (await commitsreq.json())?.total;
           const projectsReq = await fetch('https://api.github.com/users/DeveloperKubilay/repos?sort=updated');
-          projectsData = (await projectsReq.json())
-
-          const reposWithReadmes = await Promise.all(projectsData.map(async (repo) => {
+          projectsData = await Promise.all((await projectsReq.json())?.map(async (repo) => {
             try {
               const readmeRes = await fetch(`https://api.github.com/repos/${repo.full_name}/readme`);
               if (!readmeRes.ok) return { ...repo, readme: null }; 
@@ -81,14 +77,13 @@ const HomePage = () => {
           const data = {
             main: userData,
             commits: userCommits,
-            projects: projectsData,
-            reposWithReadmes: reposWithReadmes
+            projects: projectsData
           };
           localStorage.setItem('githubData', JSON.stringify(data));
           localStorage.setItem('githubDataTimestamp', currentTime.toString());
         }
 
-        setGithubData({ main: userData, commits: userCommits, projects: projectsData, reposWithReadmes: reposWithReadmes });
+        setGithubData({ main: userData, commits: userCommits, projects: projectsData});
         setLoading(false);
       } catch (error) {
         console.error('Error fetching GitHub data:', error);
