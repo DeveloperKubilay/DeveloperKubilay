@@ -33,6 +33,26 @@ const getLanguageColor = (language) => {
   return colors[language] || '#3178c6'; // Default color if not found
 };
 
+// Function to clean up markdown content with encoding issues
+const cleanupMarkdownContent = (content) => {
+  if (!content) return '';
+  
+  // Replace common problematic character sequences
+  return content
+    // Fix common broken UTF-8 characters
+    .replace(/â/g, '•') // Replace broken bullet points
+    .replace(/ð/g, '') // Remove unknown character
+    .replace(/â€™/g, "'") // Fix single quotes
+    .replace(/â€œ/g, '"') // Fix opening double quotes
+    .replace(/â€/g, '"') // Fix closing double quotes
+    .replace(/â€¦/g, '...') // Fix ellipsis
+    .replace(/â€"/g, '—') // Fix em dash
+    .replace(/â€"/g, '–') // Fix en dash
+    .replace(/Â/g, '') // Remove non-breaking space prefix
+    // You can add more replacements as needed
+    ;
+};
+
 const Fullscreen = ({ projects = [], isOpen, onClose }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [localProjects, setLocalProjects] = useState([]);
@@ -314,7 +334,7 @@ const Fullscreen = ({ projects = [], isOpen, onClose }) => {
             <div className="md:w-[70%] p-3 md:p-4 overflow-y-auto overflow-x-hidden border-t md:border-t-0 md:border-l border-gray-700 mt-4 md:mt-0">
               <h3 className="text-lg md:text-xl font-semibold text-blue-300 mb-2 md:mb-3">{t('detailedInfo')}</h3>
               
-              {currentProject.codeExample ? (
+              {currentProject.codeExample || currentProject.readme ? (
                 <div className="prose prose-invert prose-sm md:prose-base max-w-none">
                   <ReactMarkdown 
                     rehypePlugins={[rehypeRaw]} 
@@ -338,7 +358,7 @@ const Fullscreen = ({ projects = [], isOpen, onClose }) => {
                       )
                     }}
                   >
-                    {currentProject.codeExample}
+                    {cleanupMarkdownContent(currentProject.codeExample || currentProject.readme)}
                   </ReactMarkdown>
                 </div>
               ) : (

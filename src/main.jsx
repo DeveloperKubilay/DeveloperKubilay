@@ -69,7 +69,23 @@ const HomePage = () => {
               const readmeRes = await fetch(`https://api.github.com/repos/${repo.full_name}/readme`);
               if (!readmeRes.ok) return { ...repo, readme: null }; 
               const readmeJson = await readmeRes.json();
-              const content = atob(readmeJson.content);
+              
+              // Improved decoding to handle UTF-8 properly
+              let content;
+              try {
+                // Try to use the TextDecoder first for better UTF-8 support
+                const base64 = readmeJson.content.replace(/\n/g, '');
+                const binary = atob(base64);
+                const bytes = new Uint8Array(binary.length);
+                for (let i = 0; i < binary.length; i++) {
+                  bytes[i] = binary.charCodeAt(i);
+                }
+                content = new TextDecoder('utf-8').decode(bytes);
+              } catch (e) {
+                // Fall back to simple atob if TextDecoder fails
+                content = atob(readmeJson.content);
+              }
+              
               return { ...repo, readme: content };
             } catch { return { ...repo, readme: null }; }
           }));
