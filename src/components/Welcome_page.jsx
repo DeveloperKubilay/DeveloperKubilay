@@ -2,16 +2,37 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from "react-i18next";
 
 
-const StatItem = ({ value, label, itemName, hoveredItem, onMouseEnter, onMouseLeave }) => (
-    <div
-        className={`flex items-center transition-all duration-300 ${hoveredItem && hoveredItem !== itemName ? 'blur-sm opacity-100' : ''}`}
-        onMouseEnter={() => onMouseEnter(itemName)}
-        onMouseLeave={onMouseLeave}
-    >
-        <div className="text-5xl md:text-7xl font-bold mr-2">{value}</div>
-        <div className="text-gray-300 text-xl md:text-3xl">{label}</div>
-    </div>
-);
+const StatItem = ({ value, label, itemName, hoveredItem, onMouseEnter, onMouseLeave }) => {
+    const [displayValue, setDisplayValue] = useState(0);
+    
+    useEffect(() => {
+        let startValue = 0;
+        const duration = 1500; 
+        const step = Math.ceil(value / (duration / 16)); 
+        const timer = setInterval(() => {
+            startValue += step;
+            if (startValue >= value) {
+                setDisplayValue(value);
+                clearInterval(timer);
+            } else {
+                setDisplayValue(startValue);
+            }
+        }, 16);
+        
+        return () => clearInterval(timer);
+    }, [value]);
+    
+    return (
+        <div
+            className={`flex items-center transition-all duration-300 ${hoveredItem && hoveredItem !== itemName ? 'blur-sm opacity-100' : ''}`}
+            onMouseEnter={() => onMouseEnter(itemName)}
+            onMouseLeave={onMouseLeave}
+        >
+            <div className="text-5xl md:text-7xl font-bold mr-2">{displayValue}</div>
+            <div className="text-gray-300 text-xl md:text-3xl">{label}</div>
+        </div>
+    );
+};
 
 function Welcome_page({ githubData }) {
     const [old, setold] = useState(0);
