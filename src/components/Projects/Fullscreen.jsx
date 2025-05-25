@@ -347,9 +347,18 @@ const Fullscreen = ({ projects = [], isOpen, onClose }) => {
                       h4: ({...props}) => <HeadingRenderer level={4} {...props} />,
                       h5: ({...props}) => <HeadingRenderer level={5} {...props} />,
                       h6: ({...props}) => <HeadingRenderer level={6} {...props} />,
-                      p: ({children, ...props}) => (
-                        <p className="text-gray-300 mb-3 md:mb-4 text-sm md:text-base" {...props}>{children}</p>
-                      ),
+                      p: ({children, node, ...props}) => {
+                        // Check if paragraph contains only an image
+                        const hasOnlyImage = node?.children?.length === 1 && 
+                                            node.children[0].tagName === 'img';
+                        
+                        // If paragraph contains only an image, don't wrap with <p>
+                        if (hasOnlyImage) {
+                          return <>{children}</>;
+                        }
+                        
+                        return <p className="text-gray-300 mb-3 md:mb-4 text-sm md:text-base" {...props}>{children}</p>;
+                      },
                       ul: ({...props}) => <ul className="list-disc pl-5 md:pl-6 mb-3 md:mb-4 text-gray-300" {...props} />,
                       ol: ({...props}) => <ol className="list-decimal pl-5 md:pl-6 mb-3 md:mb-4 text-gray-300" {...props} />,
                       li: ({...props}) => <li className="mb-1 text-sm md:text-base" {...props} />,
