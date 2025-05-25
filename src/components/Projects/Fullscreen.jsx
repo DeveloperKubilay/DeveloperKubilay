@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+// Fix the import to use properly exported themes
+import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { useTranslation } from 'react-i18next';
@@ -175,39 +176,47 @@ const Fullscreen = ({ projects = [], isOpen, onClose }) => {
     return !inline ? (
       <SyntaxHighlighter
         language={lang}
-        style={vscDarkPlus}
+        style={oneDark} // Using GitHub dark theme
         className="rounded-lg text-sm my-4"
         customStyle={{
           fontSize: '0.8rem',
-          lineHeight: '1.4',
+          lineHeight: '1.5',
           padding: '1rem',
           margin: '1rem 0',
-          overflowX: 'auto'
+          overflowX: 'auto',
+          backgroundColor: '#0d1117', // GitHub dark mode background color
+          border: '1px solid #30363d', // GitHub dark mode border color
+          textShadow: 'none', // Remove text shadow that might cause selection appearance
+          selectionColor: 'transparent', // Prevent selection color
+          '::selection': { backgroundColor: 'transparent' } // Attempt to prevent selection appearance
+        }}
+        codeTagProps={{
+          style: {
+            backgroundColor: 'transparent', 
+            textShadow: 'none'
+          }
         }}
         {...props}
       >
         {String(children).replace(/\n$/, '')}
       </SyntaxHighlighter>
     ) : (
-      <code className="bg-gray-800 px-1 py-0.5 rounded text-blue-300 text-xs md:text-sm" {...props}>
+      <code className="bg-gray-800 px-1 py-0.5 rounded text-blue-300 text-xs md:text-sm" 
+        style={{ textShadow: 'none' }} {...props}>
         {children}
       </code>
     );
   };
 
-  // Custom renderer for images in markdown
-  const ImageRenderer = ({src, alt, ...props}) => {
-    return (
-      <div className="my-4 flex justify-center">
-        <img 
-          src={src} 
-          alt={alt || 'Project image'} 
-          className="max-w-full rounded-lg shadow-lg border border-gray-700" 
-          {...props} 
-        />
-      </div>
-    );
-  };
+  // Custom renderer for images in markdown - No div wrapper to avoid hydration issues
+  const ImageRenderer = ({src, alt, ...props}) => (
+    <img 
+      src={src} 
+      alt={alt || 'Project image'} 
+      className="max-w-full rounded-lg shadow-lg border border-gray-700 my-4 mx-auto" 
+      {...props} 
+    />
+  );
 
   // Custom heading renderer
   const HeadingRenderer = ({level, children}) => {
@@ -348,16 +357,60 @@ const Fullscreen = ({ projects = [], isOpen, onClose }) => {
                       h5: ({...props}) => <HeadingRenderer level={5} {...props} />,
                       h6: ({...props}) => <HeadingRenderer level={6} {...props} />,
                       p: ({children, node, ...props}) => {
-                        // Check if paragraph contains only an image
-                        const hasOnlyImage = node?.children?.length === 1 && 
-                                            node.children[0].tagName === 'img';
+                        // Enhanced check for paragraphs containing images or code blocks
+                        let hasBlockElement = false;
                         
-                        // If paragraph contains only an image, don't wrap with <p>
-                        if (hasOnlyImage) {
+                        if (node?.children) {
+                          for (const child of node.children) {
+                            // Check for images
+                            if (child.tagName === 'img') {
+                              hasBlockElement = true;
+                              break;
+                            }
+                            // Check for links with images
+                            if (child.tagName === 'a' && child.children) {
+                              for (const linkChild of child.children) {
+                                if (linkChild.tagName === 'img') {
+                                  hasBlockElement = true;
+                                  break;
+                                }
+                              }
+                              if (hasBlockElement) break;
+                            }
+                            // Check for code blocks (pre tags are created by SyntaxHighlighter)
+                            if (child.tagName === 'code' && !child.properties?.inline) {
+                              hasBlockElement = true;
+                              break;
+                            }
+                            // Check for direct pre tags
+                            if (child.tagName === 'pre') {
+                              hasBlockElement = true;
+                              break;
+                            }
+                          }
+                        }
+                        
+                        // Check children directly to catch any code blocks
+                        if (!hasBlockElement && Array.isArray(children)) {
+                          for (const child of children) {
+                            if (child?.props?.node?.tagName === 'code' && 
+                                !child?.props?.inline) {
+                              hasBlockElement = true;
+                              break;
+                            }
+                          }
+                        }
+                        
+                        // If paragraph contains a block element, don't wrap with <p>
+                        if (hasBlockElement) {
                           return <>{children}</>;
                         }
                         
                         return <p className="text-gray-300 mb-3 md:mb-4 text-sm md:text-base" {...props}>{children}</p>;
+                      },
+                      pre: ({children}) => {
+                        // Ensure pre elements are rendered directly
+                        return <div className="not-prose my-4">{children}</div>;
                       },
                       ul: ({...props}) => <ul className="list-disc pl-5 md:pl-6 mb-3 md:mb-4 text-gray-300" {...props} />,
                       ol: ({...props}) => <ol className="list-decimal pl-5 md:pl-6 mb-3 md:mb-4 text-gray-300" {...props} />,

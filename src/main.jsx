@@ -81,7 +81,7 @@ const HomePage = () => {
                   bytes[i] = binary.charCodeAt(i);
                 }
                 content = new TextDecoder('utf-8').decode(bytes);
-              } catch (e) {
+              } catch {
                 // Fall back to simple atob if TextDecoder fails
                 content = atob(readmeJson.content);
               }
