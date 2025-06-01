@@ -9,6 +9,8 @@ function App() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const audioRef = useRef(new Audio("/musics/Hit_road_jack.mp3"));
     const dropdownRef = useRef(null);
+    const desktopDropdownRef = useRef(null);
+    const mobileDropdownRef = useRef(null);
     
     useEffect(() => {
         audioRef.current.volume = 0.5;
@@ -45,28 +47,91 @@ function App() {
                 <path d="M15,0 L15,20 M0,10 L30,10" stroke="#CF142B" strokeWidth="3"/>
                 <path d="M0,0 L30,20 M30,0 L0,20" stroke="#CF142B" strokeWidth="2"/>
             </svg>
+        ),
+        ar: (
+            <svg className="w-6 h-4 mr-2 rounded-sm" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+                <rect fill="#006233" width="30" height="20"/>
+                <path d="M15,5 L15,15 M10,10 L20,10" stroke="#FFFFFF" strokeWidth="2"/>
+                <path d="M21,7 A 10 10 0 1 0 21,13 A 10 10 0 1 0 21,7" fill="#006233" stroke="#FFFFFF" strokeWidth="1"/>
+            </svg>
+        ),
+        de: (
+            <svg className="w-6 h-4 mr-2 rounded-sm" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+                <rect fill="#000000" width="30" height="20"/>
+                <rect fill="#FF0000" width="30" height="13.33" y="6.67"/>
+                <rect fill="#FFCC00" width="30" height="6.67" y="13.33"/>
+            </svg>
+        ),
+        es: (
+            <svg className="w-6 h-4 mr-2 rounded-sm" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+                <rect fill="#AA151B" width="30" height="20"/>
+                <rect fill="#F1BF00" width="30" height="10" y="5"/>
+            </svg>
+        ),
+        fr: (
+            <svg className="w-6 h-4 mr-2 rounded-sm" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+                <rect fill="#002395" width="10" height="20"/>
+                <rect fill="#FFFFFF" width="10" height="20" x="10"/>
+                <rect fill="#ED2939" width="10" height="20" x="20"/>
+            </svg>
+        ),
+        ja: (
+            <svg className="w-6 h-4 mr-2 rounded-sm" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+                <rect fill="#FFFFFF" width="30" height="20"/>
+                <circle fill="#BC002D" cx="15" cy="10" r="6"/>
+            </svg>
+        ),
+        ru: (
+            <svg className="w-6 h-4 mr-2 rounded-sm" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+                <rect fill="#FFFFFF" width="30" height="20"/>
+                <rect fill="#0039A6" width="30" height="13.33" y="6.67"/>
+                <rect fill="#D52B1E" width="30" height="6.67" y="13.33"/>
+            </svg>
+        ),
+        zh: (
+            <svg className="w-6 h-4 mr-2 rounded-sm" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+                <rect fill="#DE2910" width="30" height="20"/>
+                <path fill="#FFDE00" d="M5,5 L6.5,8.5 L10,9 L6.5,10.5 L5,14 L3.5,10.5 L0,9 L3.5,8.5 Z"/>
+                <path fill="#FFDE00" d="M12,2 L12.5,3.5 L14,4 L12.5,4.5 L12,6 L11.5,4.5 L10,4 L11.5,3.5 Z"/>
+                <path fill="#FFDE00" d="M14,5 L14.5,6.5 L16,7 L14.5,7.5 L14,9 L13.5,7.5 L12,7 L13.5,6.5 Z"/>
+                <path fill="#FFDE00" d="M12,9 L12.5,10.5 L14,11 L12.5,11.5 L12,13 L11.5,11.5 L10,11 L11.5,10.5 Z"/>
+                <path fill="#FFDE00" d="M14,12 L14.5,13.5 L16,14 L14.5,14.5 L14,16 L13.5,14.5 L12,14 L13.5,13.5 Z"/>
+            </svg>
         )
     };
     
 
     const languages = [
         { code: 'tr', countryCode: 'TR', name: 'Türkçe' },
-        { code: 'en', countryCode: 'EN', name: 'English' }
+        { code: 'en', countryCode: 'EN', name: 'English' },
+        { code: 'ar', countryCode: 'AR', name: 'العربية' },
+        { code: 'de', countryCode: 'DE', name: 'Deutsch' },
+        { code: 'es', countryCode: 'ES', name: 'Español' },
+        { code: 'fr', countryCode: 'FR', name: 'Français' },
+        { code: 'ja', countryCode: 'JA', name: '日本語' },
+        { code: 'ru', countryCode: 'RU', name: 'Русский' },
+        { code: 'zh', countryCode: 'ZH', name: '中文' }
     ];
     
 
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            // Check for desktop dropdown
+            if (dropdownOpen && 
+                desktopDropdownRef.current && 
+                !desktopDropdownRef.current.contains(event.target) &&
+                mobileDropdownRef.current &&
+                !mobileDropdownRef.current.contains(event.target)) {
                 setDropdownOpen(false);
             }
         };
         
+        // Use mousedown for better response
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, []);
+    }, [dropdownOpen]);  // Add dropdownOpen as dependency
     
     const handleLanguageSelect = (langCode) => {
         changeLanguage(langCode);
@@ -93,7 +158,7 @@ function App() {
     
     return (
         <nav className="w-full z-50 absolute top-0 text-gray-400 shadow-lg">
-               <div className="container mx-auto py-4 px-6 flex justify-between items-center">
+            <div className="container mx-auto py-4 px-6 flex justify-between items-center">
                 <div className="self-center">
                     <div className="flex items-center sm:-ml-14">
                         <button 
@@ -134,10 +199,10 @@ function App() {
                         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300 ease-in-out"></span>
                     </button>
 
-                    <div className="relative" ref={dropdownRef}>
+                    <div className="relative" ref={desktopDropdownRef}>
                         <button 
                             onClick={() => setDropdownOpen(!dropdownOpen)} 
-                            className="ml-2 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300 hover:shadow-md flex items-center"
+                            className="dropdown-toggle ml-2 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300 hover:shadow-md flex items-center"
                         >
                             {flags[currentLanguage.code]}
                             <span className="font-medium">{currentLanguage.countryCode}</span>
@@ -160,6 +225,7 @@ function App() {
                                     <button
                                         key={language.code}
                                         onClick={() => handleLanguageSelect(language.code)}
+                                        data-language-option={language.code}
                                         className={`flex items-center w-full text-left px-4 py-2 hover:bg-blue-400 ${language.code === i18n.language ? 'bg-blue-200 font-medium' : ''}`}
                                     >
                                         {flags[language.code]}
@@ -175,10 +241,10 @@ function App() {
                 
                 {/* Mobile menu button */}
                 <div className="flex md:hidden items-center space-x-3">
-                    <div className="relative" ref={dropdownRef}>
+                    <div className="relative" ref={mobileDropdownRef}>
                         <button 
                             onClick={() => setDropdownOpen(!dropdownOpen)} 
-                            className="px-3 py-1 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300 hover:shadow-md flex items-center"
+                            className="dropdown-toggle px-3 py-1 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300 hover:shadow-md flex items-center"
                         >
                             {flags[currentLanguage.code]}
                             <span className="font-medium ml-1">{currentLanguage.countryCode}</span>
@@ -190,6 +256,7 @@ function App() {
                                     <button
                                         key={language.code}
                                         onClick={() => handleLanguageSelect(language.code)}
+                                        data-language-option={language.code}
                                         className={`flex items-center w-full text-left px-4 py-2 hover:bg-blue-400 ${language.code === i18n.language ? 'bg-blue-200 font-medium' : ''}`}
                                     >
                                         {flags[language.code]}
@@ -248,8 +315,4 @@ function App() {
                     </button>
                 </div>
             </div>
-        </nav>
-    )
-}
-
-export default App
+        </nav>    );}export default App;

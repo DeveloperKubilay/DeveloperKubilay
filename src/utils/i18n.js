@@ -8,7 +8,7 @@ export const i18nInitialized = new Promise(resolve => {
 });
 
 const loadTranslations = async () => {
-  const languages = ["en", "tr"];
+  const languages = ["en", "tr", "ar", "de", "es", "fr", "ja", "ru", "zh"];
   const resources = {};
 
   try {
