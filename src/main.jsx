@@ -53,53 +53,67 @@ const HomePage = () => {
         let userCommits = null;
         let projectsData = [];
 
-        if (cachedData && cachedTime  && (currentTime - parseInt(cachedTime) < 7200000)) {
+        if (cachedData && cachedTime && (currentTime - parseInt(cachedTime) < 7200000)) {
           const parsedData = JSON.parse(cachedData);
           userData = parsedData.main;
           userCommits = parsedData.commits;
           projectsData = parsedData.projects;
         } else {
-          const githubreq = await fetch('https://api.github.com/users/DeveloperKubilay');
-          userData = await githubreq.json();
-          const commitsreq = await fetch('https://github-contributions-api.jogruber.de/v4/DeveloperKubilay');
-          userCommits = (await commitsreq.json())?.total;
-          const projectsReq = await fetch('https://api.github.com/users/DeveloperKubilay/repos?sort=updated');
-          projectsData = await Promise.all((await projectsReq.json())?.map(async (repo) => {
-            try {
-              const readmeRes = await fetch(`https://api.github.com/repos/${repo.full_name}/readme`);
-              if (!readmeRes.ok) return { ...repo, readme: null }; 
-              const readmeJson = await readmeRes.json();
-              
-              // Improved decoding to handle UTF-8 properly
-              let content;
+          try {
+            const githubreq = await fetch('https://api.github.com/users/DeveloperKubilay');
+            userData = await githubreq.json();
+            const commitsreq = await fetch('https://github-contributions-api.jogruber.de/v4/DeveloperKubilay');
+            userCommits = (await commitsreq.json())?.total;
+            const projectsReq = await fetch('https://api.github.com/users/DeveloperKubilay/repos?sort=updated');
+            projectsData = await Promise.all((await projectsReq.json())?.map(async (repo) => {
               try {
-                // Try to use the TextDecoder first for better UTF-8 support
-                const base64 = readmeJson.content.replace(/\n/g, '');
-                const binary = atob(base64);
-                const bytes = new Uint8Array(binary.length);
-                for (let i = 0; i < binary.length; i++) {
-                  bytes[i] = binary.charCodeAt(i);
-                }
-                content = new TextDecoder('utf-8').decode(bytes);
-              } catch {
-                // Fall back to simple atob if TextDecoder fails
-                content = atob(readmeJson.content);
-              }
-              
-              return { ...repo, readme: content };
-            } catch { return { ...repo, readme: null }; }
-          }));
+                const readmeRes = await fetch(`https://api.github.com/repos/${repo.full_name}/readme`);
+                if (!readmeRes.ok) return { ...repo, readme: null };
+                const readmeJson = await readmeRes.json();
 
-          const data = {
-            main: userData,
-            commits: userCommits,
-            projects: projectsData
-          };
-          localStorage.setItem('githubData', JSON.stringify(data));
-          localStorage.setItem('githubDataTimestamp', currentTime.toString());
+                // Improved decoding to handle UTF-8 properly
+                let content;
+                try {
+                  // Try to use the TextDecoder first for better UTF-8 support
+                  const base64 = readmeJson.content.replace(/\n/g, '');
+                  const binary = atob(base64);
+                  const bytes = new Uint8Array(binary.length);
+                  for (let i = 0; i < binary.length; i++) {
+                    bytes[i] = binary.charCodeAt(i);
+                  }
+                  content = new TextDecoder('utf-8').decode(bytes);
+                } catch {
+                  // Fall back to simple atob if TextDecoder fails
+                  content = atob(readmeJson.content);
+                }
+
+                return { ...repo, readme: content };
+              } catch { return { ...repo, readme: null }; }
+            }));
+
+            const data = {
+              main: userData,
+              commits: userCommits,
+              projects: projectsData
+            };
+            localStorage.setItem('githubData', JSON.stringify(data));
+            localStorage.setItem('githubDataTimestamp', currentTime.toString());
+          } catch {
+            const parsedData = JSON.parse(cachedData);
+            if (parsedData && parsedData.main) {
+              userData = parsedData.main;
+              userCommits = parsedData.commits;
+              projectsData = parsedData.projects;
+            } else {
+              userData = { public_repos: 0 };
+              userCommits = 0;
+              projectsData = [];
+            }
+
+          }
         }
 
-        setGithubData({ main: userData, commits: userCommits, projects: projectsData});
+        setGithubData({ main: userData, commits: userCommits, projects: projectsData });
         setLoading(false);
       } catch (error) {
         console.error('Error fetching GitHub data:', error);

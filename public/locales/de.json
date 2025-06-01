@@ -1,0 +1,103 @@
+{
+    "working_on_projects": "Projekte",
+    "projects_text": "Meine Projekte",
+    "loadingProjects": "Projekte werden geladen...",
+    "age": "Alter",
+    "greeting": "Hallo, ich bin",
+    "name": "Kubilay",
+    "role": "Softwareentwickler",
+    "tagline": "Lass uns ein weiteres Projekt entwickeln!!! 🔥🔥🔥",
+    "github": "Github",
+    "viewProjects": "Projekte ansehen",
+    "viewProject": "Ansehen",
+    "fullscreenView": "Im Vollbildmodus anzeigen (empfohlen)",
+    "loading": "Wird geladen...",
+    "contactTitle": "Kontakt",
+    "contactSubtitle": "Kontakt aufnehmen",
+    "copyEmail": "E-Mail-Adresse kopieren",
+    "skills": "Meine Fähigkeiten",
+    "contact": "Kontakt",
+    "playMusic": "Musik abspielen",
+    "pauseMusic": "Musik pausieren",
+    "projectNoDescription": "Keine Beschreibung verfügbar",
+    "detailedDescription": "Detaillierte Beschreibung",
+    "detailedInfo": "Detaillierte Informationen",
+    "language": "Sprache",
+    "topics": "Themen",
+    "fork": "Fork",
+    "noDetailedInfo": "Für dieses Projekt wurden noch keine detaillierten Informationen hinzugefügt.",
+    "moreInfoOnGithub": "Weitere Informationen auf GitHub",
+    "previousProject": "Vorheriges Projekt",
+    "nextProject": "Nächstes Projekt",
+    "projectsSubtitle": "Projekte, an denen ich bisher gearbeitet habe",
+    "hobbiesTitle": "Meine Hobbys",
+    "hobbiesSubtitle": "Was ich in meiner Freizeit mache",
+    "hours": "Stunden",
+    "certificatesTitle": "Meine Zertifikate",
+    "certificatesSubtitle": "Meine Ausbildung",
+    "clickToViewCertificate": "Klicken Sie, um das Zertifikat anzuzeigen",
+    "socialLinks": {
+        "github": "GitHub-Profil",
+        "youtube": "YouTube-Kanal",
+        "steam": "Steam-Profil"
+    },
+    "hobbies": {
+        "bannerlord": {
+            "title": "Mount & Blade II: Bannerlord",
+            "description": "Ein Spiel, das strategische Kampfmechaniken und die Freiheit bietet, sich in einer mittelalterlichen Welt zu bewegen."
+        },
+        "chess": {
+            "title": "Chess.com",
+            "description": "Ich spiele gerne Online-Schach, um meine strategischen Fähigkeiten zu entwickeln."
+        },
+        "citiesSkylines": {
+            "title": "Cities: Skylines",
+            "description": "Ein Stadtsimulationsspiel, das ich nutze, um meine eigenen Städte zu entwerfen und zu verwalten."
+        }
+    },
+    "certificates": {
+        "publicSpeaking": {
+            "title": "Öffentliches Reden und effektive Präsentationstechniken",
+            "description": "Methoden für effektive Präsentations- und öffentliche Redenfähigkeiten."
+        },
+        "api": {
+            "title": "API und API-Tests",
+            "description": "Umfassendes Schulungszertifikat zu API-Entwicklungs- und Testtechniken."
+        },
+        "cpp": {
+            "title": "Einführung in die Programmierung mit C++",
+            "description": "Grundkonzepte der Programmiersprache C++ und Anwendungsentwicklungstechniken."
+        },
+        "ddos": {
+            "title": "DoS- und DDoS-Angriffe und Schutz",
+            "description": "Schutz- und Präventionsstrategien gegen Denial-of-Service-Angriffe."
+        },
+        "html5": {
+            "title": "Webentwicklung mit HTML5",
+            "description": "Moderne Webseiten- und Anwendungsentwicklungstechniken und HTML5-Funktionen."
+        },
+        "linux": {
+            "title": "Linux-Betriebssysteme in der Cybersicherheit",
+            "description": "Verwendung von Linux-Betriebssystemen in der Cybersicherheit und Sicherheitsanwendungen."
+        }
+    },
+    "projects": {
+        "SaveYourTime": {
+            "description": "Ein Tool, das Ihnen hilft, Zeit zu sparen",
+            "longDescription": "Dieses Projekt ist ein Automatisierungstool, das Ihnen hilft, Ihre täglichen Aufgaben schneller zu erledigen. Es automatisiert viele sich wiederholende Aufgaben."
+        },
+        "DeveloperKubilay": {
+            "description": "Die Website, die Sie gerade ansehen"
+        }
+    },
+    "introduction": "Einführung",
+    "overview": "Überblick",
+    "experience": "Jahre Erfahrung",
+    "experienceDescription": "Ich arbeite seit über {{years}} Jahren mit Softwareentwicklung und Cloud-Technologien.",
+    "skillsDescription1": "Ich habe Projekte auf Unternehmensebene und 100% automatisierte Systeme entwickelt. Ich habe innovative Lösungen geschaffen, um komplexe Herausforderungen zu bewältigen.",
+    "skillsDescription2": "Ich habe {{nodeYears}} Jahre Erfahrung mit Node.js und {{linuxYears}} Jahre Erfahrung mit Linux. Ich habe auch grundlegende Kenntnisse in Python, C++, Java und Rust, obwohl ich sie nicht so häufig verwende.",
+    "projectsDescription1": "In diesem Jahr habe ich {{commits}} Commits durchgeführt und ich nutze git effektiv in meinen Projekten.",
+    "projectsDescription2": "Ich habe Spielmotoren, Datenbanken, Verwaltungspanels, VDS-Verwaltungssysteme, KI-Integrationen und mehr entwickelt.",
+    "continuousDevelopment": "Kontinuierliche Weiterentwicklung",
+    "continuousDevelopmentDescription": "Ich bin immer neugierig und lerne kontinuierlich. In meinen Projekten verwende ich Systeme wie Microsoft Azure, AWS, Firebase und erstelle meine eigenen API-Schlüssel."
+}

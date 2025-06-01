@@ -1,0 +1,103 @@
+{
+    "working_on_projects": "项目",
+    "projects_text": "我的项目",
+    "loadingProjects": "加载项目中...",
+    "age": "岁",
+    "greeting": "你好，我是",
+    "name": "Kubilay",
+    "role": "软件开发工程师",
+    "tagline": "让我们再开发一个项目！！！ 🔥🔥🔥",
+    "github": "Github",
+    "viewProjects": "查看项目",
+    "viewProject": "查看",
+    "fullscreenView": "全屏查看（推荐）",
+    "loading": "加载中...",
+    "contactTitle": "联系方式",
+    "contactSubtitle": "联系我",
+    "copyEmail": "复制电子邮件地址",
+    "skills": "我的技能",
+    "contact": "联系我",
+    "playMusic": "播放音乐",
+    "pauseMusic": "暂停音乐",
+    "projectNoDescription": "暂无描述",
+    "detailedDescription": "详细描述",
+    "detailedInfo": "详细信息",
+    "language": "语言",
+    "topics": "主题",
+    "fork": "复刻",
+    "noDetailedInfo": "此项目尚未添加详细信息。",
+    "moreInfoOnGithub": "在GitHub上查看更多信息",
+    "previousProject": "上一个项目",
+    "nextProject": "下一个项目",
+    "projectsSubtitle": "我迄今为止参与的项目",
+    "hobbiesTitle": "我的爱好",
+    "hobbiesSubtitle": "我在闲暇时间做的事",
+    "hours": "小时",
+    "certificatesTitle": "我的证书",
+    "certificatesSubtitle": "我的教育经历",
+    "clickToViewCertificate": "点击查看证书",
+    "socialLinks": {
+        "github": "GitHub 个人资料",
+        "youtube": "YouTube 频道",
+        "steam": "Steam 个人资料"
+    },
+    "hobbies": {
+        "bannerlord": {
+            "title": "骑马与砍杀2：霸主",
+            "description": "一款提供战略战斗机制和在中世纪世界自由漫游体验的游戏。"
+        },
+        "chess": {
+            "title": "Chess.com",
+            "description": "我喜欢玩在线国际象棋来提高我的战略技能。"
+        },
+        "citiesSkylines": {
+            "title": "城市：天际线",
+            "description": "我用来设计和管理自己城市的城市模拟游戏。"
+        }
+    },
+    "certificates": {
+        "publicSpeaking": {
+            "title": "公众演讲和有效演示技巧",
+            "description": "有效演讲和公众演讲技能的方法。"
+        },
+        "api": {
+            "title": "API和API测试",
+            "description": "关于API开发和测试技术的综合培训证书。"
+        },
+        "cpp": {
+            "title": "C++编程入门",
+            "description": "C++编程语言的基本概念和应用程序开发技术。"
+        },
+        "ddos": {
+            "title": "DoS和DDoS攻击与防护",
+            "description": "针对拒绝服务攻击的保护和预防策略。"
+        },
+        "html5": {
+            "title": "HTML5网页开发",
+            "description": "现代网页和应用程序开发技术以及HTML5特性。"
+        },
+        "linux": {
+            "title": "网络安全中的Linux操作系统",
+            "description": "网络安全领域Linux操作系统的使用和安全应用。"
+        }
+    },
+    "projects": {
+        "SaveYourTime": {
+            "description": "帮助您节省时间的工具",
+            "longDescription": "这个项目是一个自动化工具，帮助您更快地完成日常任务。它自动化了许多重复性任务。"
+        },
+        "DeveloperKubilay": {
+            "description": "您当前正在浏览的网站"
+        }
+    },
+    "introduction": "介绍",
+    "overview": "概述",
+    "experience": "年经验",
+    "experienceDescription": "我在软件开发和云技术方面有超过{{years}}年的工作经验。",
+    "skillsDescription1": "我开发了企业级项目和100%自动化系统。我创造了创新解决方案来克服复杂挑战。",
+    "skillsDescription2": "我有{{nodeYears}}年Node.js经验和{{linuxYears}}年Linux经验。我还有Python、C++、Java和Rust的基础知识，尽管我不经常使用它们。",
+    "projectsDescription1": "今年我已经进行了{{commits}}次提交，并且在我的项目中有效地使用git。",
+    "projectsDescription2": "我开发了游戏引擎、数据库、管理面板、VDS管理系统、AI集成等。",
+    "continuousDevelopment": "持续发展",
+    "continuousDevelopmentDescription": "我总是保持好奇心并不断学习。在我的项目中，我使用Microsoft Azure、AWS、Firebase等系统，并创建自己的API密钥。"
+}
