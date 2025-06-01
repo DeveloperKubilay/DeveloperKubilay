@@ -84,18 +84,15 @@
     "projects": {
         "SaveYourTime": {
             "description": "A tool to help you save time",
-            "longDescription": "This project is an automation tool to help you complete your daily tasks faster. It automates many repetitive tasks.",
-            "codeExample": "## About the Project\nThis project was developed for time saving purposes.\n\n### Features\n- Automatic task management\n- Scheduled operations\n- Easy-to-use interface\n\n### Example Code\n```js\nconst automate = () => {\n  console.log('Automating process...');\n  // Process code\n};\n\n// Call the function\nautomate();\n```\n\n### Screenshot\n![Project screenshot](https://example.com/project-screenshot.jpg)"
+            "longDescription": "This project is an automation tool to help you complete your daily tasks faster. It automates many repetitive tasks."
         },
-        "AnotherProject": {
-            "description": "Another amazing project",
-            "longDescription": "This project is a comprehensive application developed using modern web technologies. It focuses on user experience and includes performance optimizations.",
-            "codeExample": "## React Component\nOne of the main components we use in this project:\n\n```jsx\nimport React, { useState } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <p>You clicked {count} times</p>\n      <button onClick={() => setCount(count + 1)}>\n        Click\n      </button>\n    </div>\n  );\n}\n```"
+        "DeveloperKubilay": {
+            "description": "The website you are currently viewing"
         }
     },
     "introduction": "Introduction",
     "overview": "Overview",
-    "experience": "Experience",
+    "experience": "Years of Experience",
     "experienceDescription": "I have been working with software development and cloud technologies for over {{years}} years.",
     "skillsDescription1": "I've developed enterprise-level projects and 100% automated systems. I've created innovative solutions to overcome complex challenges.",
     "skillsDescription2": "I have {{nodeYears}} years of Node.js experience and {{linuxYears}} years of Linux experience. I also have basic knowledge of Python, C++, Java, and Rust, although I don't use them as frequently.",

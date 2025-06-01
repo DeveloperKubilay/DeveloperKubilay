@@ -1,0 +1,103 @@
+{
+    "working_on_projects": "プロジェクト",
+    "projects_text": "私のプロジェクト",
+    "loadingProjects": "プロジェクト読み込み中...",
+    "age": "歳",
+    "greeting": "こんにちは、私は",
+    "name": "クビライ",
+    "role": "ソフトウェア開発者",
+    "tagline": "もう一つプロジェクトを開発しましょう！！！ 🔥🔥🔥",
+    "github": "Github",
+    "viewProjects": "プロジェクトを見る",
+    "viewProject": "見る",
+    "fullscreenView": "全画面表示（推奨）",
+    "loading": "読み込み中...",
+    "contactTitle": "連絡先",
+    "contactSubtitle": "お問い合わせ",
+    "copyEmail": "メールアドレスをコピー",
+    "skills": "私のスキル",
+    "contact": "連絡先",
+    "playMusic": "音楽を再生",
+    "pauseMusic": "音楽を一時停止",
+    "projectNoDescription": "説明がありません",
+    "detailedDescription": "詳細説明",
+    "detailedInfo": "詳細情報",
+    "language": "言語",
+    "topics": "トピック",
+    "fork": "フォーク",
+    "noDetailedInfo": "このプロジェクトにはまだ詳細情報が追加されていません。",
+    "moreInfoOnGithub": "GitHubでさらに情報を見る",
+    "previousProject": "前のプロジェクト",
+    "nextProject": "次のプロジェクト",
+    "projectsSubtitle": "これまで取り組んできたプロジェクト",
+    "hobbiesTitle": "私の趣味",
+    "hobbiesSubtitle": "自由時間にすること",
+    "hours": "時間",
+    "certificatesTitle": "私の証明書",
+    "certificatesSubtitle": "私の教育",
+    "clickToViewCertificate": "証明書を見るにはクリックしてください",
+    "socialLinks": {
+        "github": "GitHubプロフィール",
+        "youtube": "YouTubeチャンネル",
+        "steam": "Steamプロフィール"
+    },
+    "hobbies": {
+        "bannerlord": {
+            "title": "Mount & Blade II: Bannerlord",
+            "description": "戦略的な戦闘メカニクスと中世世界での自由な移動を提供するゲーム。"
+        },
+        "chess": {
+            "title": "Chess.com",
+            "description": "戦略スキルを高めるためにオンラインチェスをプレイするのが好きです。"
+        },
+        "citiesSkylines": {
+            "title": "Cities: Skylines",
+            "description": "自分の都市をデザインし管理するために使用する都市シミュレーションゲーム。"
+        }
+    },
+    "certificates": {
+        "publicSpeaking": {
+            "title": "パブリックスピーキングと効果的なプレゼンテーション技術",
+            "description": "効果的なプレゼンテーションとパブリックスピーキングのスキルに関する方法。"
+        },
+        "api": {
+            "title": "APIとAPIテスト",
+            "description": "API開発とテスト技術に関する包括的なトレーニング証明書。"
+        },
+        "cpp": {
+            "title": "C++によるプログラミング入門",
+            "description": "C++プログラミング言語の基本概念とアプリケーション開発技術。"
+        },
+        "ddos": {
+            "title": "DoSおよびDDoS攻撃と保護",
+            "description": "サービス拒否攻撃に対する保護と予防戦略。"
+        },
+        "html5": {
+            "title": "HTML5によるWeb開発",
+            "description": "現代のウェブページとアプリケーション開発技術およびHTML5の特徴。"
+        },
+        "linux": {
+            "title": "サイバーセキュリティにおけるLinuxオペレーティングシステム",
+            "description": "サイバーセキュリティ分野でのLinuxオペレーティングシステムの使用とセキュリティアプリケーション。"
+        }
+    },
+    "projects": {
+        "SaveYourTime": {
+            "description": "時間を節約するためのツール",
+            "longDescription": "このプロジェクトは、日々のタスクをより速く完了するのを助ける自動化ツールです。多くの繰り返しタスクを自動化します。"
+        },
+        "DeveloperKubilay": {
+            "description": "現在表示しているウェブサイト"
+        }
+    },
+    "introduction": "紹介",
+    "overview": "概要",
+    "experience": "年の経験",
+    "experienceDescription": "私はソフトウェア開発とクラウドテクノロジーに{{years}}年以上携わっています。",
+    "skillsDescription1": "企業レベルのプロジェクトや100%自動化システムを開発してきました。複雑な課題を克服するための革新的なソリューションを作成しました。",
+    "skillsDescription2": "Node.jsで{{nodeYears}}年、Linuxで{{linuxYears}}年の経験があります。あまり頻繁には使用しませんが、Python、C++、Java、Rustの基本的な知識もあります。",
+    "projectsDescription1": "今年は{{commits}}回のコミットを行い、プロジェクトでgitを効果的に使用しています。",
+    "projectsDescription2": "ゲームエンジン、データベース、管理パネル、VDS管理システム、AI統合などを開発しました。",
+    "continuousDevelopment": "継続的な開発",
+    "continuousDevelopmentDescription": "私はいつも好奇心旺盛で継続的に学んでいます。プロジェクトでは、Microsoft Azure、AWS、Firebaseなどのシステムを使用し、独自のAPIキーを作成しています。"
+}
