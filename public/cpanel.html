@@ -57,17 +57,7 @@
         <!-- Rick Roll Screen -->
         <div id="rickRollScreen" class="hidden flex-col items-center justify-center w-full h-screen absolute top-0 left-0 overflow-hidden select-none">
             <div class="text-2xl sm:text-4xl font-bold text-white z-10 mb-8 select-none">Ne yapıyorsun</div>
-            <iframe 
-                width="100%" 
-                height="100%" 
-                src="https://www.youtube.com/embed/rJApc2T54_o?autoplay=1&controls=0&mute=0&showinfo=0&fs=1&disablekb=1&loop=1&modestbranding=1&rel=0&start=10" 
-                title="Rick Roll" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
-                allowfullscreen
-                class="absolute top-0 left-0 w-screen h-screen object-cover"
-                style="pointer-events: none; z-index: 5;"
-            ></iframe>
+            <!-- iframe buraya dinamik olarak eklenecek -->
             <div class="absolute top-0 left-0 w-full h-full bg-transparent select-none" style="z-index: 20;"></div>
         </div>
     </div>
@@ -95,6 +85,23 @@
                 loginForm.classList.add('hidden');
                 rickRollScreen.classList.remove('hidden');
                 rickRollScreen.classList.add('flex');
+                
+                // Create and add iframe dynamically for autoplay to work
+                const iframe = document.createElement('iframe');
+                iframe.width = "100%";
+                iframe.height = "100%";
+                iframe.src = "https://www.youtube.com/embed/rJApc2T54_o?autoplay=1&controls=0&mute=0&showinfo=0&fs=1&disablekb=1&loop=1&modestbranding=1&rel=0&start=10";
+                iframe.title = "Rick Roll";
+                iframe.frameBorder = "0";
+                iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen";
+                iframe.allowFullscreen = true;
+                iframe.className = "absolute top-0 left-0 w-screen h-screen object-cover";
+                iframe.style.pointerEvents = "none";
+                iframe.style.zIndex = "5";
+                
+                // Insert iframe before the overlay div
+                const overlayDiv = rickRollScreen.querySelector('.absolute.top-0.left-0.w-full.h-full.bg-transparent');
+                rickRollScreen.insertBefore(iframe, overlayDiv);
                 
                 // Prevent scrolling and keyboard events
                 document.body.style.overflow = 'hidden';
