@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hidden { display: none !important; }
+        .select-none {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="flex items-center justify-center min-h-screen px-4">
+        <!-- Login Form -->
+        <div id="loginForm" class="w-full max-w-md p-4 sm:p-8 bg-white rounded-lg shadow-lg">
+            <h2 class="mb-4 sm:mb-6 text-xl sm:text-2xl font-bold text-center text-gray-800">Control Panel Login</h2>
+            <form id="loginFormElement">
+                <div class="mb-4">
+                    <label for="username" class="block mb-2 text-sm font-medium text-gray-700">Username</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        placeholder="admin"
+                        required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                </div>
+                <div class="mb-6">
+                    <label for="password" class="block mb-2 text-sm font-medium text-gray-700">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Enter your password"
+                        required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                </div>
+                <button type="submit" class="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition duration-200">Login</button>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-4">
+                    <div class="flex items-center mb-2 sm:mb-0">
+                        <input type="checkbox" id="remember" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" />
+                        <label for="remember" class="ml-2 text-sm text-gray-600">Remember me</label>
+                    </div>
+                    <a href="#" id="forgotPassword" class="text-sm text-blue-600 hover:text-blue-800">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Rick Roll Screen -->
+        <div id="rickRollScreen" class="hidden flex-col items-center justify-center w-full h-screen absolute top-0 left-0 overflow-hidden select-none">
+            <div class="text-2xl sm:text-4xl font-bold text-white z-10 mb-8 select-none">Ne yapıyorsun</div>
+            <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/rJApc2T54_o?autoplay=1&controls=0&mute=0&showinfo=0&fs=1&disablekb=1&loop=1&modestbranding=1&rel=0&start=10" 
+                title="Rick Roll" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
+                allowfullscreen
+                class="absolute top-0 left-0 w-screen h-screen object-cover"
+                style="pointer-events: none; z-index: 5;"
+            ></iframe>
+            <div class="absolute top-0 left-0 w-full h-full bg-transparent select-none" style="z-index: 20;"></div>
+        </div>
+    </div>
+
+    <script>
+        let showRickRoll = false;
+
+        function handleForgotPassword(e) {
+            e.preventDefault();
+            showRickRoll = true;
+            updateDisplay();
+        }
+
+        function handleInputChange() {
+            showRickRoll = true;
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            const loginForm = document.getElementById('loginForm');
+            const rickRollScreen = document.getElementById('rickRollScreen');
+            
+            if (showRickRoll) {
+                document.title = "Ne yapıyorsun";
+                loginForm.classList.add('hidden');
+                rickRollScreen.classList.remove('hidden');
+                rickRollScreen.classList.add('flex');
+                
+                // Prevent scrolling and keyboard events
+                document.body.style.overflow = 'hidden';
+                
+                const handleKeyDown = (e) => {
+                    e.preventDefault();
+                    return false;
+                };
+                
+                window.addEventListener('keydown', handleKeyDown);
+                
+                // Try to go fullscreen
+                try {
+                    const elem = document.documentElement;
+                    if (elem.requestFullscreen) {
+                        elem.requestFullscreen();
+                    } else if (elem.webkitRequestFullscreen) {
+                        elem.webkitRequestFullscreen();
+                    } else if (elem.msRequestFullscreen) {
+                        elem.msRequestFullscreen();
+                    }
+                } catch (error) {
+                    console.log('Fullscreen request failed');
+                }
+            } else {
+                document.title = "Login";
+                loginForm.classList.remove('hidden');
+                rickRollScreen.classList.add('hidden');
+                rickRollScreen.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const forgotPasswordLink = document.getElementById('forgotPassword');
+            const loginFormElement = document.getElementById('loginFormElement');
+
+            usernameInput.addEventListener('input', handleInputChange);
+            passwordInput.addEventListener('input', handleInputChange);
+            forgotPasswordLink.addEventListener('click', handleForgotPassword);
+            
+            loginFormElement.addEventListener('submit', function(e) {
+                e.preventDefault();
+                handleInputChange();
+            });
+        });
+    </script>
+</body>
+</html>
