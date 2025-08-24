@@ -12,8 +12,6 @@
 
 <h2>🌟 Github Stats </h2>
 <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=DeveloperKubilay&hide_border=true&bg_color=0d1117&color=ff6b81&line=ff4757&&point=59c9e8"/>
-<img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=DeveloperKubilay&layout=compact&bg_color=0d1117&border_color=0d1117&text-color:79ff97&langs_count=6">
 <img width="50%" src="https://github-readme-stats.vercel.app/api?username=DeveloperKubilay&show_icons=true&count_private=true&theme=react&hide_border=true&bg_color=0D1117&color=fffff" />
-<div align="center">
-  <img width="55%" src="https://github-readme-streak-stats.herokuapp.com/?user=DeveloperKubilay&theme=algolia&bg_color=050F2C" />
-</div>
+<img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=DeveloperKubilay&theme=algolia&bg_color=050F2C" />
+
