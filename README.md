@@ -1,7 +1,7 @@
 
 <h1>HI !! 👋 Welcome to my github profile 🎉 <img align="right" src="https://komarev.com/ghpvc/?username=DeveloperKubilay&color=green" /></h1>
 
-❓ Hi I'm kubilay 17 yo <br>
+❓ Hi I'm kubilay <br>
 🛠️ nodejs and web developer <br>
 🌐 Discord: <b>valancess<b> 
 
