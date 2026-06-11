@@ -48,14 +48,11 @@ function Welcome_page({ githubData }) {
             
             const currentDate = new Date();
             const currentYear = currentDate.getFullYear();
-            const birthDate = new Date('2007-08');
-            let age = currentYear - birthDate.getFullYear();
+            const birthYear = 2007;
+            const birthMonthIndex = 7; // August
+            let age = currentYear - birthYear;
 
-            const hasBirthdayPassed =
-                currentDate.getMonth() > birthDate.getMonth() ||
-                (currentDate.getMonth() === birthDate.getMonth() && currentDate.getDate() >= birthDate.getDate());
-
-            if (!hasBirthdayPassed) age--;
+            if (currentDate.getMonth() < birthMonthIndex) age--;
 
             setold(age);
             setexperience(currentYear - 2020);
