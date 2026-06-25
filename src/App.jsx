@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 const profile = {
   name: 'Kubilay',
   handle: 'DeveloperKubilay',
-  avatar: '/public/imgs/me.png',
+  avatar: '/imgs/me.png',
   github: 'https://github.com/DeveloperKubilay',
   youtube: 'https://www.youtube.com/@valancess',
   discord: 'valancess',
@@ -57,7 +57,7 @@ const featuredProjects = [
     stack: ['Otomasyon', 'Website', 'Front-end'],
     metric: '2 stars',
     url: 'https://xn--hzl-haber-vpbc.com/',
-    image: '/public/imgs/3zEbr2D.png',
+    image: '/imgs/3zEbr2D.png',
     accent: 'bg-bolt',
   },
 ]
