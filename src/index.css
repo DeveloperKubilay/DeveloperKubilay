@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@10..48,500;10..48,600;10..48,700;10..48,800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #090909;
+  background: #f4f4f4;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    linear-gradient(90deg, rgba(9, 9, 9, 0.055) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(9, 9, 9, 0.055) 1px, transparent 1px),
+    #f4f4f4;
+  background-size: 42px 42px;
+  font-family: 'Azeret Mono', monospace;
+}
+
+body::selection {
+  color: #090909;
+  background: #d8ff2f;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  display: block;
+}
+
+.noise-layer {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  opacity: 0.09;
+  mix-blend-mode: multiply;
+  background-image:
+    radial-gradient(#090909 0.65px, transparent 0.65px),
+    radial-gradient(#090909 0.65px, transparent 0.65px);
+  background-position:
+    0 0,
+    11px 11px;
+  background-size: 22px 22px;
+}
+
+.scan-lines {
+  background-image: linear-gradient(
+    0deg,
+    rgba(9, 9, 9, 0.16) 0,
+    rgba(9, 9, 9, 0.16) 1px,
+    transparent 1px,
+    transparent 12px
+  );
+  background-size: 100% 12px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.stroke-title {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #090909;
+  text-shadow: 5px 5px 0 #d8ff2f;
+}
+
+.angled-edge {
+  clip-path: polygon(0 0, 100% 0, 96% 100%, 0 100%);
+}
+
+.project-image {
+  filter: grayscale(1) contrast(1.05);
+  transition:
+    transform 500ms cubic-bezier(.16, 1, .3, 1),
+    filter 500ms cubic-bezier(.16, 1, .3, 1);
+}
+
+.project-card:hover .project-image {
+  filter: grayscale(0) contrast(1.08);
+  transform: scale(1.035);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
