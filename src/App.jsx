@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 
+const asset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
+
 const profile = {
   name: 'Kubilay',
   handle: 'DeveloperKubilay',
-  avatar: '/imgs/me.png',
+  avatar: asset('/imgs/me.png'),
   github: 'https://github.com/DeveloperKubilay',
   youtube: 'https://www.youtube.com/@valancess',
   discord: 'valancess',
@@ -57,7 +59,7 @@ const featuredProjects = [
     stack: ['Otomasyon', 'Website', 'Front-end'],
     metric: '2 stars',
     url: 'https://xn--hzl-haber-vpbc.com/',
-    image: '/imgs/3zEbr2D.png',
+    image: asset('/imgs/3zEbr2D.png'),
     accent: 'bg-bolt',
   },
 ]
