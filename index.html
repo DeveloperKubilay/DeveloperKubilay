@@ -9,6 +9,14 @@
     />
     <title>DeveloperKubilay</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🙃</text></svg>">
+    <meta name="theme-color" content="#ff0000" id="theme-color-meta" />
+    <script>
+      let hue = 0;//rainbow
+      setInterval(() => {
+        hue = (hue + 2) % 360;
+        document.getElementById('theme-color-meta').setAttribute('content', `hsl(${hue}, 100%, 50%)`);
+      }, 50);
+    </script>
   </head>
   <body>
     <div id="root"></div>
