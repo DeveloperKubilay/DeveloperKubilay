@@ -18,20 +18,20 @@ const profile = {
     'İnternet iletişimleri, oyun motoru, tarayıcı eklentileri ve kendi araclari ureten; fikri hızla urune cevirmeyi seven yazilimci.',
 }
 
-const heroTopics = [
-  'Node.js projeleri',
-  'Tarayici araclari',
-  'VPS panel sistemleri',
-  'İletişim protokolleri',
-  'Oyun motoru',
-  'Local database paketleri',
+const heroTopicsKeys = [
+  'hero.topics.node',
+  'hero.topics.browser',
+  'hero.topics.vps',
+  'hero.topics.protocol',
+  'hero.topics.engine',
+  'hero.topics.db',
 ]
 
 const stats = [
-  { value: '70', label: 'acik repo' },
-  { value: '1857', label: 'yillik katki' },
-  { value: '0', label: 'toplam star' },
-  { value: '19', label: 'takipci' },
+  { value: '70', labelKey: 'stats.repo' },
+  { value: '1857', labelKey: 'stats.contrib' },
+  { value: '0', labelKey: 'stats.star' },
+  { value: '19', labelKey: 'stats.followers' },
 ]
 
 const featuredProjects = [
@@ -67,15 +67,15 @@ const featuredProjects = [
   },
 ]
 
-const heroMarquee = [...heroTopics, ...heroTopics]
+const heroMarqueeKeys = [...heroTopicsKeys, ...heroTopicsKeys]
 
 const formatStat = (value) => new Intl.NumberFormat('tr-TR').format(value)
 
 const buildStats = ({ user, repos, contributions }) => [
-  { value: formatStat(user.public_repos), label: 'acik repo' },
-  { value: formatStat(contributions.total.lastYear), label: 'yillik katki' },
-  { value: formatStat(repos.reduce((total, repo) => total + repo.stargazers_count, 0)), label: 'toplam star' },
-  { value: formatStat(user.followers), label: 'takipci' },
+  { value: formatStat(user.public_repos), labelKey: 'stats.repo' },
+  { value: formatStat(contributions.total.lastYear), labelKey: 'stats.contrib' },
+  { value: formatStat(repos.reduce((total, repo) => total + repo.stargazers_count, 0)), labelKey: 'stats.star' },
+  { value: formatStat(user.followers), labelKey: 'stats.followers' },
 ]
 
 const labProjects = [
@@ -148,11 +148,11 @@ const stacks = [
   'Npm packages',
 ]
 
-const process = [
-  ['01', 'Planlama', 'Güncel sistemler ile neler yapılabilir detaylıca araştırma'],
-  ['02', 'Hizli prototip', 'İlk olarak çalışan ilk versionu hazırlamak bunu yaparken altyapıyı düzenli ilerletmek.'],
-  ['03', 'Servise hazırlamak', 'Olan sistemle yetinmeyip gerekirse tekrar başlayıp daha iyi bir sistem kurmak.'],
-  ['04', 'Deney alani', 'Herşeyden önce güvenlik ve deneme alanı, herşeyin test edilebileceği bir alan.'],
+const processKeys = [
+  ['01', 'process.planning.title', 'process.planning.desc'],
+  ['02', 'process.prototype.title', 'process.prototype.desc'],
+  ['03', 'process.service.title', 'process.service.desc'],
+  ['04', 'process.lab.title', 'process.lab.desc'],
 ]
 
 function Header() {
@@ -206,9 +206,9 @@ function Hero({ stats }) {
     <section id="top" className="relative overflow-hidden border-b-2 border-ink">
       <div className="absolute inset-x-0 top-14 h-10 rotate-[-2deg] border-y-2 border-ink bg-acid">
         <div className="flex w-[200%] animate-marquee whitespace-nowrap py-2 font-mono text-xs font-black uppercase">
-          {heroMarquee.map((item, index) => (
+          {heroMarqueeKeys.map((item, index) => (
             <span key={`${item}-${index}`} className="mx-8">
-              {item}
+              {t(item)}
             </span>
           ))}
         </div>
@@ -255,7 +255,7 @@ function Hero({ stats }) {
             <div className="absolute -left-4 top-8 h-full w-full rotate-[-3deg] border-2 border-ink bg-heat" />
             <div className="relative border-2 border-ink bg-paper p-3 shadow-hard">
               <div className="mb-3 flex items-center justify-between border-b-2 border-ink pb-3 font-mono text-[11px] font-black uppercase">
-                <span>KUBIS</span>
+                <span>{t('misc.kubis')}</span>
                 <span className="inline-flex items-center gap-2">
                   <span className="h-2 w-2 animate-blink rounded-full bg-heat" />
                   SA
@@ -268,9 +268,9 @@ function Hero({ stats }) {
               />
               <div className="grid grid-cols-2 border-x-2 border-b-2 border-ink">
                 {stats.map((item) => (
-                  <div key={item.label} className="border-ink p-4 odd:border-r-2 [&:nth-child(-n+2)]:border-b-2">
+                  <div key={item.labelKey} className="border-ink p-4 odd:border-r-2 [&:nth-child(-n+2)]:border-b-2">
                     <p className="font-display text-4xl font-black leading-none">{item.value}</p>
-                    <p className="mt-1 font-mono text-[10px] font-bold uppercase">{item.label}</p>
+                    <p className="mt-1 font-mono text-[10px] font-bold uppercase">{t(item.labelKey)}</p>
                   </div>
                 ))}
               </div>
@@ -286,6 +286,7 @@ function Hero({ stats }) {
 }
 
 function FeaturedProject({ project, index }) {
+  const { t } = useI18n();
   return (
     <article className="project-card grid overflow-hidden border-2 border-ink bg-paper shadow-hard md:grid-cols-[0.9fr_1.1fr]">
       <a
@@ -296,7 +297,7 @@ function FeaturedProject({ project, index }) {
       >
         <img src={project.image} alt={`${project.name} GitHub proje gorseli`} className="project-image h-full w-full object-cover" />
         <span className={`absolute left-4 top-4 rounded-[6px] border-2 border-ink ${project.accent} px-3 py-2 font-mono text-[10px] font-black uppercase shadow-hardSm`}>
-          0{index + 1} / {project.type}
+          0{index + 1} / {t(`projects_data.featured.${project.name}.type`)}
         </span>
       </a>
       <div className="flex min-h-64 flex-col justify-between p-5 sm:p-7">
@@ -309,7 +310,7 @@ function FeaturedProject({ project, index }) {
             ))}
           </div>
           <h3 className="font-display text-4xl font-black tracking-normal sm:text-5xl">{project.name}</h3>
-          <p className="mt-4 text-sm font-medium leading-7 text-ink/76 sm:text-base">{project.summary}</p>
+          <p className="mt-4 text-sm font-medium leading-7 text-ink/76 sm:text-base">{t(`projects_data.featured.${project.name}.summary`)}</p>
         </div>
         <div className="mt-8 flex items-end justify-between gap-4">
           <p className="font-mono text-xs font-black uppercase">{project.metric}</p>
@@ -319,7 +320,7 @@ function FeaturedProject({ project, index }) {
             rel="noreferrer"
             className="rounded-[6px] border-2 border-ink bg-ink px-4 py-3 font-mono text-[11px] font-black uppercase text-paper transition-transform hover:-translate-y-0.5"
           >
-            Repo ac
+            {t('projects.open_repo')}
           </a>
         </div>
       </div>
@@ -361,7 +362,7 @@ function Projects() {
                 <span className="font-mono text-lg font-black transition-transform group-hover:translate-x-1">-&gt;</span>
               </div>
               <h3 className="font-display text-3xl font-black leading-none">{project.name}</h3>
-              <p className="mt-4 text-sm font-medium leading-6 text-ink/74">{project.copy}</p>
+              <p className="mt-4 text-sm font-medium leading-6 text-ink/74">{t(`projects_data.lab.${project.name}`)}</p>
             </a>
           ))}
         </div>
@@ -402,11 +403,11 @@ function Stack() {
         </div>
 
         <div className="mt-14 grid border-2 border-paper lg:grid-cols-4">
-          {process.map(([num, title, copy], index) => (
-            <div key={title} className={`p-5 ${index !== 3 ? 'border-b-2 border-paper lg:border-b-0 lg:border-r-2' : ''}`}>
+          {processKeys.map(([num, titleKey, copyKey], index) => (
+            <div key={titleKey} className={`p-5 ${index !== 3 ? 'border-b-2 border-paper lg:border-b-0 lg:border-r-2' : ''}`}>
               <p className="font-display text-5xl font-black text-acid">{num}</p>
-              <h3 className="mt-5 font-display text-2xl font-black">{title}</h3>
-              <p className="mt-3 text-sm font-medium leading-6 text-paper/70">{copy}</p>
+              <h3 className="mt-5 font-display text-2xl font-black">{t(titleKey)}</h3>
+              <p className="mt-3 text-sm font-medium leading-6 text-paper/70">{t(copyKey)}</p>
             </div>
           ))}
         </div>
@@ -499,12 +500,19 @@ function MainContent() {
 }
 
 export default function App() {
-  const [lang, setLang] = useState(() => {
+  const [lang, setLangState] = useState(() => {
+    const saved = localStorage.getItem('lang');
+    if (saved) return saved;
     const browserLang = navigator.language.split('-')[0];
     const supportedLangs = ['tr', 'en', 'es', 'fr', 'de', 'it', 'ar', 'ru', 'zh', 'ja', 'ko', 'hi'];
     return supportedLangs.includes(browserLang) ? browserLang : 'en';
   });
   const [dict, setDict] = useState({});
+
+  const setLang = (newLang) => {
+    localStorage.setItem('lang', newLang);
+    setLangState(newLang);
+  };
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}languages/${lang}.json`)

@@ -10,18 +10,26 @@
     "bio": "Erstellung von Internetkommunikation, Spiel-Engine, Browser-Plug-Ins und eigenen Tools; Ein Softwareentwickler, der Ideen gerne schnell in Produkte umsetzt.",
     "view_projects": "Siehe Projekte",
     "github_profile": "GitHub-Profil",
-    "age": "18 Jahre alt"
+    "age": "18 Jahre alt",
+    "topics": {
+      "node": "Node.js-Projekte",
+      "browser": "Browser-Tools",
+      "vps": "VPS-Panel-Systeme",
+      "protocol": "Kommunikationsprotokolle",
+      "engine": "Spiel-Engine",
+      "db": "Lokale Datenbankpakete"
+    }
   },
   "stats": {
     "repo": "offenes Repo",
-    "contrib": "Jahresbeitrag",
-    "star": "Insgesamt Sterne",
-    "followers": "Anhänger"
+    "contrib": "jährlicher Beitrag",
+    "star": "Sterne gesamt",
+    "followers": "Follower"
   },
   "projects": {
     "label": "Meine GitHub-Projekte",
     "title": "Meisterwerke",
-    "open_repo": "Öffnen Sie ein Repo"
+    "open_repo": "Repo öffnen"
   },
   "stack": {
     "label": "Stapel",
@@ -32,5 +40,53 @@
     "thanks": "Danke dirrrr :)",
     "label": "Kommunikation",
     "dont_know": "Ich weiß nicht"
+  },
+  "process": {
+    "planning": {
+      "title": "Planung",
+      "desc": "Detaillierte Forschung darüber, was mit aktuellen Systemen gemacht werden kann"
+    },
+    "prototype": {
+      "title": "Schneller Prototyp",
+      "desc": "Vorbereitung der ersten Arbeitsversion bei gleichzeitiger systematischer Weiterentwicklung der Infrastruktur."
+    },
+    "service": {
+      "title": "Vorbereitung für den Service",
+      "desc": "Sich nicht mit dem bestehenden System zufrieden geben, bei Bedarf ein besseres System von Grund auf neu aufbauen."
+    },
+    "lab": {
+      "title": "Experimenteller Bereich",
+      "desc": "Vor allem Sicherheits- und Testbereich, ein Bereich, in dem alles getestet werden kann."
+    }
+  },
+  "misc": {
+    "kubis": "KUBIS"
+  },
+  "projects_data": {
+    "featured": {
+      "electoria-engine": {
+        "type": "Spiel-Engine",
+        "summary": "Eine einfache, aber funktionale Spiel-Engine, die auf plattformübergreifenden Betrieb mit wenig Code abzielt, deren Hauptzweck die Einfachheit ist."
+      },
+      "Safra": {
+        "type": "Internetkommunikation",
+        "summary": "Spielen Sie Minecraft ohne Server mit Ihren Freunden. Es bietet die Möglichkeit, mit dem P2P-Mechanismus ohne Einschränkungen zu spielen."
+      },
+      "Hızlı Haber": {
+        "type": "Website",
+        "summary": "Innovative, KI-gestützte Website zum Lesen von Nachrichten, die Nachrichten aus dem Internet empfängt und sie in einer besser lesbaren Form präsentiert"
+      }
+    },
+    "lab": {
+      "SaveYourTime": "Chrome-Erweiterung, die sich auf die Kontrolle des digitalen Lebens konzentriert.",
+      "termix": "Open-Source-Terminalanwendung der nächsten Generation.",
+      "McAi": "Ein menschenähnliches KI-Experiment, das Minecraft spielen kann.",
+      "openssh": "Open-Source-SSH-Client für die Remote-Terminalverbindung.",
+      "ThreadWarden": "Tool zur einfachen Verwaltung von Multithread-Node.js-Anwendungen.",
+      "Pear3": "Selenium-Alternative, von Grund auf neu geschrieben, nicht nachweisbares Webbrowser-Automatisierungstool.",
+      "Ai": "Ein einfaches und schnelles Werkzeug, um künstliche Intelligenz zu trainieren.",
+      "LightRoute": "Web-Framework von Grund auf neu geschrieben, wie Express.js.",
+      "Kubitdb": "Json-basiertes, lokales Datenbanksystem"
+    }
   }
 }

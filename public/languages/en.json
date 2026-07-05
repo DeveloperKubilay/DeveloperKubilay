@@ -10,7 +10,15 @@
     "bio": "Producing internet communications, game engine, browser plug-ins and own tools; A software developer who likes to quickly turn ideas into products.",
     "view_projects": "See projects",
     "github_profile": "GitHub profile",
-    "age": "18 years old"
+    "age": "18 years old",
+    "topics": {
+      "node": "Node.js projects",
+      "browser": "Browser tools",
+      "vps": "VPS panel systems",
+      "protocol": "Communication protocols",
+      "engine": "Game engine",
+      "db": "Local database packages"
+    }
   },
   "stats": {
     "repo": "open repo",
@@ -21,7 +29,7 @@
   "projects": {
     "label": "My GitHub projects",
     "title": "masterpieces",
-    "open_repo": "Open a repo"
+    "open_repo": "Open repo"
   },
   "stack": {
     "label": "stack",
@@ -32,5 +40,53 @@
     "thanks": "Thank yourrrr :)",
     "label": "communication",
     "dont_know": "I don't know"
+  },
+  "process": {
+    "planning": {
+      "title": "Planning",
+      "desc": "Detailed research on what can be done with current systems"
+    },
+    "prototype": {
+      "title": "Fast prototype",
+      "desc": "Preparing the first working version while progressing the infrastructure systematically."
+    },
+    "service": {
+      "title": "Preparation for service",
+      "desc": "Not settling for the existing system, setting up a better system by starting over if necessary."
+    },
+    "lab": {
+      "title": "Experimental area",
+      "desc": "First of all, security and testing area, an area where everything can be tested."
+    }
+  },
+  "misc": {
+    "kubis": "KUBIS"
+  },
+  "projects_data": {
+    "featured": {
+      "electoria-engine": {
+        "type": "Game engine",
+        "summary": "A simple but functional game engine aiming for cross-platform operation with low code, whose main purpose is simplicity."
+      },
+      "Safra": {
+        "type": "Internet communication",
+        "summary": "Play Minecraft with your friends without a server, it offers the opportunity to play without limits using the p2p mechanism."
+      },
+      "Hızlı Haber": {
+        "type": "Website",
+        "summary": "Innovative AI-supported news reading site that receives news from the internet and presents it in a more readable way"
+      }
+    },
+    "lab": {
+      "SaveYourTime": "Chrome extension focused on taking control of digital life.",
+      "termix": "Open source, next generation terminal application.",
+      "McAi": "A human-like AI experiment that can play Minecraft.",
+      "openssh": "Open source SSH client for remote terminal connection.",
+      "ThreadWarden": "Tool to easily manage multithreaded Node.js applications.",
+      "Pear3": "Selenium alternative, written from scratch, undetectable web browser automation tool.",
+      "Ai": "A simple and fast tool to train artificial intelligence.",
+      "LightRoute": "Web framework written from scratch, like Express.js.",
+      "Kubitdb": "Json based, local database system"
+    }
   }
 }

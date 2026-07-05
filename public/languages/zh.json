@@ -10,18 +10,26 @@
     "bio": "生产互联网通讯、游戏引擎、浏览器插件和自有工具；喜欢将想法快速转化为产品的软件开发人员。",
     "view_projects": "查看项目",
     "github_profile": "GitHub 简介",
-    "age": "18岁"
+    "age": "18岁",
+    "topics": {
+      "node": "Node.js项目",
+      "browser": "浏览器工具",
+      "vps": "VPS面板系统",
+      "protocol": "通信协议",
+      "engine": "游戏引擎",
+      "db": "本地数据库包"
+    }
   },
   "stats": {
-    "repo": "开放回购协议",
+    "repo": "开放仓库",
     "contrib": "年度贡献",
     "star": "总星数",
-    "followers": "追随者"
+    "followers": "关注者"
   },
   "projects": {
     "label": "我的 GitHub 项目",
     "title": "杰作",
-    "open_repo": "打开一个仓库"
+    "open_repo": "打开仓库"
   },
   "stack": {
     "label": "堆",
@@ -32,5 +40,53 @@
     "thanks": "谢谢你的:)",
     "label": "沟通",
     "dont_know": "我不知道"
+  },
+  "process": {
+    "planning": {
+      "title": "规划",
+      "desc": "对当前系统能做什么进行详细研究"
+    },
+    "prototype": {
+      "title": "快速原型",
+      "desc": "准备第一个工作版本，同时系统地推进基础设施。"
+    },
+    "service": {
+      "title": "服务准备",
+      "desc": "不满足于现有系统，必要时从头开始建立一个更好的系统。"
+    },
+    "lab": {
+      "title": "实验区",
+      "desc": "首先是安全和测试区，一个可以测试一切的区域。"
+    }
+  },
+  "misc": {
+    "kubis": "KUBIS"
+  },
+  "projects_data": {
+    "featured": {
+      "electoria-engine": {
+        "type": "游戏引擎",
+        "summary": "一款简单但功能齐全的游戏引擎，旨在以低代码实现跨平台操作，其主要目的是简单。"
+      },
+      "Safra": {
+        "type": "互联网通信",
+        "summary": "无需服务器即可与朋友一起玩Minecraft，它提供了使用p2p机制无限制地玩的机会。"
+      },
+      "Hızlı Haber": {
+        "type": "网站",
+        "summary": "创新的AI支持的新闻阅读网站，从互联网接收新闻并以更易读的方式呈现"
+      }
+    },
+    "lab": {
+      "SaveYourTime": "Chrome扩展程序专注于控制数字生活。",
+      "termix": "开源，下一代终端应用程序。",
+      "McAi": "一个可以玩Minecraft的类人AI实验。",
+      "openssh": "用于远程终端连接的开源SSH客户端。",
+      "ThreadWarden": "轻松管理多线程Node.js应用程序的工具。",
+      "Pear3": "Selenium替代方案，从头开始编写，不可检测的Web浏览器自动化工具。",
+      "Ai": "一个简单快速的工具来训练人工智能。",
+      "LightRoute": "像Express.js一样从头开始编写的Web框架。",
+      "Kubitdb": "基于Json的本地数据库系统"
+    }
   }
 }

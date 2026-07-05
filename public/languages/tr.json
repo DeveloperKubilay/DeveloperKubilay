@@ -10,7 +10,15 @@
     "bio": "İnternet iletişimleri, oyun motoru, tarayıcı eklentileri ve kendi araclari ureten; fikri hızla urune cevirmeyi seven yazilimci.",
     "view_projects": "Projelere bak",
     "github_profile": "GitHub profil",
-    "age": "18 yas"
+    "age": "18 yas",
+    "topics": {
+      "node": "Node.js projeleri",
+      "browser": "Tarayici araclari",
+      "vps": "VPS panel sistemleri",
+      "protocol": "İletişim protokolleri",
+      "engine": "Oyun motoru",
+      "db": "Local database paketleri"
+    }
   },
   "stats": {
     "repo": "acik repo",
@@ -32,5 +40,53 @@
     "thanks": "Teşekkürlerrrrr :)",
     "label": "iletisim",
     "dont_know": "Bilmem"
+  },
+  "process": {
+    "planning": {
+      "title": "Planlama",
+      "desc": "Güncel sistemler ile neler yapılabilir detaylıca araştırma"
+    },
+    "prototype": {
+      "title": "Hizli prototip",
+      "desc": "İlk olarak çalışan ilk versionu hazırlamak bunu yaparken altyapıyı düzenli ilerletmek."
+    },
+    "service": {
+      "title": "Servise hazırlamak",
+      "desc": "Olan sistemle yetinmeyip gerekirse tekrar başlayıp daha iyi bir sistem kurmak."
+    },
+    "lab": {
+      "title": "Deney alani",
+      "desc": "Herşeyden önce güvenlik ve deneme alanı, herşeyin test edilebileceği bir alan."
+    }
+  },
+  "misc": {
+    "kubis": "KUBIS"
+  },
+  "projects_data": {
+    "featured": {
+      "electoria-engine": {
+        "type": "Game engine",
+        "summary": "Ana amacı basitlik olan Az kodla, cross-platform calismayi hedefleyen basit ama islevsel oyun motoru."
+      },
+      "Safra": {
+        "type": "İnternet iletişimi",
+        "summary": "Sunucu olmadan arkadaşlarınız ile minecraft oynayın p2p mekanizmasını kullanarak limitleme olmadan oynama imkanı sunar."
+      },
+      "Hızlı Haber": {
+        "type": "Website",
+        "summary": "İnternetten haberleri alıp daha okunaklı birşekilde sunan, Yenilikci yapay-zeka destekli haber okuma sitesi"
+      }
+    },
+    "lab": {
+      "SaveYourTime": "Dijital hayati kontrol altina almaya odaklanan Chrome extension.",
+      "termix": "Acik kaynak, yeni nesil terminal uygulamasi.",
+      "McAi": "Minecraft oynayabilen insan benzeri yapay zeka deneyi.",
+      "openssh": "Uzaktan terminal baglantisi icin acik kaynakli SSH istemcisi.",
+      "ThreadWarden": "Multithreadli Node.js uygulamalarini kolayca yonetmeye yonelik arac.",
+      "Pear3": "Selenium alternatifi, Sıfırdan yazılmış, Fark edilmeyen web tarayıcı otomasyon aracı.",
+      "Ai": "Yapay zeka eğitmeniz için basit ve hızlı bir araç.",
+      "LightRoute": "Express.js gibi sıfırdan yazılmış, web frameworkü.",
+      "Kubitdb": "Json tabanlı, local database sistemi"
+    }
   }
 }

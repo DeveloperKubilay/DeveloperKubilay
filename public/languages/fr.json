@@ -10,18 +10,26 @@
     "bio": "Produire des communications Internet, un moteur de jeu, des plug-ins de navigateur et ses propres outils ; Un développeur de logiciels qui aime transformer rapidement des idées en produits.",
     "view_projects": "Voir les projets",
     "github_profile": "Profil GitHub",
-    "age": "18 ans"
+    "age": "18 ans",
+    "topics": {
+      "node": "Projets Node.js",
+      "browser": "Outils de navigateur",
+      "vps": "Systèmes de panneau VPS",
+      "protocol": "Protocolos de communication",
+      "engine": "Moteur de jeu",
+      "db": "Paquets de base de données locale"
+    }
   },
   "stats": {
-    "repo": "dépôt ouvert",
-    "contrib": "cotisation annuelle",
+    "repo": "repo ouvert",
+    "contrib": "contribution annuelle",
     "star": "étoiles totales",
-    "followers": "disciple"
+    "followers": "abonné"
   },
   "projects": {
     "label": "Mes projets GitHub",
     "title": "chefs-d'œuvre",
-    "open_repo": "Ouvrir un dépôt"
+    "open_repo": "Ouvrir le repo"
   },
   "stack": {
     "label": "empiler",
@@ -32,5 +40,53 @@
     "thanks": "Merci votrerr :)",
     "label": "communication",
     "dont_know": "Je ne sais pas"
+  },
+  "process": {
+    "planning": {
+      "title": "Planification",
+      "desc": "Recherche détaillée sur ce qui peut être fait avec les systèmes actuels"
+    },
+    "prototype": {
+      "title": "Prototype rapide",
+      "desc": "Préparation de la première version de travail tout en faisant progresser systématiquement l'infrastructure."
+    },
+    "service": {
+      "title": "Préparation au service",
+      "desc": "Ne pas se contenter du système existant, mettre en place un meilleur système en recommençant si nécessaire."
+    },
+    "lab": {
+      "title": "Zone expérimentale",
+      "desc": "Tout d'abord, zone de sécurité et de test, une zone où tout peut être testé."
+    }
+  },
+  "misc": {
+    "kubis": "KUBIS"
+  },
+  "projects_data": {
+    "featured": {
+      "electoria-engine": {
+        "type": "Moteur de jeu",
+        "summary": "Un moteur de jeu simple mais fonctionnel visant un fonctionnement multiplateforme avec peu de code, dont l'objectif principal est la simplicité."
+      },
+      "Safra": {
+        "type": "Communication Internet",
+        "summary": "Jouez à Minecraft avec vos amis sans serveur, cela offre la possibilité de jouer sans limites grâce au mécanisme p2p."
+      },
+      "Hızlı Haber": {
+        "type": "Site Web",
+        "summary": "Site de lecture d'actualités innovant pris en charge par l'IA qui reçoit les actualités d'Internet et les présente de manière plus lisible"
+      }
+    },
+    "lab": {
+      "SaveYourTime": "Extension Chrome axée sur la prise en main de la vie numérique.",
+      "termix": "Application de terminal open source de nouvelle génération.",
+      "McAi": "Une expérience d'IA semblable à celle d'un humain qui peut jouer à Minecraft.",
+      "openssh": "Client SSH open source pour la connexion de terminal à distance.",
+      "ThreadWarden": "Outil pour gérer facilement des applications Node.js multithread.",
+      "Pear3": "Alternative à Selenium, écrite de zéro, outil d'automatisation de navigateur Web indétectable.",
+      "Ai": "Un outil simple et rapide pour former l'intelligence artificielle.",
+      "LightRoute": "Framework Web écrit à partir de zéro, comme Express.js.",
+      "Kubitdb": "Système de base de données local basé sur Json"
+    }
   }
 }
