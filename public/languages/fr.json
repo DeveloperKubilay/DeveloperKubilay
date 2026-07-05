@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "projects": "Projets",
+    "stack": "empiler",
+    "contact": "Communication"
+  },
+  "hero": {
+    "title": "développeur de logiciels",
+    "headline": "Développeur Web axé sur Node.js",
+    "bio": "Produire des communications Internet, un moteur de jeu, des plug-ins de navigateur et ses propres outils ; Un développeur de logiciels qui aime transformer rapidement des idées en produits.",
+    "view_projects": "Voir les projets",
+    "github_profile": "Profil GitHub",
+    "age": "18 ans"
+  },
+  "stats": {
+    "repo": "dépôt ouvert",
+    "contrib": "cotisation annuelle",
+    "star": "étoiles totales",
+    "followers": "disciple"
+  },
+  "projects": {
+    "label": "Mes projets GitHub",
+    "title": "chefs-d'œuvre",
+    "open_repo": "Ouvrir un dépôt"
+  },
+  "stack": {
+    "label": "empiler",
+    "title": "Un atelier qui écrit, conditionne et teste du code.",
+    "desc": "Kubilay intègre des systèmes innovants dans ses systèmes et s'adapte aux systèmes logiciels actuels, tout en continuant à vérifier la sécurité à plusieurs reprises."
+  },
+  "contact": {
+    "thanks": "Merci votrerr :)",
+    "label": "communication",
+    "dont_know": "Je ne sais pas"
+  }
+}

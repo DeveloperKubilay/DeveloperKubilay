@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "projects": "Projekte",
+    "stack": "Stapel",
+    "contact": "Kommunikation"
+  },
+  "hero": {
+    "title": "Softwareentwickler",
+    "headline": "Node.js-orientierter Webentwickler",
+    "bio": "Erstellung von Internetkommunikation, Spiel-Engine, Browser-Plug-Ins und eigenen Tools; Ein Softwareentwickler, der Ideen gerne schnell in Produkte umsetzt.",
+    "view_projects": "Siehe Projekte",
+    "github_profile": "GitHub-Profil",
+    "age": "18 Jahre alt"
+  },
+  "stats": {
+    "repo": "offenes Repo",
+    "contrib": "Jahresbeitrag",
+    "star": "Insgesamt Sterne",
+    "followers": "Anhänger"
+  },
+  "projects": {
+    "label": "Meine GitHub-Projekte",
+    "title": "Meisterwerke",
+    "open_repo": "Öffnen Sie ein Repo"
+  },
+  "stack": {
+    "label": "Stapel",
+    "title": "Ein Workshop, der Code schreibt, verpackt und testet.",
+    "desc": "Kubilay integriert innovative Systeme in seine Systeme und passt sich aktuellen Softwaresystemen an, wobei die Sicherheit immer wieder überprüft wird."
+  },
+  "contact": {
+    "thanks": "Danke dirrrr :)",
+    "label": "Kommunikation",
+    "dont_know": "Ich weiß nicht"
+  }
+}

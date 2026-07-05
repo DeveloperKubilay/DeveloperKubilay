@@ -1,4 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, createContext, useContext } from 'react'
+
+const I18nContext = createContext();
+const useI18n = () => useContext(I18nContext);
 
 const asset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
 
@@ -153,6 +156,7 @@ const process = [
 ]
 
 function Header() {
+  const { t, lang, setLang } = useI18n();
   return (
     <header className="sticky top-0 z-50 border-b-2 border-ink bg-paper/92 backdrop-blur">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
@@ -167,15 +171,21 @@ function Header() {
           <span className="hidden sm:block">DeveloperKubilay</span>
         </a>
         <div className="hidden items-center gap-1 text-[11px] font-bold uppercase md:flex">
-          {['Projeler', 'Stack', 'Iletisim'].map((item) => (
+          {['projects', 'stack', 'contact'].map((item) => (
             <a
               key={item}
-              href={`#${item.toLowerCase().replace('i', 'i')}`}
+              href={`#${item === 'projects' ? 'projeler' : item === 'contact' ? 'iletisim' : item}`}
               className="rounded-[6px] px-3 py-2 transition-colors hover:bg-ink hover:text-paper"
             >
-              {item}
+              {t(`nav.${item}`)}
             </a>
           ))}
+          <select value={lang} onChange={e => setLang(e.target.value)} className="ml-2 bg-transparent text-ink font-bold outline-none cursor-pointer">
+            <option value="tr">TR</option><option value="en">EN</option><option value="es">ES</option>
+            <option value="fr">FR</option><option value="de">DE</option><option value="it">IT</option>
+            <option value="ar">AR</option><option value="ru">RU</option><option value="zh">ZH</option>
+            <option value="ja">JA</option><option value="ko">KO</option><option value="hi">HI</option>
+          </select>
         </div>
         <a
           href={profile.github}
@@ -191,6 +201,7 @@ function Header() {
 }
 
 function Hero({ stats }) {
+  const { t } = useI18n();
   return (
     <section id="top" className="relative overflow-hidden border-b-2 border-ink">
       <div className="absolute inset-x-0 top-14 h-10 rotate-[-2deg] border-y-2 border-ink bg-acid">
@@ -206,7 +217,7 @@ function Hero({ stats }) {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-12 pt-24 sm:px-6 md:min-h-[78svh] md:grid-cols-[1.08fr_0.92fr] md:items-center lg:px-8">
         <div className="relative z-10 animate-rise">
           <p className="mb-5 inline-flex rounded-[6px] border-2 border-ink bg-bolt px-3 py-2 font-mono text-xs font-black uppercase shadow-hardSm">
-            {profile.handle} / Yazılım geliştiricisi
+            {profile.handle} / {t('hero.title')}
           </p>
           <h1 className="font-display text-[clamp(3.6rem,13vw,10.8rem)] font-black uppercase leading-[0.78] tracking-normal">
             Kubi
@@ -214,10 +225,10 @@ function Hero({ stats }) {
           </h1>
           <div className="mt-7 max-w-2xl border-l-4 border-ink pl-5">
             <p className="font-display text-2xl font-bold leading-tight text-balance sm:text-4xl">
-              {profile.headline}
+              {t('hero.headline')}
             </p>
             <p className="mt-4 max-w-xl text-sm font-medium leading-7 text-ink/78 sm:text-base">
-              {profile.bio}
+              {t('hero.bio')}
             </p>
           </div>
 
@@ -226,7 +237,7 @@ function Hero({ stats }) {
               href={`${profile.github}?tab=repositories`}
               className="rounded-[6px] border-2 border-ink bg-acid px-5 py-4 text-center font-mono text-xs font-black uppercase shadow-hard transition-transform hover:-translate-y-1"
             >
-              Projelere bak
+              {t('hero.view_projects')}
             </a>
             <a
               href={profile.github}
@@ -234,7 +245,7 @@ function Hero({ stats }) {
               rel="noreferrer"
               className="rounded-[6px] border-2 border-ink bg-paper px-5 py-4 text-center font-mono text-xs font-black uppercase shadow-hard transition-transform hover:-translate-y-1"
             >
-              GitHub profil
+              {t('hero.github_profile')}
             </a>
           </div>
         </div>
@@ -265,7 +276,7 @@ function Hero({ stats }) {
               </div>
             </div>
             <div className="absolute -right-5 -top-5 hidden rotate-6 border-2 border-ink bg-bolt px-4 py-3 font-mono text-xs font-black uppercase shadow-hardSm sm:block">
-              18 yas
+              {t('hero.age')}
             </div>
           </div>
         </div>
@@ -317,13 +328,14 @@ function FeaturedProject({ project, index }) {
 }
 
 function Projects() {
+  const { t } = useI18n();
   return (
     <section id="projeler" className="border-b-2 border-ink bg-paper py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 grid gap-5 md:grid-cols-[0.8fr_1.2fr] md:items-end">
-          <p className="font-mono text-xs font-black uppercase">GitHub projelerim</p>
+          <p className="font-mono text-xs font-black uppercase">{t('projects.label')}</p>
           <h2 className="font-display text-5xl font-black leading-none tracking-normal text-balance sm:text-7xl">
-            Baş yapıtlar
+            {t('projects.title')}
           </h2>
         </div>
 
@@ -359,20 +371,20 @@ function Projects() {
 }
 
 function Stack() {
+  const { t } = useI18n();
   return (
     <section id="stack" className="border-b-2 border-ink bg-ink py-14 text-paper sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[1fr_1.05fr] lg:items-start">
           <div>
             <p className="mb-4 inline-flex rounded-[6px] border-2 border-paper bg-heat px-3 py-2 font-mono text-xs font-black uppercase text-ink">
-              stack
+              {t('stack.label')}
             </p>
             <h2 className="font-display text-5xl font-black leading-none tracking-normal text-balance sm:text-7xl">
-              Kod yazan, paketleyen, deneyen bir atölye.
+              {t('stack.title')}
             </h2>
             <p className="mt-6 max-w-xl text-sm font-medium leading-7 text-paper/76">
-              Kubilay yenilikci sistemleri, sistemlerine entegre ederek güncel yazılım sistemlerine uyum sağlıyor
-              bunu yaparken güvenliğe defalarca kontrol ederek devam etmekte
+              {t('stack.desc')}
             </p>
           </div>
 
@@ -404,6 +416,7 @@ function Stack() {
 }
 
 function Contact() {
+  const { t } = useI18n();
   return (
     <section id="iletisim" className="relative overflow-hidden bg-acid py-14 sm:py-20">
       <div className="absolute inset-0 animate-scan scan-lines opacity-30" />
@@ -411,14 +424,14 @@ function Contact() {
         <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-end">
           <div>
             <p className="mb-5 inline-flex rounded-[6px] border-2 border-ink bg-paper px-3 py-2 font-mono text-xs font-black uppercase shadow-hardSm">
-              Teşekkürlerrrrr :)
+              {t('contact.thanks')}
             </p>
             <h2 className="font-display text-5xl font-black leading-none tracking-normal text-balance sm:text-7xl">
               Kubiii!!!!
             </h2>
           </div>
           <div className="border-2 border-ink bg-paper p-5 shadow-hard">
-            <p className="font-mono text-xs font-black uppercase">iletisim</p>
+            <p className="font-mono text-xs font-black uppercase">{t('contact.label')}</p>
             <div className="mt-5 grid gap-3">
               <a
                 href="mailto:mail@kubidev.com"
@@ -450,7 +463,7 @@ function Contact() {
         <footer className="mt-12 flex flex-col gap-3 border-t-2 border-ink pt-5 font-mono text-[11px] font-black uppercase sm:flex-row sm:items-center sm:justify-between">
           <span>E: Sub-process /usr/bin/dpkg returned an error code (1)</span>
           <a href="https://youtu.be/W0hfVoY8WGM?t=150" className="text-blue-700 underline">
-            Bilmem
+            {t('contact.dont_know')}
           </a>
         </footer>
       </div>
@@ -458,7 +471,7 @@ function Contact() {
   )
 }
 
-export default function App() {
+function MainContent() {
   const [liveStats, setLiveStats] = useState(stats)
 
   useEffect(() => {
@@ -482,5 +495,29 @@ export default function App() {
       <Stack />
       <Contact />
     </main>
+  )
+}
+
+export default function App() {
+  const [lang, setLang] = useState(() => {
+    const browserLang = navigator.language.split('-')[0];
+    const supportedLangs = ['tr', 'en', 'es', 'fr', 'de', 'it', 'ar', 'ru', 'zh', 'ja', 'ko', 'hi'];
+    return supportedLangs.includes(browserLang) ? browserLang : 'en';
+  });
+  const [dict, setDict] = useState({});
+
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}languages/${lang}.json`)
+      .then(res => res.json())
+      .then(setDict)
+      .catch(() => {});
+  }, [lang]);
+
+  const t = (key) => key.split('.').reduce((o, i) => (o ? o[i] : null), dict) || key;
+
+  return (
+    <I18nContext.Provider value={{ lang, setLang, t }}>
+      <MainContent />
+    </I18nContext.Provider>
   )
 }

@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "projects": "Projeler",
+    "stack": "Stack",
+    "contact": "Iletisim"
+  },
+  "hero": {
+    "title": "Yazılım geliştiricisi",
+    "headline": "Node.js odaklı web geliştirici",
+    "bio": "İnternet iletişimleri, oyun motoru, tarayıcı eklentileri ve kendi araclari ureten; fikri hızla urune cevirmeyi seven yazilimci.",
+    "view_projects": "Projelere bak",
+    "github_profile": "GitHub profil",
+    "age": "18 yas"
+  },
+  "stats": {
+    "repo": "acik repo",
+    "contrib": "yillik katki",
+    "star": "toplam star",
+    "followers": "takipci"
+  },
+  "projects": {
+    "label": "GitHub projelerim",
+    "title": "Baş yapıtlar",
+    "open_repo": "Repo ac"
+  },
+  "stack": {
+    "label": "stack",
+    "title": "Kod yazan, paketleyen, deneyen bir atölye.",
+    "desc": "Kubilay yenilikci sistemleri, sistemlerine entegre ederek güncel yazılım sistemlerine uyum sağlıyor bunu yaparken güvenliğe defalarca kontrol ederek devam etmekte"
+  },
+  "contact": {
+    "thanks": "Teşekkürlerrrrr :)",
+    "label": "iletisim",
+    "dont_know": "Bilmem"
+  }
+}

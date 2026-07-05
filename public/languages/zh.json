@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "projects": "项目",
+    "stack": "堆",
+    "contact": "沟通"
+  },
+  "hero": {
+    "title": "软件开发商",
+    "headline": "专注于 Node.js 的 Web 开发人员",
+    "bio": "生产互联网通讯、游戏引擎、浏览器插件和自有工具；喜欢将想法快速转化为产品的软件开发人员。",
+    "view_projects": "查看项目",
+    "github_profile": "GitHub 简介",
+    "age": "18岁"
+  },
+  "stats": {
+    "repo": "开放回购协议",
+    "contrib": "年度贡献",
+    "star": "总星数",
+    "followers": "追随者"
+  },
+  "projects": {
+    "label": "我的 GitHub 项目",
+    "title": "杰作",
+    "open_repo": "打开一个仓库"
+  },
+  "stack": {
+    "label": "堆",
+    "title": "编写、打包和测试代码的研讨会。",
+    "desc": "Kubilay 将创新系统集成到其系统中并适应当前的软件系统，同时不断反复检查安全性。"
+  },
+  "contact": {
+    "thanks": "谢谢你的:)",
+    "label": "沟通",
+    "dont_know": "我不知道"
+  }
+}

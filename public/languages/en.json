@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "projects": "Projects",
+    "stack": "stack",
+    "contact": "Communication"
+  },
+  "hero": {
+    "title": "software developer",
+    "headline": "Node.js focused web developer",
+    "bio": "Producing internet communications, game engine, browser plug-ins and own tools; A software developer who likes to quickly turn ideas into products.",
+    "view_projects": "See projects",
+    "github_profile": "GitHub profile",
+    "age": "18 years old"
+  },
+  "stats": {
+    "repo": "open repo",
+    "contrib": "annual contribution",
+    "star": "total stars",
+    "followers": "follower"
+  },
+  "projects": {
+    "label": "My GitHub projects",
+    "title": "masterpieces",
+    "open_repo": "Open a repo"
+  },
+  "stack": {
+    "label": "stack",
+    "title": "A workshop that writes, packages and tests code.",
+    "desc": "Kubilay integrates innovative systems into its systems and adapts to current software systems, while doing this, it continues to check security repeatedly."
+  },
+  "contact": {
+    "thanks": "Thank yourrrr :)",
+    "label": "communication",
+    "dont_know": "I don't know"
+  }
+}

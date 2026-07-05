@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "projects": "Proyectos",
+    "stack": "pila",
+    "contact": "Comunicación"
+  },
+  "hero": {
+    "title": "desarrollador de software",
+    "headline": "Desarrollador web enfocado en Node.js",
+    "bio": "Producción de comunicaciones por Internet, motores de juegos, complementos para navegadores y herramientas propias; Un desarrollador de software al que le gusta convertir rápidamente ideas en productos.",
+    "view_projects": "Ver proyectos",
+    "github_profile": "Perfil de GitHub",
+    "age": "18 años"
+  },
+  "stats": {
+    "repo": "repositorio abierto",
+    "contrib": "contribución anual",
+    "star": "estrellas totales",
+    "followers": "seguidor"
+  },
+  "projects": {
+    "label": "Mis proyectos de GitHub",
+    "title": "obras maestras",
+    "open_repo": "abrir un repositorio"
+  },
+  "stack": {
+    "label": "pila",
+    "title": "Un taller que escribe, empaqueta y prueba código.",
+    "desc": "Kubilay integra sistemas innovadores en sus sistemas y se adapta a los sistemas de software actuales, al mismo tiempo que continúa comprobando la seguridad repetidamente."
+  },
+  "contact": {
+    "thanks": "Gracias a turr :)",
+    "label": "comunicación",
+    "dont_know": "No sé"
+  }
+}

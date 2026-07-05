@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "projects": "프로젝트",
+    "stack": "스택",
+    "contact": "의사소통"
+  },
+  "hero": {
+    "title": "소프트웨어 개발자",
+    "headline": "Node.js 중심의 웹 개발자",
+    "bio": "인터넷 통신, 게임 엔진, 브라우저 플러그인 및 자체 도구 제작 아이디어를 빠르게 제품으로 구현하는 것을 좋아하는 소프트웨어 개발자입니다.",
+    "view_projects": "프로젝트 보기",
+    "github_profile": "GitHub 프로필",
+    "age": "18세"
+  },
+  "stats": {
+    "repo": "저장소 열기",
+    "contrib": "연간 기부금",
+    "star": "총 별수",
+    "followers": "수행원"
+  },
+  "projects": {
+    "label": "내 GitHub 프로젝트",
+    "title": "걸작",
+    "open_repo": "저장소 열기"
+  },
+  "stack": {
+    "label": "스택",
+    "title": "코드를 작성, 패키징 및 테스트하는 워크샵입니다.",
+    "desc": "Kubilay는 혁신적인 시스템을 시스템에 통합하고 현재 소프트웨어 시스템에 적응하는 동시에 계속해서 보안을 반복적으로 확인합니다."
+  },
+  "contact": {
+    "thanks": "고마워요 :)",
+    "label": "의사소통",
+    "dont_know": "모르겠습니다"
+  }
+}
