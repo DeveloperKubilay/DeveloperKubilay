@@ -42,7 +42,7 @@ const featuredProjects = [
     stack: ['JavaScript', 'Game-Engine', 'Low-code'],
     metric: '4 stars',
     url: 'https://github.com/DeveloperKubilay/electoria-engine',
-    image: 'https://opengraph.githubassets.com/portfolio-electoria/DeveloperKubilay/electoria-engine',
+    image: 'https://raw.githubusercontent.com/DeveloperKubilay/electoria-engine/refs/heads/main/imgs/4.png',
     accent: 'bg-heat',
   },
   {
